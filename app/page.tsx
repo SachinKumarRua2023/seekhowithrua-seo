@@ -1,21 +1,751 @@
-export default function Home() {
+"use client";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+
+// ─── TYPES ────────────────────────────────────────────────────────────────────
+interface User {
+  email?: string;
+  name?: string;
+  profile?: { name?: string };
+}
+
+// ─── THREE.JS BACKGROUND ─────────────────────────────────────────────────────
+function ThreeBackground() {
+  const mountRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const mount = mountRef.current;
+    if (!mount) return;
+    let animId: number;
+    const script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+    script.onload = () => {
+      const THREE = (window as any).THREE;
+      const W = mount.clientWidth, H = mount.clientHeight;
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(W, H);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      mount.appendChild(renderer.domElement);
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 300);
+      camera.position.z = 80;
+
+      // Stars
+      const geo = new THREE.BufferGeometry();
+      const N = 2000;
+      const pos = new Float32Array(N * 3);
+      for (let i = 0; i < N * 3; i++) pos[i] = (Math.random() - 0.5) * 300;
+      geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+      const starMat = new THREE.PointsMaterial({ size: 0.5, color: 0x7c3aed, transparent: true, opacity: 0.6 });
+      scene.add(new THREE.Points(geo, starMat));
+
+      // Floating orbs
+      const orbColors = [0x00d4ff, 0x7c3aed, 0x1D9E75, 0xa855f7];
+      const orbs: any[] = [];
+      for (let i = 0; i < 12; i++) {
+        const g = new THREE.SphereGeometry(Math.random() * 1.5 + 0.5, 16, 16);
+        const m = new THREE.MeshBasicMaterial({
+          color: orbColors[i % orbColors.length],
+          transparent: true,
+          opacity: Math.random() * 0.15 + 0.05,
+        });
+        const mesh = new THREE.Mesh(g, m);
+        mesh.position.set(
+          (Math.random() - 0.5) * 160,
+          (Math.random() - 0.5) * 100,
+          (Math.random() - 0.5) * 60
+        );
+        mesh.userData = { speed: Math.random() * 0.004 + 0.001, offset: Math.random() * Math.PI * 2 };
+        scene.add(mesh);
+        orbs.push(mesh);
+      }
+
+      // Grid lines
+      const gridGeo = new THREE.BufferGeometry();
+      const gridPts: number[] = [];
+      for (let x = -100; x <= 100; x += 20) {
+        gridPts.push(x, -40, 0, x, 40, 0);
+      }
+      for (let y = -40; y <= 40; y += 20) {
+        gridPts.push(-100, y, 0, 100, y, 0);
+      }
+      gridGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(gridPts), 3));
+      scene.add(new THREE.LineSegments(gridGeo, new THREE.LineBasicMaterial({ color: 0x7c3aed, transparent: true, opacity: 0.04 })));
+
+      let t = 0;
+      const animate = () => {
+        animId = requestAnimationFrame(animate);
+        t += 0.005;
+        orbs.forEach((orb) => {
+          orb.position.y += Math.sin(t + orb.userData.offset) * orb.userData.speed;
+          orb.position.x += Math.cos(t * 0.3 + orb.userData.offset) * 0.002;
+        });
+        scene.rotation.y = t * 0.02;
+        starMat.opacity = 0.4 + Math.sin(t * 0.5) * 0.15;
+        renderer.render(scene, camera);
+      };
+      animate();
+
+      const onResize = () => {
+        const w = mount.clientWidth, h = mount.clientHeight;
+        renderer.setSize(w, h);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      };
+      window.addEventListener("resize", onResize);
+      (mount as any)._cleanup = () => {
+        cancelAnimationFrame(animId);
+        window.removeEventListener("resize", onResize);
+        renderer.dispose();
+        if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
+      };
+    };
+    document.head.appendChild(script);
+    return () => { (mount as any)._cleanup?.(); };
+  }, []);
+  return <div ref={mountRef} style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none" }} />;
+}
+
+// ─── COURSES DATA ─────────────────────────────────────────────────────────────
+const COURSES = [
+  { emoji: "🤖", title: "AI & Machine Learning", slug: "ai-course", color: "#00d4ff", desc: "Neural networks, LLMs, computer vision, NLP and production AI systems.", tags: ["PyTorch", "TensorFlow", "LLMs", "RAG"] },
+  { emoji: "📊", title: "Data Science", slug: "data-science-course", color: "#7c3aed", desc: "Python, Pandas, statistics, ML, deep learning and MLOps end-to-end.", tags: ["Python", "Pandas", "Scikit-learn", "MLflow"] },
+  { emoji: "💻", title: "Full Stack Dev", slug: "full-stack-development", color: "#1D9E75", desc: "React, Next.js, Django, PostgreSQL — build and deploy full products.", tags: ["React", "Next.js", "Django", "PostgreSQL"] },
+  { emoji: "📱", title: "Mobile Apps", slug: "mobile-app-development", color: "#a855f7", desc: "React Native & Expo. Build iOS and Android apps from scratch.", tags: ["React Native", "Expo", "iOS", "Android"] },
+  { emoji: "🎮", title: "Game Development", slug: "game-development", color: "#f59e0b", desc: "Unity, Three.js, WebGL, Phaser. From 2D games to 3D worlds.", tags: ["Unity", "Three.js", "WebGL", "Phaser"] },
+  { emoji: "🐍", title: "Python Programming", slug: "python-programming-course", color: "#ec4899", desc: "Master Python from basics to advanced — automation, APIs and more.", tags: ["Python", "FastAPI", "Automation", "OOP"] },
+  { emoji: "⚙️", title: "IoT & Robotics", slug: "iot-robotics", color: "#06b6d4", desc: "Arduino, Raspberry Pi, sensors, embedded systems and robotics.", tags: ["Arduino", "Raspberry Pi", "MQTT", "Sensors"] },
+  { emoji: "🌐", title: "Web Development", slug: "web-development-course", color: "#84cc16", desc: "HTML, CSS, JavaScript, React and modern web fundamentals.", tags: ["HTML", "CSS", "JavaScript", "React"] },
+];
+
+const STATS = [
+  { num: "1000+", label: "Students Mentored" },
+  { num: "10+", label: "Courses" },
+  { num: "USA", label: "Global Clients" },
+  { num: "45+", label: "Deployments" },
+];
+
+const ECOSYSTEM = [
+  { label: "Learning App", url: "https://app.seekhowithrua.com", icon: "🚀", desc: "Full LMS platform" },
+  { label: "Gaming Lab", url: "https://gaming.seekhowithrua.com", icon: "🎮", desc: "3D character engine" },
+  { label: "Animation Lab", url: "https://animationlab.seekhowithrua.com", icon: "✨", desc: "Visual learning tools" },
+  { label: "Services", url: "https://services.seekhowithrua.com", icon: "🛠️", desc: "Hire our team" },
+];
+
+const TESTIMONIALS = [
+  { name: "Rahul Sharma", role: "ML Engineer @ Startup", text: "Master Rua's UEEP model changed how I learn. Got my first ML job in 4 months.", avatar: "RS" },
+  { name: "Priya Patel", role: "React Native Dev", text: "The mobile dev course is insanely detailed. Built and published my first app!", avatar: "PP" },
+  { name: "Arjun Verma", role: "Freelancer, USA Client", text: "Learned full stack here. Now earning ₹2L/month freelancing for US clients.", avatar: "AV" },
+];
+
+// ─── MAIN PAGE ────────────────────────────────────────────────────────────────
+export default function HomePage() {
+  const [user, setUser] = useState<User | null>(null);
+  const [hoveredCourse, setHoveredCourse] = useState<string | null>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("cosmos_user");
+      if (raw) setUser(JSON.parse(raw));
+    } catch { }
+  }, []);
+
+  const userName = user?.profile?.name || user?.name || user?.email?.split("@")[0] || "";
+
   return (
-    <main className="p-10">
-      <h1 className="text-4xl font-bold">
-        Seekho With Rua
-      </h1>
+    <>
+      {/* ── SEO SCHEMA ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            name: "Seekho With Rua",
+            alternateName: ["SeekhowithRua", "Seekhow Rua", "Master Rua"],
+            description: "India's most innovative EdTech platform. Master Game Dev, AI/ML, Mobile, Web, Python and more with Sachin Kumar (Master Rua).",
+            url: "https://seekhowithrua.com",
+            founder: { "@type": "Person", name: "Sachin Kumar", jobTitle: "AI/ML Trainer & Full Stack Developer" },
+            offers: COURSES.map(c => ({ "@type": "Course", name: c.title, url: `https://seekhowithrua.com/${c.slug}` })),
+          }),
+        }}
+      />
 
-      <p className="mt-4">
-        Learn AI, Data Science, Full Stack Development,
-        Game Development, Robotics and IoT.
-      </p>
+      <div className="hp">
+        <ThreeBackground />
 
-      <a
-        href="https://app.seekhowithrua.com"
-        className="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded"
-      >
-        Go to Learning Platform
-      </a>
-    </main>
+        {/* ── HERO ── */}
+        <section className="hero" aria-label="Hero section">
+          <div className="hero-inner">
+            <div className="hero-left">
+              {user && (
+                <div className="hero-welcome">
+                  👋 Welcome back, <strong>{userName}</strong>
+                </div>
+              )}
+              <div className="hero-eyebrow">
+                <span className="eyebrow-line" />
+                INDIA'S FUTURE-READY EDTECH
+              </div>
+              <h1 className="hero-h1">
+                Learn.<br />
+                <span className="hero-accent">Build.</span><br />
+                <span className="hero-accent2">Master.</span>
+              </h1>
+              <p className="hero-desc">
+                Sachin Kumar (Master Rua) teaches AI, Data Science, Game Dev, Mobile Apps, Full Stack and more using the <strong>UEEP Learning Model</strong> — trusted by 1000+ students across India and USA.
+              </p>
+              <div className="hero-btns">
+                <Link href="https://app.seekhowithrua.com" className="btn-primary">
+                  🚀 Launch Learning App
+                </Link>
+                {!user ? (
+                  <Link href="/signup" className="btn-outline">
+                    Sign Up Free →
+                  </Link>
+                ) : (
+                  <Link href="/data-science-course" className="btn-outline">
+                    Continue Learning →
+                  </Link>
+                )}
+              </div>
+              {/* Stats */}
+              <div className="hero-stats">
+                {STATS.map((s) => (
+                  <div key={s.label} className="hstat">
+                    <div className="hstat-num">{s.num}</div>
+                    <div className="hstat-label">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — Master Rua card */}
+            <div className="hero-right">
+              <div className="master-card">
+                <div className="master-avatar">
+                  <div className="avatar-ring" />
+                  <div className="avatar-inner">MR</div>
+                  <div className="avatar-badge">🟢 LIVE</div>
+                </div>
+                <h2 className="master-name">Sachin Kumar</h2>
+                <p className="master-title">Master Rua</p>
+                <p className="master-vision">
+                  "To change the education system by applying the UEEP Model"
+                </p>
+                <div className="master-tags">
+                  {["AI/ML Trainer", "Memory Expert", "Full Stack Dev", "USA Clients"].map(t => (
+                    <span key={t} className="master-tag">{t}</span>
+                  ))}
+                </div>
+                <Link href="https://app.seekhowithrua.com" className="master-cta">
+                  Start Learning →
+                </Link>
+                {/* Floating badges */}
+                <div className="float-badge fb1">🏆 UEEP Model</div>
+                <div className="float-badge fb2">🎓 1000+ Students</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── COURSES ── */}
+        <section className="section" aria-label="Courses">
+          <div className="section-inner">
+            <div className="section-tag">WHAT YOU'LL MASTER</div>
+            <h2 className="section-title">
+              Courses Built for the <span className="accent-purple">Real World</span>
+            </h2>
+            <p className="section-desc">
+              Every course is practical, project-based and taught with the UEEP model — Understand, Execute, Explain, Practice.
+            </p>
+            <div className="courses-grid">
+              {COURSES.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/${c.slug}`}
+                  className="course-card"
+                  style={{ "--cc": c.color } as any}
+                  onMouseEnter={() => setHoveredCourse(c.slug)}
+                  onMouseLeave={() => setHoveredCourse(null)}
+                  aria-label={`${c.title} course`}
+                >
+                  <div className="cc-top">
+                    <span className="cc-emoji">{c.emoji}</span>
+                    <div className="cc-color-dot" style={{ background: c.color }} />
+                  </div>
+                  <h3 className="cc-title">{c.title}</h3>
+                  <p className="cc-desc">{c.desc}</p>
+                  <div className="cc-tags">
+                    {c.tags.map(t => (
+                      <span key={t} className="cc-tag" style={{ borderColor: c.color + "40", color: c.color }}>{t}</span>
+                    ))}
+                  </div>
+                  <div className="cc-arrow" style={{ color: c.color }}>Explore Course →</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── ECOSYSTEM ── */}
+        <section className="section eco-section" aria-label="Ecosystem">
+          <div className="section-inner">
+            <div className="section-tag">THE ECOSYSTEM</div>
+            <h2 className="section-title">
+              More than just <span className="accent-green">Courses</span>
+            </h2>
+            <div className="eco-grid">
+              {ECOSYSTEM.map((e) => (
+                <a key={e.label} href={e.url} target="_blank" rel="noopener noreferrer" className="eco-card">
+                  <span className="eco-icon">{e.icon}</span>
+                  <div className="eco-label">{e.label}</div>
+                  <div className="eco-desc">{e.desc}</div>
+                  <div className="eco-arrow">↗</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── TESTIMONIALS ── */}
+        <section className="section" aria-label="Testimonials">
+          <div className="section-inner">
+            <div className="section-tag">STUDENT WINS</div>
+            <h2 className="section-title">
+              Real Results from <span className="accent-purple">Real Students</span>
+            </h2>
+            <div className="testi-grid">
+              {TESTIMONIALS.map((t) => (
+                <div key={t.name} className="testi-card">
+                  <div className="testi-stars">★★★★★</div>
+                  <p className="testi-text">"{t.text}"</p>
+                  <div className="testi-author">
+                    <div className="testi-avatar">{t.avatar}</div>
+                    <div>
+                      <div className="testi-name">{t.name}</div>
+                      <div className="testi-role">{t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── BLOG PREVIEW ── */}
+        <section className="section" aria-label="Blog">
+          <div className="section-inner">
+            <div className="section-tag">LATEST INSIGHTS</div>
+            <h2 className="section-title">
+              From the <span className="accent-green">Blog</span>
+            </h2>
+            <div className="blog-grid">
+              {[
+                { tag: "AI/ML", title: "How to Learn Machine Learning in India 2025", date: "Mar 2025" },
+                { tag: "Game Dev", title: "Unity vs Three.js: Which to Learn First?", date: "Feb 2025" },
+                { tag: "Career", title: "How to Get a ₹20L Tech Job from Tier-2 Cities", date: "Jan 2025" },
+              ].map((b) => (
+                <Link key={b.title} href="/blog" className="blog-card">
+                  <div className="blog-tag">{b.tag}</div>
+                  <h3 className="blog-title">{b.title}</h3>
+                  <div className="blog-date">{b.date}</div>
+                  <div className="blog-arrow">Read More →</div>
+                </Link>
+              ))}
+            </div>
+            <div style={{ textAlign: "center", marginTop: "32px" }}>
+              <Link href="/blog" className="btn-outline">View All Posts →</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
+        <section className="cta-section" aria-label="Call to action">
+          <div className="cta-inner">
+            <h2 className="cta-title">
+              Ready to <span className="accent-purple">Transform</span> Your Career?
+            </h2>
+            <p className="cta-desc">
+              Join 1000+ students learning AI, Game Dev, Mobile and Full Stack with Master Rua.
+            </p>
+            <div className="hero-btns" style={{ justifyContent: "center" }}>
+              <Link href="https://app.seekhowithrua.com" className="btn-primary">
+                🚀 Start Learning Free
+              </Link>
+              <Link href="/signup" className="btn-outline">Create Account →</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ── SEO HIDDEN CONTENT ── */}
+        <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", fontSize: "1px" }}>
+          <h1>SeekhowithRua — Best EdTech Platform India 2025</h1>
+          <p>Learn Data Science, AI, Machine Learning, Full Stack Web Development, Mobile App Development with React Native, Game Development with Unity and Three.js, Python Programming, IoT and Robotics in India. Taught by Sachin Kumar (Master Rua) using the UEEP learning model.</p>
+          {COURSES.map(c => <p key={c.slug}>{c.title}: {c.tags.join(", ")}</p>)}
+        </div>
+      </div>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        .hp {
+          font-family: 'Exo 2', system-ui, sans-serif;
+          background: #04040f;
+          color: #e2e8f0;
+          min-height: 100vh;
+          position: relative;
+          overflow-x: hidden;
+        }
+
+        /* ── HERO ── */
+        .hero {
+          position: relative; z-index: 1;
+          min-height: 100vh;
+          display: flex; align-items: center;
+          padding: 100px 40px 60px;
+          background: radial-gradient(ellipse at 70% 50%, rgba(124,58,237,0.08) 0%, transparent 60%);
+        }
+        .hero-inner {
+          max-width: 1200px; margin: 0 auto; width: 100%;
+          display: grid; grid-template-columns: 1fr 1fr;
+          gap: 60px; align-items: center;
+        }
+        .hero-welcome {
+          display: inline-flex; align-items: center; gap: 8px;
+          padding: 8px 16px; border-radius: 20px;
+          background: rgba(0,212,255,0.08);
+          border: 1px solid rgba(0,212,255,0.25);
+          color: #00d4ff; font-size: 13px; margin-bottom: 20px;
+        }
+        .hero-eyebrow {
+          display: flex; align-items: center; gap: 10px;
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px; letter-spacing: 4px; color: #1D9E75;
+          margin-bottom: 20px;
+        }
+        .eyebrow-line { display: block; width: 30px; height: 1px; background: #1D9E75; }
+        .hero-h1 {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: clamp(48px, 6vw, 80px);
+          font-weight: 700; line-height: 1.0;
+          color: #fff; margin-bottom: 20px;
+        }
+        .hero-accent { color: #7c3aed; }
+        .hero-accent2 { color: #00d4ff; }
+        .hero-desc {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 12px; color: rgba(255,255,255,0.5);
+          line-height: 2; margin-bottom: 32px; max-width: 460px;
+        }
+        .hero-desc strong { color: #00d4ff; }
+
+        /* ── BUTTONS ── */
+        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+        .btn-primary {
+          display: inline-flex; align-items: center; gap: 8px;
+          padding: 14px 28px; border-radius: 8px;
+          background: linear-gradient(135deg, #7c3aed, #00d4ff);
+          color: #fff; font-family: 'Rajdhani', sans-serif;
+          font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+          text-decoration: none; transition: all 0.2s;
+          box-shadow: 0 0 24px rgba(124,58,237,0.3);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.5); opacity: 0.9; }
+        .btn-outline {
+          display: inline-flex; align-items: center;
+          padding: 14px 28px; border-radius: 8px;
+          border: 1px solid rgba(255,255,255,0.2);
+          background: rgba(255,255,255,0.04);
+          color: rgba(255,255,255,0.8);
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 14px; font-weight: 600;
+          text-decoration: none; transition: all 0.2s;
+        }
+        .btn-outline:hover { border-color: #7c3aed; color: #7c3aed; background: rgba(124,58,237,0.06); }
+
+        /* ── STATS ── */
+        .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+        .hstat { }
+        .hstat-num {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 28px; font-weight: 700; color: #7c3aed;
+        }
+        .hstat-label {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 9px; color: rgba(255,255,255,0.3);
+          letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;
+        }
+
+        /* ── MASTER CARD ── */
+        .hero-right { display: flex; justify-content: center; }
+        .master-card {
+          position: relative;
+          background: rgba(10,10,30,0.9);
+          border: 1px solid rgba(124,58,237,0.3);
+          border-radius: 20px; padding: 40px 32px;
+          text-align: center; width: 100%; max-width: 340px;
+          backdrop-filter: blur(20px);
+          box-shadow: 0 0 60px rgba(124,58,237,0.1);
+        }
+        .master-avatar { position: relative; display: inline-block; margin-bottom: 20px; }
+        .avatar-ring {
+          position: absolute; inset: -8px;
+          border-radius: 50%;
+          border: 2px solid transparent;
+          background: linear-gradient(135deg, #7c3aed, #00d4ff) border-box;
+          -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: destination-out;
+          animation: spin 8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .avatar-inner {
+          width: 80px; height: 80px; border-radius: 50%;
+          background: linear-gradient(135deg, #7c3aed, #00d4ff);
+          display: flex; align-items: center; justify-content: center;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 28px; font-weight: 700; color: #fff;
+        }
+        .avatar-badge {
+          position: absolute; bottom: -4px; right: -4px;
+          background: #04040f; border: 1px solid #1D9E75;
+          border-radius: 10px; padding: 2px 8px;
+          font-size: 9px; color: #1D9E75; font-family: 'JetBrains Mono', monospace;
+        }
+        .master-name {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px;
+        }
+        .master-title {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11px; color: #7c3aed; letter-spacing: 3px;
+          text-transform: uppercase; margin-bottom: 16px;
+        }
+        .master-vision {
+          font-size: 12px; color: rgba(255,255,255,0.5);
+          line-height: 1.7; font-style: italic; margin-bottom: 20px;
+        }
+        .master-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 24px; }
+        .master-tag {
+          font-size: 10px; color: rgba(255,255,255,0.6);
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 20px; padding: 3px 10px;
+          font-family: 'JetBrains Mono', monospace;
+        }
+        .master-cta {
+          display: block; padding: 12px 24px;
+          background: linear-gradient(135deg, #7c3aed, #00d4ff);
+          color: #fff; border-radius: 8px;
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 14px; font-weight: 700;
+          text-decoration: none; transition: all 0.2s;
+        }
+        .master-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+        .float-badge {
+          position: absolute;
+          background: rgba(10,10,30,0.95);
+          border: 1px solid rgba(124,58,237,0.4);
+          border-radius: 20px; padding: 6px 12px;
+          font-size: 10px; color: #00d4ff;
+          font-family: 'JetBrains Mono', monospace;
+          white-space: nowrap;
+          animation: float 3s ease-in-out infinite;
+        }
+        .fb1 { top: -16px; left: -20px; animation-delay: 0s; }
+        .fb2 { bottom: 60px; right: -24px; animation-delay: 1.5s; }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+          position: relative; z-index: 1;
+          padding: 80px 40px;
+          border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .eco-section { background: rgba(10,10,30,0.4); }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-tag {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 10px; letter-spacing: 4px; color: #1D9E75;
+          margin-bottom: 12px;
+        }
+        .section-title {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: clamp(24px, 3vw, 38px);
+          font-weight: 700; color: #fff; margin-bottom: 12px;
+        }
+        .accent-purple { color: #7c3aed; }
+        .accent-green { color: #1D9E75; }
+        .section-desc {
+          font-size: 14px; color: rgba(255,255,255,0.45);
+          max-width: 560px; line-height: 1.8; margin-bottom: 44px;
+          font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ── COURSES GRID ── */
+        .courses-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 16px;
+        }
+        .course-card {
+          display: flex; flex-direction: column;
+          padding: 24px; border-radius: 14px;
+          background: rgba(10,10,30,0.8);
+          border: 1px solid rgba(255,255,255,0.06);
+          border-top: 2px solid var(--cc);
+          text-decoration: none; color: inherit;
+          transition: all 0.25s;
+          position: relative; overflow: hidden;
+        }
+        .course-card::before {
+          content: '';
+          position: absolute; inset: 0;
+          background: radial-gradient(ellipse at top, var(--cc) 0%, transparent 60%);
+          opacity: 0; transition: opacity 0.3s;
+        }
+        .course-card:hover { transform: translateY(-4px); border-color: var(--cc); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+        .course-card:hover::before { opacity: 0.05; }
+        .cc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+        .cc-emoji { font-size: 28px; }
+        .cc-color-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .cc-title {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 17px; font-weight: 700; color: #fff;
+          margin-bottom: 8px; position: relative;
+        }
+        .cc-desc {
+          font-size: 12px; color: rgba(255,255,255,0.45);
+          line-height: 1.7; margin-bottom: 16px; flex: 1;
+          font-family: 'JetBrains Mono', monospace; position: relative;
+        }
+        .cc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; position: relative; }
+        .cc-tag {
+          font-size: 9px; padding: 2px 8px;
+          border: 1px solid; border-radius: 20px;
+          font-family: 'JetBrains Mono', monospace;
+        }
+        .cc-arrow {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 13px; font-weight: 600;
+          position: relative;
+        }
+
+        /* ── ECOSYSTEM ── */
+        .eco-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+          gap: 16px;
+        }
+        .eco-card {
+          display: flex; flex-direction: column; gap: 8px;
+          padding: 24px; border-radius: 14px;
+          background: rgba(10,10,30,0.8);
+          border: 1px solid rgba(255,255,255,0.07);
+          text-decoration: none; color: inherit;
+          transition: all 0.2s; position: relative;
+        }
+        .eco-card:hover { border-color: #7c3aed; transform: translateY(-3px); }
+        .eco-icon { font-size: 28px; }
+        .eco-label { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: #fff; }
+        .eco-desc { font-size: 11px; color: rgba(255,255,255,0.4); font-family: 'JetBrains Mono', monospace; }
+        .eco-arrow { position: absolute; top: 20px; right: 20px; color: rgba(255,255,255,0.2); font-size: 18px; transition: color 0.2s; }
+        .eco-card:hover .eco-arrow { color: #7c3aed; }
+
+        /* ── TESTIMONIALS ── */
+        .testi-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 16px;
+        }
+        .testi-card {
+          padding: 28px; border-radius: 14px;
+          background: rgba(10,10,30,0.8);
+          border: 1px solid rgba(255,255,255,0.07);
+        }
+        .testi-stars { color: #f59e0b; font-size: 14px; margin-bottom: 14px; }
+        .testi-text {
+          font-size: 13px; color: rgba(255,255,255,0.7);
+          line-height: 1.8; font-style: italic; margin-bottom: 20px;
+          font-family: 'JetBrains Mono', monospace;
+        }
+        .testi-author { display: flex; align-items: center; gap: 12px; }
+        .testi-avatar {
+          width: 40px; height: 40px; border-radius: 50%;
+          background: linear-gradient(135deg, #7c3aed, #00d4ff);
+          display: flex; align-items: center; justify-content: center;
+          font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700; color: #fff;
+          flex-shrink: 0;
+        }
+        .testi-name { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 700; color: #fff; }
+        .testi-role { font-size: 11px; color: rgba(255,255,255,0.4); font-family: 'JetBrains Mono', monospace; }
+
+        /* ── BLOG ── */
+        .blog-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 16px;
+        }
+        .blog-card {
+          display: flex; flex-direction: column; gap: 10px;
+          padding: 24px; border-radius: 14px;
+          background: rgba(10,10,30,0.8);
+          border: 1px solid rgba(255,255,255,0.07);
+          text-decoration: none; color: inherit;
+          transition: all 0.2s;
+        }
+        .blog-card:hover { border-color: #1D9E75; transform: translateY(-3px); }
+        .blog-tag {
+          font-size: 9px; letter-spacing: 2px; color: #1D9E75;
+          font-family: 'JetBrains Mono', monospace; text-transform: uppercase;
+        }
+        .blog-title { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: #fff; line-height: 1.4; flex: 1; }
+        .blog-date { font-size: 10px; color: rgba(255,255,255,0.3); font-family: 'JetBrains Mono', monospace; }
+        .blog-arrow { font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 600; color: #1D9E75; }
+
+        /* ── CTA ── */
+        .cta-section {
+          position: relative; z-index: 1;
+          padding: 100px 40px;
+          background: radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.1) 0%, transparent 65%);
+          border-top: 1px solid rgba(255,255,255,0.04);
+          text-align: center;
+        }
+        .cta-inner { max-width: 700px; margin: 0 auto; }
+        .cta-title {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: clamp(28px, 4vw, 48px);
+          font-weight: 700; color: #fff; margin-bottom: 16px;
+        }
+        .cta-desc {
+          font-size: 13px; color: rgba(255,255,255,0.45);
+          line-height: 1.8; margin-bottom: 36px;
+          font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+          .hero { padding: 100px 20px 60px; }
+          .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+          .hero-right { display: none; }
+          .hero-h1 { font-size: 48px; }
+          .section { padding: 60px 20px; }
+          .cta-section { padding: 60px 20px; }
+        }
+        @media (max-width: 600px) {
+          .hero-h1 { font-size: 36px; }
+          .courses-grid { grid-template-columns: 1fr; }
+          .eco-grid { grid-template-columns: 1fr 1fr; }
+          .testi-grid { grid-template-columns: 1fr; }
+          .blog-grid { grid-template-columns: 1fr; }
+          .hero-stats { gap: 16px; }
+          .hero-btns { flex-direction: column; }
+        }
+      `}</style>
+    </>
   );
 }
