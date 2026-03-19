@@ -1,12 +1,12 @@
 // ============================================================
 // FILE LOCATION: seekhowithrua-seo/app/blog/[slug]/page.tsx
+// FIX: Next.js 15 — params is now a Promise, must be awaited
 // ============================================================
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-// ✅ ADD THESE — forces Next.js to pre-render all slugs
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
@@ -49,10 +49,10 @@ Pick PyTorch (preferred in 2026) or TensorFlow. Learn neural networks, CNNs for 
 
 **Build:** An image classifier, a sentiment analyser, a simple LLM fine-tune.
 
-### Step 5: MLOps & Deployment (4 weeks)
+### Step 5: MLOps and Deployment (4 weeks)
 A model that isn't deployed is worthless. Learn FastAPI to serve models, Docker for containerisation, and MLflow for experiment tracking. Deploy to Render or AWS.
 
-### Step 6: Portfolio + Job Hunt (ongoing)
+### Step 6: Portfolio and Job Hunt (ongoing)
 Build 3–5 real projects. Deploy them live. Put them on GitHub with great READMEs. That beats 100 tutorial certificates every single time.
 
 ## Tools Every ML Engineer Uses in 2026
@@ -63,7 +63,7 @@ Python, PyTorch, Scikit-learn, Pandas, NumPy, FastAPI, Docker, MLflow, HuggingFa
 
 Master Rua uses the visual cortex learning approach — animations, interactive demos, 3D visualisations of neural networks — so concepts stick permanently. No boring slides. No passive watching.
 
-The UEEP Model means every concept is: Understood through visuals, Executed by coding, Explained by teaching others, and Practised daily.
+The UEEP Model means every concept is Understood through visuals, Executed by coding, Explained by teaching others, and Practised daily.
 
 ## Final Advice from Master Rua
 
@@ -92,11 +92,11 @@ Unity is the industry standard for professional game development in 2026. Most g
 
 ## Choose Three.js If...
 
-You are already a JavaScript or React developer and want to add 3D to your skill set. You want browser-based 3D that works instantly — no downloads, no app store. You are building 3D product visualisers, interactive portfolios or educational tools. You want to combine 3D with React using React Three Fiber, which is the best approach in 2026.
+You are already a JavaScript or React developer and want to add 3D to your skill set. You want browser-based 3D that works instantly with no downloads and no app store. You are building 3D product visualisers, interactive portfolios or educational tools. You want to combine 3D with React using React Three Fiber, which is the best approach in 2026.
 
 ## The 2026 Landscape
 
-Game development in India is growing fast. Indian gaming startups raised over $500M in 2025. Browser games and mobile games are the two biggest markets. Knowing either Unity or Three.js makes you hireable in this space.
+Game development in India is growing fast. Browser games and mobile games are the two biggest markets. Knowing either Unity or Three.js makes you hireable in this space.
 
 ## Master Rua's Recommendation
 
@@ -117,7 +117,7 @@ Both skills are valuable in 2026. Pick based on where you want to work — web o
     excerpt: "You don't need to be in Bangalore. Here's the exact playbook Master Rua's students use.",
     date: "2026-03-17", category: "Career", color: "#1D9E75", readTime: "7 min read",
     content: `
-## The Myth: You Need to Be in Bangalore to Get a High-Paying Tech Job
+## The Myth: You Need to Be in Bangalore
 
 This is completely false in 2026. Remote work has permanently changed Indian tech hiring. Companies based in Bangalore, Mumbai, Hyderabad and even the USA are hiring engineers from Lucknow, Jaipur, Meerut, Patna and every Tier-2 city in India.
 
@@ -125,7 +125,7 @@ Master Rua's students from SeekhowithRua are proof. Here is the exact playbook t
 
 ## Step 1: Choose a High-Value Skill and Go Deep
 
-Generalists get average salaries. Specialists get ₹20L+. In 2026, the highest-paying specialisations are: AI and ML Engineering, Full Stack Development with React and Django, Mobile Development with React Native, Data Science and Analytics, and DevOps and Cloud Engineering.
+Generalists get average salaries. Specialists get ₹20L+. In 2026, the highest-paying specialisations are AI and ML Engineering, Full Stack Development with React and Django, Mobile Development with React Native, Data Science and Analytics, and DevOps and Cloud Engineering.
 
 Pick one. Go deep. Build real things. Do not jump between skills every month.
 
@@ -137,27 +137,23 @@ Your GitHub profile is your resume. Every repo needs a good README with screensh
 
 ## Step 3: Optimise Your LinkedIn Profile
 
-LinkedIn is the most powerful job-hunting tool for Indian developers in 2026. Your profile needs: a professional photo with good lighting, a headline that mentions your specific skills and that you are open to remote work, and at least three posts per week about what you are learning and building.
-
-Recruiters search LinkedIn every day for candidates. If your profile is not optimised, you are invisible.
+LinkedIn is the most powerful job-hunting tool for Indian developers in 2026. Your profile needs a professional photo, a headline that mentions your specific skills and that you are open to remote work, and at least three posts per week about what you are learning and building.
 
 ## Step 4: Apply Strategically and Consistently
 
 Apply to 30–50 jobs per week. Use LinkedIn Easy Apply, AngelList and Wellfound for startups, and direct outreach to CTOs of small companies on LinkedIn.
 
-For US client freelancing, use Upwork and Fiverr. Even one US client paying $25 per hour is ₹25,000 per day — more than most entry-level Indian salaries per month.
+For US client freelancing, use Upwork and Fiverr. Even one US client paying $25 per hour is more than most entry-level Indian salaries per month.
 
 ## Real Results from SeekhowithRua Students in 2026
 
-Rahul from Lucknow got a ₹18L remote role at a Mumbai startup after 4 months of learning Full Stack at SeekhowithRua. Priya from Jaipur is freelancing for a US client at $25 per hour after completing the AI course. Arjun from Meerut got ₹22L at a Bangalore company — fully remote — after 6 months.
+Rahul from Lucknow got a ₹18L remote role at a Mumbai startup after 4 months. Priya from Jaipur is freelancing for a US client at $25 per hour. Arjun from Meerut got ₹22L at a Bangalore company — fully remote — after 6 months.
 
 None of them moved cities. All of them built real projects and applied consistently.
 
 ## The SeekhowithRua Advantage
 
 Master Rua teaches using the UEEP Model — every skill you learn is immediately deployed into a real project. By the time you finish any course on SeekhowithRua, you already have portfolio projects live on the internet.
-
-That is the difference between getting hired and getting ignored.
     `
   },
   {
@@ -188,13 +184,11 @@ Learn object-oriented programming — classes, inheritance and polymorphism. Lea
 
 ## Month 3: Choose Your Path
 
-At this point you have the fundamentals. Now specialise.
-
 **Path A — AI and Data Science:** Learn NumPy, Pandas, Matplotlib, then Scikit-learn for machine learning. This path leads to ML Engineer and Data Scientist roles.
 
 **Path B — Web Development:** Learn Django or FastAPI, PostgreSQL and REST API design. This path leads to Backend Developer roles.
 
-**Path C — Automation:** Learn Selenium for browser automation, BeautifulSoup for web scraping, and schedule for task automation. This path leads to QA Automation and DevOps roles.
+**Path C — Automation:** Learn Selenium for browser automation, BeautifulSoup for web scraping, and schedule for task automation.
 
 ## Month 4 to 6: Build and Deploy
 
@@ -204,7 +198,7 @@ Build three real projects in your chosen path. Deploy all of them live. Put them
 
 Watching tutorials without typing a single line of code. You cannot learn programming by watching. Close the video. Open VS Code. Write every line yourself. Make mistakes. Fix them. That is how Python actually enters your brain.
 
-Master Rua's UEEP Model is built on this principle — Understand through visuals, Execute by coding yourself, Explain to someone else, Practice every day.
+Master Rua's UEEP Model: Understand through visuals, Execute by coding yourself, Explain to someone else, Practice every day.
     `
   },
   {
@@ -215,39 +209,37 @@ Master Rua's UEEP Model is built on this principle — Understand through visual
     content: `
 ## The Question Every React Native Developer Asks in 2026
 
-When you start a new React Native project with Expo, you choose between Managed Workflow and Bare Workflow. This single decision affects your entire development experience. Here is the definitive answer for 2026.
+When you start a new React Native project with Expo, you choose between Managed Workflow and Bare Workflow. This single decision affects your entire development experience.
 
 ## Expo Managed Workflow
 
 In Managed Workflow, Expo handles all native iOS and Android code for you. You never open Xcode. You never touch Android Studio. You write JavaScript and React. Expo handles the rest.
 
-**Advantages:** Extremely fast setup — you are coding in under 5 minutes. Over-the-air updates with EAS Update — push bug fixes without App Store approval. EAS Build handles cloud builds for both platforms. Massive SDK with camera, maps, notifications, biometrics and more built in.
+**Advantages:** Extremely fast setup. Over-the-air updates with EAS Update. EAS Build handles cloud builds for both platforms. Massive SDK with camera, maps, notifications and biometrics built in.
 
-**Limitations:** You are limited to what the Expo SDK provides. Some very specific native libraries may not work without customisation.
+**Limitations:** You are limited to what the Expo SDK provides.
 
 **Best for:** 90 percent of apps — social apps, e-commerce, educational apps, tools and dashboards.
 
 ## Expo Bare Workflow
 
-In Bare Workflow, you have full access to the native iOS and Android code. You can install any native library, write custom native modules in Swift, Kotlin or C++, and have complete control over the build process.
+In Bare Workflow, you have full access to the native iOS and Android code. You can install any native library and write custom native modules in Swift, Kotlin or C++.
 
 **Advantages:** Total flexibility. Any native library works. Full control over app behaviour.
 
-**Limitations:** You manage native builds yourself. Setup takes much longer. You need to understand iOS and Android development to debug native issues.
+**Limitations:** You manage native builds yourself. Setup takes much longer.
 
-**Best for:** Apps that need Bluetooth Low Energy, custom hardware integrations, highly specific native features, or performance-critical native modules.
+**Best for:** Apps that need Bluetooth Low Energy, custom hardware integrations, or highly specific native features.
 
-## What Changed in 2026: EAS Makes Managed Workflow Even Better
+## What Changed in 2026: EAS Makes Managed Even Better
 
-EAS (Expo Application Services) has completely changed the game. Even Managed Workflow projects can now use custom native modules through Config Plugins, build production-ready apps for App Store and Play Store without touching native code, and manage signing certificates automatically.
-
-In 2026, the gap between Managed and Bare has narrowed significantly.
+EAS has completely changed the game. Even Managed Workflow projects can now use custom native modules through Config Plugins and build production-ready apps for both stores without touching native code.
 
 ## Master Rua's Rule for React Native in 2026
 
-Start with Managed Workflow. Ship your app. If you hit a wall with a native feature you cannot access, migrate to Bare at that point. The vast majority of apps — including complex production apps — never need to leave Managed Workflow.
+Start with Managed Workflow. Ship your app. If you hit a wall with a native feature you cannot access, migrate to Bare at that point. The vast majority of apps never need to leave Managed Workflow.
 
-SeekhowithRua's Mobile App Development course teaches Expo Managed Workflow first, then covers Bare Workflow for advanced use cases. By the end, you can build and publish a real app to both the App Store and Play Store.
+SeekhowithRua's Mobile App Development course teaches Expo Managed Workflow first, then covers Bare Workflow for advanced use cases.
     `
   },
 ];
@@ -260,12 +252,14 @@ export async function generateStaticParams() {
   return POSTS.map(p => ({ slug: p.slug }));
 }
 
+// ✅ NEXT.JS 15 FIX — params is a Promise, must be awaited
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = getPost(params.slug);
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) return { title: "Post Not Found" };
   return {
     title: `${post.title} | SeekhowithRua Blog`,
@@ -327,11 +321,17 @@ function renderContent(content: string) {
   return out;
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = getPost(params.slug);
+// ✅ NEXT.JS 15 FIX — async function + await params
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) notFound();
 
-  const related = POSTS.filter(p => p.slug !== post.slug).slice(0, 3);
+  const related = POSTS.filter(p => p.slug !== post!.slug).slice(0, 3);
 
   return (
     <>
@@ -341,12 +341,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            headline: post.title,
-            description: post.excerpt,
-            datePublished: post.date,
+            headline: post!.title,
+            description: post!.excerpt,
+            datePublished: post!.date,
             author: { "@type": "Person", name: "Sachin Kumar (Master Rua)" },
             publisher: { "@type": "Organization", name: "SeekhowithRua" },
-            url: `https://seekhowithrua.com/blog/${post.slug}`,
+            url: `https://seekhowithrua.com/blog/${post!.slug}`,
           }),
         }}
       />
@@ -358,9 +358,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
         <article className="pp-art">
           <header className="pp-hd">
-            <div className="pp-cat" style={{ color: post.color }}>{post.category}</div>
-            <h1 className="pp-h1">{post.title}</h1>
-            <p className="pp-ex">{post.excerpt}</p>
+            <div className="pp-cat" style={{ color: post!.color }}>{post!.category}</div>
+            <h1 className="pp-h1">{post!.title}</h1>
+            <p className="pp-ex">{post!.excerpt}</p>
             <div className="pp-meta">
               <div className="pp-author">
                 <div className="pp-av">MR</div>
@@ -369,14 +369,14 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
                   <div className="pp-arole">AI/ML Trainer · Full Stack Dev · SeekhowithRua</div>
                 </div>
               </div>
-              <div className="pp-dates">{post.date} · {post.readTime}</div>
+              <div className="pp-dates">{post!.date} · {post!.readTime}</div>
             </div>
           </header>
 
-          <div className="pp-div" style={{ borderColor: post.color + "40" }} />
-          <div className="pp-body">{renderContent(post.content)}</div>
+          <div className="pp-div" style={{ borderColor: post!.color + "40" }} />
+          <div className="pp-body">{renderContent(post!.content)}</div>
 
-          <div className="pp-cta" style={{ borderColor: post.color + "40" }}>
+          <div className="pp-cta" style={{ borderColor: post!.color + "40" }}>
             <div>
               <div className="pp-cta-t">Learn this in depth with Master Rua 🚀</div>
               <div className="pp-cta-s">Join 1000+ students on SeekhowithRua — India's unique learning platform</div>
@@ -384,7 +384,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             <a
               href="https://app.seekhowithrua.com"
               className="pp-cta-btn"
-              style={{ background: `linear-gradient(135deg,${post.color},#7c3aed)` }}
+              style={{ background: `linear-gradient(135deg,${post!.color},#7c3aed)` }}
             >
               Start Learning Free →
             </a>
