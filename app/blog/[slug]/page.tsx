@@ -242,6 +242,156 @@ Start with Managed Workflow. Ship your app. If you hit a wall with a native feat
 SeekhowithRua's Mobile App Development course teaches Expo Managed Workflow first, then covers Bare Workflow for advanced use cases.
     `
   },
+{
+  slug: "who-is-master-rua-seekhowithrua-story-2026",
+  title: "Who is Master Rua? The Story Behind SeekhowithRua — India's Learning Revolution 2026",
+  excerpt: "Master Rua is not just a person — it is a title earned by all-rounders who master tech, physical and creative skills. Meet Sachin Kumar, the founder of SeekhowithRua.",
+  date: "2026-03-20",
+  category: "Master Rua",
+  color: "#fbbf24",
+  readTime: "7 min read",
+  content: `
+## The Question Everyone is Asking in 2026
+
+If you have searched for **seekhowithrua**, **master rua**, or **sachin rua** on Google, you have landed in the right place. This post answers the question that thousands of students across India are asking in 2026: who exactly is Master Rua, and what is SeekhowithRua?
+
+The answer is bigger than most people expect.
+
+## Master Rua is Not Just a Person — It is a Title
+
+**Master Rua** is a title. It is not given. It is earned. It belongs to those who refuse to be average in just one domain — those who master technology, physical arts and creative skills simultaneously.
+
+The first person to earn the title of Master Rua is **Sachin Kumar** — an AI and ML trainer, full stack developer, memory science expert and multi-skill practitioner based in Noida, Uttar Pradesh, India.
+
+Sachin Kumar built **SeekhowithRua** not as a typical EdTech company but as a revolution in how human beings learn. The platform is also known as seekho with rua, sikhowithrua and seekhow rua — all variations people search for when they discover this community.
+
+## The Skills That Define Master Rua
+
+What makes someone worthy of the Master Rua title? It is the combination of domains that most people never attempt together.
+
+**Technical mastery:**
+- Artificial Intelligence and Machine Learning
+- Full Stack Web Development with React, Next.js and Django
+- Mobile App Development with React Native and Expo
+- Game Development with Unity and Three.js
+- IoT and Robotics with Arduino and Raspberry Pi
+- Data Science and Python programming
+- Networking and systems architecture
+
+**Physical mastery:**
+- Kung Fu and martial arts
+- Dance and performance
+- Body language and presence
+- Athletic fitness and discipline
+
+**Creative mastery:**
+- Mimicry and acting
+- Memory science and mnemonics
+- Public speaking and storytelling
+- Teaching and knowledge transfer
+
+When Sachin Kumar built SeekhowithRua, he brought all of these dimensions together under one philosophy: **a person who masters only one thing is not yet complete.**
+
+## Why SeekhowithRua is Different from Every Other EdTech Platform
+
+In 2026, India has hundreds of EdTech platforms. Most of them teach through recorded videos, PDFs and multiple choice tests. Students watch, maybe take notes, and forget 80 percent of what they learned within a week.
+
+**SeekhowithRua does the opposite.**
+
+Master Rua teaches using the **visual cortex** — the part of your brain that processes images, movement and patterns at the deepest level. Instead of boring slides, every concept at SeekhowithRua is taught through:
+
+- **3D animations** that make abstract concepts visible — neural networks, sorting algorithms, packet flow in networking, Python variable assignment
+- **Gaming** — students learn by playing, not watching
+- **Mnemonic systems** that wire knowledge into long-term memory permanently
+- **The UEEP Model** — the four-step learning framework created by Master Rua
+
+## What is the UEEP Model?
+
+The **UEEP Model** is the backbone of everything at SeekhowithRua. It stands for:
+
+**Understand** — Learn the concept through visual animations and real-world analogies. Not definitions. Not textbook explanations. Pure visual understanding.
+
+**Execute** — Build something with the concept immediately. Write the code. Wire the circuit. Deploy the project. Execution locks understanding into skill.
+
+**Explain** — Teach what you just learned to someone else. This is the step most platforms skip. Teaching forces your brain to fill every gap in understanding.
+
+**Practice** — Repeat daily until the skill becomes automatic. Mastery is not a moment. It is a habit.
+
+Every course at SeekhowithRua — from AI and machine learning to game development to IoT robotics — is structured around the UEEP Model. Students who follow it consistently go from zero to job-ready in months, not years.
+
+## The Title System — Mr. Rua and Master Rua
+
+SeekhowithRua has a title system that no other platform in India has.
+
+**Mr. Rua** is the best student title. It is earned by completing the 30-Day Mr. Rua Challenge — 30 days of simultaneously mastering two skills from different domains, building real projects, and teaching what you learned to the community.
+
+Students who complete the challenge earn the Mr. Rua title on the platform. It is not a certificate. It is recognition of actual demonstrated skill.
+
+**Master Rua** is the highest title. It requires mastery across multiple technical, physical and creative domains with proven real-world impact. Currently held by Sachin Kumar — and one day, it will be earned by the next all-rounder who proves themselves worthy.
+
+This title system is what sets SeekhowithRua apart from every other learning platform in India in 2026. You are not studying for a certificate. You are building toward a title that means something.
+
+## What Students Are Saying in 2026
+
+Rahul from Lucknow discovered SeekhowithRua while searching for **master rua** on YouTube. Within 4 months of joining the platform and following the UEEP Model for full stack development, he landed a remote role paying ₹18L per year — without ever leaving his city.
+
+Priya from Jaipur found **seekho with rua** through a Google search for AI courses in India. She completed the machine learning course using the visual cortex approach, built three deployed projects, and now freelances for a US client earning $25 per hour.
+
+Arjun from Meerut joined after watching a video on the **SeekhowithRua YouTube channel** at youtube.com/@seekhowithrua. He earned the Mr. Rua title after completing the 30-Day Challenge, mastering both React Native and Arduino simultaneously. Today he builds IoT-connected mobile apps for clients across India.
+
+These are not rare exceptions. These are the expected results when learning is done the right way — the SeekhowithRua way.
+
+## The Interactive Learning Labs
+
+SeekhowithRua is not just courses and blog posts. The platform has live interactive labs that make it unlike anything else in Indian EdTech in 2026:
+
+**Animation Lab** at animationlab.seekhowithrua.com:
+- CCNA networking packet flow visualiser
+- Sorting algorithm game — watch bubble sort, merge sort and quick sort compete in real time
+- Neural network flow animation
+- Python 3D visualiser — coming soon
+- ML animation studio — coming soon
+
+**Gaming Lab** at gaming.seekhowithrua.com:
+- 3D character controller built entirely in Three.js
+- Quiz arena — earn XP and move toward the Mr. Rua title
+- Whiteboard battle mode — coming soon
+
+Every one of these tools is built by Master Rua (Sachin Kumar) and the SeekhowithRua team as a direct expression of the core belief: **learning should feel like play, not punishment.**
+
+## How Trending Tech in 2026 Connects to SeekhowithRua
+
+The biggest trends in Indian tech in 2026 are AI agents, full stack development, mobile apps and game development — and SeekhowithRua teaches all of them.
+
+**AI agents** — the hottest topic of 2026. Every company wants developers who can build autonomous AI systems using LangChain, OpenAI APIs and vector databases. SeekhowithRua's AI and ML course covers this completely.
+
+**Vibe coding** — the new way developers build products using AI-assisted coding tools. Master Rua integrates AI coding tools into every course so students learn to build 10x faster.
+
+**React Native and cross-platform apps** — India's mobile-first market means every startup needs a mobile app. SeekhowithRua's mobile course teaches Expo and React Native from zero to Play Store deployment.
+
+**Browser-based 3D and WebGL** — Three.js is becoming a standard skill for frontend developers who want to stand out. The Gaming Lab at SeekhowithRua is built entirely in Three.js and students learn by studying it.
+
+All of these are taught at SeekhowithRua using the UEEP Model and visual cortex approach — not through passive videos but through building, playing and doing.
+
+## Learn This at SeekhowithRua
+
+Master Rua (Sachin Kumar) has built SeekhowithRua to be the learning platform he wished existed when he was starting out in India — one that respects your intelligence, teaches you visually, and gives you titles worth earning instead of certificates worth nothing.
+
+Whether you are a complete beginner searching for **how to start coding in India 2026** or an experienced developer looking to add AI, game dev or mobile skills to your portfolio, SeekhowithRua has a course and a community for you.
+
+Visit **seekhowithrua.com** to explore all 8 courses.
+Join **app.seekhowithrua.com** to start learning today for free.
+Watch daily content on **youtube.com/@seekhowithrua**.
+Follow on Instagram at **instagram.com/seekhowithrua_**.
+
+For direct mentorship from Master Rua, reach out:
+- **WhatsApp:** 8826776018
+- **Email:** seekhowithrua@gmail.com
+
+The Mr. Rua title is waiting. The only question is whether you are ready to earn it.
+  `
+},
+
 ];
 
 function getPost(slug: string) {
