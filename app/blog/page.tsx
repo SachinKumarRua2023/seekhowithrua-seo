@@ -1,252 +1,103 @@
 // ============================================================
-// FILE LOCATION: seekhowithrua-seo/lib/blog.ts
-// CREATE the "lib" folder at the ROOT of seekhowithrua-seo
-// (same level as "app" and "components" folders)
+// FILE LOCATION: seekhowithrua-seo/app/blog/page.tsx
+// STEP 1: Inside "app/blog" folder, REPLACE page.tsx with this file
+// FIX: Removed @/lib/blog import — posts data is now inline
 // ============================================================
 
-export interface Post {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  color: string;
-  readTime: string;
-  content: string;
-  keywords?: string[];
-}
+import type { Metadata } from "next";
+import Link from "next/link";
 
-const POSTS: Post[] = [
-  {
-    slug: "how-to-learn-machine-learning-india-2025",
-    title: "How to Learn Machine Learning in India 2025 — Complete Roadmap",
-    excerpt: "A practical, step-by-step roadmap to learn Machine Learning in India in 2025. From Python basics to getting your first ML job.",
-    date: "2025-03-19",
-    category: "AI/ML",
-    color: "#00d4ff",
-    readTime: "8 min read",
-    keywords: ["machine learning india 2025", "ml roadmap india", "learn ai india"],
-    content: `
-## What is Machine Learning?
+export const metadata: Metadata = {
+  title: "Blog | SeekhowithRua — Tech Tutorials & Career Tips",
+  description: "Daily tutorials on AI, Machine Learning, Game Dev, Mobile Apps, Web Dev, Python and career tips by Master Rua. Best EdTech blog India 2025.",
+  keywords: ["tech blog india", "machine learning tutorial hindi", "game dev blog", "coding tips india"],
+  alternates: { canonical: "https://seekhowithrua.com/blog" },
+  openGraph: { title: "SeekhowithRua Blog", description: "Daily tech tutorials by Master Rua", url: "https://seekhowithrua.com/blog", type: "website" },
+};
 
-Machine Learning is a branch of AI where computers learn patterns from data without being explicitly programmed for every task. In 2025, ML is the most in-demand skill in India's tech industry.
-
-## Why Learn ML in India Right Now?
-
-- Average ML Engineer salary: ₹12L–₹40L per year
-- Companies like Google, Microsoft, Flipkart, Zomato are hiring
-- India is becoming a global AI hub
-
-## The Complete Roadmap
-
-### Step 1: Python Fundamentals (4–6 weeks)
-Start with Python. Learn variables, loops, functions, and OOP. Use NumPy and Pandas daily.
-
-### Step 2: Math Foundations (3–4 weeks)
-Linear Algebra, Statistics, and basic Calculus concepts — not heavy theory, just intuition.
-
-### Step 3: Classical ML (6–8 weeks)
-Learn Scikit-learn. Practice Linear Regression, Decision Trees, Random Forests, SVM.
-
-### Step 4: Deep Learning (8–10 weeks)
-Pick TensorFlow or PyTorch. Learn neural networks, CNNs, RNNs, and Transformers.
-
-### Step 5: Projects + Portfolio (ongoing)
-Build 3–5 real projects. Deploy them. Put them on GitHub. This is what gets you hired.
-
-## Final Tip from Master Rua
-
-"Don't just watch tutorials. Build something broken every day. That's how you actually learn."
-    `,
-  },
-  {
-    slug: "unity-vs-threejs-which-to-learn-first",
-    title: "Unity vs Three.js: Which Game Engine Should You Learn First in 2025?",
-    excerpt: "Confused between Unity and Three.js for game development? Here's Master Rua's honest take on which to pick based on your goals.",
-    date: "2025-03-18",
-    category: "Game Dev",
-    color: "#f59e0b",
-    readTime: "6 min read",
-    keywords: ["unity vs threejs", "game development course india", "learn unity india"],
-    content: `
-## Unity vs Three.js — The Real Difference
-
-Both are powerful. But they're built for different things.
-
-**Unity** is a full game engine for desktop, mobile, console games. C# language. Best for 3D games with complex physics.
-
-**Three.js** is a JavaScript 3D library for the browser. Great for web-based 3D experiences and browser games.
-
-## Choose Unity If...
-- You want to build mobile games (Android/iOS)
-- You want to publish to Steam or consoles
-- You're interested in AR/VR development
-
-## Choose Three.js If...
-- You're already a web developer
-- You want browser-based 3D experiences
-- You want to build games that run instantly without download
-
-## Master Rua's Recommendation
-
-**Start with Three.js if you're a web developer.** You'll ship faster and see results on day 1.
-
-**Start with Unity if you want to build actual games** that people download on their phones.
-
-At SeekhowithRua, we teach both — starting with Three.js basics, then moving to full Unity game development.
-    `,
-  },
-  {
-    slug: "how-to-get-20-lakh-tech-job-tier-2-city",
-    title: "How to Get a ₹20L Tech Job from a Tier-2 City in India",
-    excerpt: "You don't need to be in Bangalore. Here's the exact playbook Master Rua's students use to land high-paying tech jobs from anywhere in India.",
-    date: "2025-03-17",
-    category: "Career",
-    color: "#1D9E75",
-    readTime: "7 min read",
-    keywords: ["tech job india tier 2 city", "remote tech job india", "high paying tech job india"],
-    content: `
-## The Myth: You Need to Be in Bangalore
-
-Wrong. In 2025, companies are hiring remotely. US startups are paying Indian engineers in USD.
-
-## The Playbook
-
-### 1. Pick a High-Value Skill
-- AI/ML Engineering
-- Full Stack (React + Django)
-- Mobile Development (React Native)
-- Data Science
-
-### 2. Build a Portfolio That Talks
-3 deployed projects beats 100 tutorial completions. Deploy everything. Show real work.
-
-### 3. LinkedIn Optimization
-- Professional photo
-- Headline: "AI/ML Engineer | React Native | Open to Remote"
-- Post 3x per week about what you're learning
-
-### 4. Apply Strategically
-- AngelList / Wellfound for startups
-- LinkedIn Easy Apply (50+ per week)
-- Toptal, Upwork for freelancing
-
-## Real Student Results
-
-- Rahul from Lucknow: ₹18L at a Mumbai startup (remote)
-- Priya from Jaipur: Freelancing for a US client at $25/hr
-- Arjun from Meerut: ₹22L at a Bangalore company (fully remote)
-
-All students of SeekhowithRua. All started from zero.
-    `,
-  },
-  {
-    slug: "python-roadmap-beginners-india-2025",
-    title: "Python Learning Roadmap for Absolute Beginners in India 2025",
-    excerpt: "Zero to job-ready Python developer in 6 months. This is the exact roadmap Master Rua uses to teach 1000+ students.",
-    date: "2025-03-16",
-    category: "Python",
-    color: "#ec4899",
-    readTime: "6 min read",
-    keywords: ["python roadmap india 2025", "learn python india", "python course beginners india"],
-    content: `
-## Why Python in 2025?
-
-Python is the #1 language for AI, Data Science, Automation, and Web Development. If you learn only one language — make it Python.
-
-## Month 1: Python Basics
-- Variables, data types, operators
-- if/else, loops, functions
-- Lists, dictionaries, tuples
-- File I/O and error handling
-
-**Goal:** Build a To-Do app, a calculator, a simple text game.
-
-## Month 2: Intermediate Python
-- OOP (classes, inheritance, polymorphism)
-- Modules and packages
-- Regular expressions
-- APIs with requests library
-
-**Goal:** Build a weather app that hits a real API.
-
-## Month 3: Choose Your Path
-
-**Path A: Data Science/ML** → NumPy, Pandas, Matplotlib, Scikit-learn
-
-**Path B: Web Dev** → Django or FastAPI, PostgreSQL, REST APIs
-
-**Path C: Automation** → Selenium, BeautifulSoup, automation scripts
-
-## Month 4–6: Build and Deploy
-- Build 3 real projects
-- Deploy to Render / Vercel
-- Start applying for jobs
-
-## The #1 Mistake Beginners Make
-
-Watching tutorials without coding along. Close the video. Open VS Code. Type every line.
-    `,
-  },
-  {
-    slug: "react-native-expo-guide-2025",
-    title: "Expo Managed vs Bare Workflow: Which Should You Use in 2025?",
-    excerpt: "The eternal question for React Native developers. Here's a clear, practical answer based on real app development experience.",
-    date: "2025-03-15",
-    category: "Mobile",
-    color: "#a855f7",
-    readTime: "5 min read",
-    keywords: ["expo managed vs bare workflow", "react native expo 2025", "expo eas build"],
-    content: `
-## The Short Answer
-
-**Use Managed Workflow** unless you have a specific reason not to.
-
-## Managed Workflow
-
-Expo handles all native code for you. You never touch Xcode or Android Studio.
-
-**Pros:** Fast setup, OTA updates, EAS Build, huge SDK.
-**Cons:** Limited to Expo SDK.
-
-**Best for:** Most apps — social apps, e-commerce, tools, education apps.
-
-## Bare Workflow
-
-You have full access to native iOS and Android code directly.
-
-**Pros:** Full native access, any library works.
-**Cons:** You manage native builds yourself.
-
-**Best for:** Apps needing Bluetooth, custom native modules, or very specific native features.
-
-## Master Rua's Rule
-
-Start with Managed. Migrate to Bare only when you hit a wall. 90% of apps never need Bare workflow.
-
-## 2025 Update: EAS Changes Everything
-
-With Expo Application Services (EAS), even Managed workflow apps can build for App Store and Play Store, use custom native modules via Config Plugins, and handle complex app signing automatically.
-    `,
-  },
+const POSTS = [
+  { slug: "how-to-learn-machine-learning-india-2025", title: "How to Learn Machine Learning in India 2025 — Complete Roadmap", excerpt: "A practical, step-by-step roadmap to learn ML in India. From Python basics to getting your first ML job.", date: "2025-03-19", category: "AI/ML", color: "#00d4ff", readTime: "8 min read" },
+  { slug: "unity-vs-threejs-which-to-learn-first", title: "Unity vs Three.js: Which Game Engine Should You Learn First in 2025?", excerpt: "Confused between Unity and Three.js? Here's Master Rua's honest take based on your goals.", date: "2025-03-18", category: "Game Dev", color: "#f59e0b", readTime: "6 min read" },
+  { slug: "how-to-get-20-lakh-tech-job-tier-2-city", title: "How to Get a ₹20L Tech Job from a Tier-2 City in India", excerpt: "You don't need to be in Bangalore. Here's the exact playbook Master Rua's students use.", date: "2025-03-17", category: "Career", color: "#1D9E75", readTime: "7 min read" },
+  { slug: "python-roadmap-beginners-india-2025", title: "Python Learning Roadmap for Absolute Beginners in India 2025", excerpt: "Zero to job-ready Python developer in 6 months. The exact roadmap Master Rua uses.", date: "2025-03-16", category: "Python", color: "#ec4899", readTime: "6 min read" },
+  { slug: "react-native-expo-guide-2025", title: "Expo Managed vs Bare Workflow: Which Should You Use in 2025?", excerpt: "The eternal question for React Native developers. A clear, practical answer.", date: "2025-03-15", category: "Mobile", color: "#a855f7", readTime: "5 min read" },
 ];
 
-export function getAllPosts(): Post[] {
-  return POSTS.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-}
+export default function BlogPage() {
+  return (
+    <>
+      <div className="blog-page">
+        <div className="blog-hero">
+          <div className="blog-eyebrow">✦ DAILY INSIGHTS</div>
+          <h1 className="blog-h1">The <span>SeekhowithRua</span> Blog</h1>
+          <p className="blog-sub">Daily tutorials, career tips, and deep-dives on AI, Game Dev, Mobile, Web and more by Master Rua.</p>
+        </div>
 
-export function getPostBySlug(slug: string): Post | null {
-  return POSTS.find(p => p.slug === slug) || null;
-}
+        <div className="blog-inner">
+          <div className="section-label">FEATURED POST</div>
+          <Link href={`/blog/${POSTS[0].slug}`} className="featured-card">
+            <div className="fc-tag" style={{ color: POSTS[0].color }}>{POSTS[0].category}</div>
+            <h2 className="fc-title">{POSTS[0].title}</h2>
+            <p className="fc-excerpt">{POSTS[0].excerpt}</p>
+            <div className="fc-meta">
+              <span>{POSTS[0].date}</span><span>·</span><span>{POSTS[0].readTime}</span>
+              <span className="fc-cta">Read Article →</span>
+            </div>
+          </Link>
 
-export function getPostSlugs(): string[] {
-  return POSTS.map(p => p.slug);
-}
+          <div className="section-label" style={{ marginTop: 48 }}>ALL POSTS</div>
+          <div className="posts-grid">
+            {POSTS.slice(1).map(post => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="post-card">
+                <div className="pc-tag" style={{ color: post.color }}>{post.category}</div>
+                <h3 className="pc-title">{post.title}</h3>
+                <p className="pc-excerpt">{post.excerpt}</p>
+                <div className="pc-meta"><span>{post.date}</span><span>·</span><span>{post.readTime}</span></div>
+              </Link>
+            ))}
+          </div>
 
-// ============================================================
-// HOW TO ADD A NEW BLOG POST:
-// 1. Add a new object to the POSTS array above
-// 2. Fill in: slug, title, excerpt, date, category, color, readTime, content
-// 3. git add . && git commit -m "blog: your post title" && git push
-// 4. Vercel auto-deploys in ~30 seconds ✅
-// ============================================================
+          <div className="newsletter">
+            <div className="nl-icon">📬</div>
+            <h3 className="nl-title">Get Daily Posts</h3>
+            <p className="nl-desc">New tutorial every day. Join 1000+ learners.</p>
+            <a href="https://app.seekhowithrua.com" className="nl-btn">Join the Platform →</a>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Exo+2:wght@400;500;600&display=swap');
+        .blog-page{min-height:100vh;background:#04040f;color:#e2e8f0;font-family:'Exo 2',sans-serif}
+        .blog-hero{padding:80px 40px 48px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(124,58,237,0.1) 0%,transparent 60%);border-bottom:1px solid rgba(255,255,255,0.05)}
+        .blog-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:4px;color:#1D9E75;margin-bottom:16px}
+        .blog-h1{font-family:'Rajdhani',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:700;color:#fff;margin-bottom:14px}
+        .blog-h1 span{color:#7c3aed}
+        .blog-sub{font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,0.4);max-width:520px;margin:0 auto;line-height:2}
+        .blog-inner{max-width:1100px;margin:0 auto;padding:48px 40px 80px}
+        .section-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:4px;color:rgba(255,255,255,0.3);margin-bottom:20px}
+        .featured-card{display:block;padding:36px;border:1px solid rgba(124,58,237,0.3);border-radius:16px;background:rgba(10,10,30,0.8);text-decoration:none;color:inherit;transition:all 0.2s}
+        .featured-card:hover{border-color:#7c3aed;transform:translateY(-2px)}
+        .fc-tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+        .fc-title{font-family:'Rajdhani',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:#fff;margin-bottom:12px;line-height:1.3}
+        .fc-excerpt{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:20px;max-width:680px}
+        .fc-meta{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.35)}
+        .fc-cta{margin-left:auto;color:#7c3aed;font-weight:600}
+        .posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+        .post-card{display:flex;flex-direction:column;gap:10px;padding:24px;border:1px solid rgba(255,255,255,0.07);border-radius:12px;background:rgba(10,10,30,0.6);text-decoration:none;color:inherit;transition:all 0.2s}
+        .post-card:hover{border-color:#7c3aed;transform:translateY(-3px)}
+        .pc-tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+        .pc-title{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:#fff;line-height:1.4;flex:1}
+        .pc-excerpt{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.7}
+        .pc-meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.3);display:flex;gap:6px}
+        .newsletter{margin-top:60px;text-align:center;padding:48px;border:1px solid rgba(29,158,117,0.3);border-radius:16px;background:rgba(29,158,117,0.05)}
+        .nl-icon{font-size:36px;margin-bottom:14px}
+        .nl-title{font-family:'Rajdhani',sans-serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:8px}
+        .nl-desc{font-size:13px;color:rgba(255,255,255,0.45);font-family:'JetBrains Mono',monospace;margin-bottom:24px}
+        .nl-btn{display:inline-block;padding:12px 28px;border-radius:8px;background:linear-gradient(135deg,#7c3aed,#00d4ff);color:#fff;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;text-decoration:none;transition:opacity 0.2s}
+        .nl-btn:hover{opacity:0.85}
+        @media(max-width:600px){.blog-hero,.blog-inner{padding-left:20px;padding-right:20px}.posts-grid{grid-template-columns:1fr}}
+      `}</style>
+    </>
+  );
+}
