@@ -7,3 +7,4 @@ export default function robots() {
     sitemap: "https://seekhowithrua.com/sitemap.xml",
   };
 }
+
