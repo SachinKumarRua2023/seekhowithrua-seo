@@ -90,7 +90,7 @@ export default function BlogPage() {
             <a href="https://wa.me/918826776018" target="_blank" rel="noopener noreferrer" className="bl-contact-btn bl-wa">
               💬 WhatsApp Master Rua
             </a>
-            <a href="https://www.youtube.com/@seekhowithrua" target="_blank" rel="noopener noreferrer" className="bl-contact-btn bl-yt">
+            <a href="https://www.youtube.com/@seekhowithrua_" target="_blank" rel="noopener noreferrer" className="bl-contact-btn bl-yt">
               ▶ YouTube @seekhowithrua
             </a>
           </div>
@@ -142,7 +142,7 @@ export default function BlogPage() {
               </a>
             </div>
             <p style={{ marginTop: 16, fontSize: 11, color: "rgba(255,255,255,0.3)", fontFamily: "monospace" }}>
-              📧 seekhowithrua@gmail.com · 📺 youtube.com/@seekhowithrua · 📸 instagram.com/seekhowithrua_
+              📧 seekhowithrua@gmail.com · 📺 youtube.com/@seekhowithrua_ · 📸 instagram.com/seekhowithrua_
             </p>
           </div>
         </div>
