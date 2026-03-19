@@ -1,64 +1,78 @@
 "use client";
-/**
- * Footer.jsx — Seekho With Rua | SekhoWithRua | SikhoWithRua
- *
- * SEO Keywords Targeted:
- *   - seekhowithrua, seekho with rua, sikhowithrua, sikho with rua, seekhow rua
- *   - data science course India, AI course, machine learning course
- *   - best online coding courses India 2026, EdTech India
- *   - full stack development, mobile app development, game development course
- *   - IoT robotics course, python programming course India
- *   - learn AI ML online India, data science with AI
- */
-
 import Link from "next/link";
 
 const COURSE_LINKS = [
-  { label: "Data Science Course", href: "/data-science-course", desc: "AI & ML powered Data Science", emoji: "📊" },
-  { label: "AI Course", href: "/ai-course", desc: "Artificial Intelligence fundamentals", emoji: "🤖" },
-  { label: "Machine Learning", href: "/ai-course", desc: "ML algorithms & models", emoji: "🧠" },
-  { label: "Full Stack Development", href: "/full-stack-development", desc: "React, Node, Next.js & more", emoji: "💻" },
-  { label: "Mobile App Development", href: "/mobile-app-development", desc: "React Native & Flutter", emoji: "📱" },
-  { label: "Game Development", href: "/game-development", desc: "Unity, Unreal & Godot", emoji: "🎮" },
-  { label: "IoT & Robotics", href: "/iot-robotics", desc: "Arduino, Raspberry Pi & more", emoji: "⚙️" },
-  { label: "Python Programming", href: "/python-programming-course", desc: "Python for beginners to advanced", emoji: "🐍" },
-  { label: "Web Development", href: "/web-development-course", desc: "HTML, CSS, JS & frameworks", emoji: "🌐" },
+  { label: "Data Science Course",    href: "/data-science-course",       emoji: "📊" },
+  { label: "AI & Machine Learning",  href: "/ai-course",                 emoji: "🤖" },
+  { label: "Full Stack Development", href: "/full-stack-development",    emoji: "💻" },
+  { label: "Mobile App Development", href: "/mobile-app-development",    emoji: "📱" },
+  { label: "Game Development",       href: "/game-development",          emoji: "🎮" },
+  { label: "IoT & Robotics",         href: "/iot-robotics",              emoji: "⚙️" },
+  { label: "Python Programming",     href: "/python-programming-course", emoji: "🐍" },
+  { label: "Web Development",        href: "/web-development-course",    emoji: "🌐" },
 ];
 
 const QUICK_LINKS = [
-  { label: "About Seekho With Rua", href: "/about" },
-  { label: "All Courses", href: "/courses" },
-  { label: "Blog & Tutorials", href: "/blog" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
+  { label: "👑 Master Rua",         href: "/master-rua",                          external: false },
+  { label: "✍️ Blog & Tutorials",   href: "/blog",                                external: false },
+  { label: "🚀 Learning Platform",  href: "https://app.seekhowithrua.com",        external: true  },
+  { label: "🎮 Gaming Lab",         href: "https://gaming.seekhowithrua.com",     external: true  },
+  { label: "✨ Animation Lab",      href: "https://animationlab.seekhowithrua.com", external: true },
+  { label: "🛠️ Services",           href: "https://services.seekhowithrua.com",   external: true  },
 ];
 
-const SOCIAL_LINKS = [
-  { label: "YouTube", href: "https://youtube.com", icon: "▶" },
-  { label: "GitHub", href: "https://github.com", icon: "⌥" },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "in" },
-  { label: "Instagram", href: "https://instagram.com", icon: "◉" },
+const CONTACT_INFO = [
+  { icon: "📧", text: "seekhowithrua@gmail.com",  href: "mailto:seekhowithrua@gmail.com",                    external: false },
+  { icon: "📞", text: "8826776018",               href: "tel:+918826776018",                                 external: false },
+  { icon: "▶",  text: "YouTube @seekhowithrua",   href: "https://www.youtube.com/@seekhowithrua",            external: true  },
+  { icon: "in", text: "LinkedIn — Sachin Kumar",  href: "https://www.linkedin.com/in/sachin-kumar-2b92a8347", external: true },
+  { icon: "⌥",  text: "GitHub — SachinKumarRua2023", href: "https://github.com/SachinKumarRua2023",          external: true  },
 ];
 
 export default function Footer() {
   return (
     <>
-      {/* SEO structured data */}
+      {/* ── SEO SCHEMA ── */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "ItemList",
-            name: "Seekho With Rua — All Courses",
+            "@type": "EducationalOrganization",
+            name: "SeekhowithRua",
+            alternateName: [
+              "Seekho With Rua", "SekhoWithRua", "SikhoWithRua",
+              "Master Rua", "Sachin Kumar", "Seekhow Rua", "Rua Learning",
+            ],
             description:
-              "Complete list of courses at SekhoWithRua | SikhoWithRua — India's best EdTech platform",
-            itemListElement: COURSE_LINKS.map((c, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
+              "India's unique learning platform by Master Rua (Sachin Kumar). Learn AI, Data Science, Game Dev, Mobile Apps, Full Stack, Robotics through visual cortex, mnemonics, gaming and animation. Not just EdTech — a revolution in how humans learn.",
+            url: "https://seekhowithrua.com",
+            email: "seekhowithrua@gmail.com",
+            telephone: "+918826776018",
+            founder: {
+              "@type": "Person",
+              name: "Sachin Kumar",
+              jobTitle: "Master Rua — AI/ML Trainer & Full Stack Developer",
+              sameAs: [
+                "https://www.linkedin.com/in/sachin-kumar-2b92a8347",
+                "https://github.com/SachinKumarRua2023",
+                "https://www.youtube.com/@seekhowithrua",
+              ],
+            },
+            sameAs: [
+              "https://app.seekhowithrua.com",
+              "https://gaming.seekhowithrua.com",
+              "https://animationlab.seekhowithrua.com",
+              "https://services.seekhowithrua.com",
+              "https://github.com/SachinKumarRua2023",
+              "https://www.youtube.com/@seekhowithrua",
+              "https://www.linkedin.com/in/sachin-kumar-2b92a8347",
+            ],
+            offers: COURSE_LINKS.map((c) => ({
+              "@type": "Course",
               name: c.label,
               url: `https://seekhowithrua.com${c.href}`,
+              provider: { "@type": "Organization", name: "SeekhowithRua" },
             })),
           }),
         }}
@@ -66,209 +80,197 @@ export default function Footer() {
 
       <footer
         role="contentinfo"
-        aria-label="Seekho With Rua footer — EdTech platform India"
+        aria-label="SeekhowithRua — Master Rua EdTech platform India"
         style={{
-          background: "linear-gradient(180deg, #060414 0%, #0a0520 100%)",
+          background: "linear-gradient(180deg,#060414 0%,#0a0520 100%)",
           borderTop: "1px solid rgba(124,58,237,0.2)",
           color: "rgba(255,255,255,0.75)",
-          fontFamily: "'Rajdhani', 'Exo 2', sans-serif",
+          fontFamily: "'Rajdhani','Exo 2',sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Decorative background glow */}
+        {/* decorative glow */}
         <div aria-hidden="true" style={{
-          position: "absolute",
-          top: "-80px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "600px",
-          height: "200px",
-          background: "radial-gradient(ellipse, rgba(124,58,237,0.15) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
+          position:"absolute",top:"-80px",left:"50%",
+          transform:"translateX(-50%)",width:"600px",height:"200px",
+          background:"radial-gradient(ellipse,rgba(124,58,237,0.15) 0%,transparent 70%)",
+          pointerEvents:"none",
+        }}/>
 
-        {/* Main footer grid */}
-        <div style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "60px 24px 40px",
-          position: "relative",
-        }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 2fr 1fr",
-            gap: "48px",
-          }}
-            className="footer-grid"
-          >
-            {/* Brand column */}
+        <div style={{ maxWidth:"1280px",margin:"0 auto",padding:"60px 24px 40px",position:"relative" }}>
+
+          {/* ── MAIN GRID ── */}
+          <div className="ft-grid">
+
+            {/* ── BRAND ── */}
             <div>
-              <Link
-                href="/"
-                title="Seekho With Rua — SekhoWithRua — Best EdTech India"
-                aria-label="Go to Seekho With Rua homepage"
-                style={{ textDecoration: "none" }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+              <Link href="/" style={{ textDecoration:"none" }}>
+                <div style={{ display:"flex",alignItems:"center",gap:"12px",marginBottom:"16px" }}>
                   <div style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "12px",
-                    background: "linear-gradient(135deg, #7c3aed, #00d4ff)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "22px",
-                    fontWeight: 900,
-                    color: "#fff",
-                    boxShadow: "0 0 24px rgba(124,58,237,0.5)",
-                    flexShrink: 0,
-                  }}>
-                    S
-                  </div>
+                    width:"44px",height:"44px",borderRadius:"12px",flexShrink:0,
+                    background:"linear-gradient(135deg,#7c3aed,#00d4ff)",
+                    display:"flex",alignItems:"center",justifyContent:"center",
+                    fontSize:"22px",fontWeight:900,color:"#fff",
+                    boxShadow:"0 0 24px rgba(124,58,237,0.5)",
+                  }}>S</div>
                   <div>
                     <h2 style={{
-                      margin: 0,
-                      fontSize: "22px",
-                      fontWeight: 700,
-                      background: "linear-gradient(90deg, #fff, #00d4ff)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      letterSpacing: "-0.3px",
-                    }}>
-                      Seekho With Rua
-                    </h2>
-                    <p style={{ margin: 0, fontSize: "10px", color: "rgba(0,212,255,0.6)", letterSpacing: "0.5px", fontFamily: "monospace" }}>
-                      SEEKHOWITHRUA • SIKHOWITHRUA
+                      margin:0,fontSize:"22px",fontWeight:700,
+                      background:"linear-gradient(90deg,#fff,#00d4ff)",
+                      WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",
+                      letterSpacing:"-0.3px",
+                    }}>SeekhowithRua</h2>
+                    <p style={{ margin:0,fontSize:"10px",color:"rgba(0,212,255,0.6)",letterSpacing:"0.5px",fontFamily:"monospace" }}>
+                      BY MASTER RUA · SACHIN KUMAR
                     </p>
                   </div>
                 </div>
               </Link>
 
-              {/* SEO-rich brand description */}
-              <p style={{
-                fontSize: "14px",
-                lineHeight: 1.7,
-                color: "rgba(255,255,255,0.55)",
-                marginBottom: "20px",
-                maxWidth: "320px",
-              }}>
-                <strong style={{ color: "rgba(255,255,255,0.8)" }}>Seekho With Rua</strong> (also known as{" "}
-                <em>SekhoWithRua</em>, <em>SikhoWithRua</em>, <em>Seekhow Rua</em>) is India's leading EdTech
-                platform for <strong style={{ color: "#00d4ff" }}>Data Science</strong>,{" "}
-                <strong style={{ color: "#00d4ff" }}>Artificial Intelligence</strong>,{" "}
-                <strong style={{ color: "#00d4ff" }}>Machine Learning</strong>, Full Stack Development,
-                Mobile Apps, Game Dev, and IoT courses.
+              {/* Description */}
+              <p style={{ fontSize:"14px",lineHeight:1.7,color:"rgba(255,255,255,0.55)",marginBottom:"10px",maxWidth:"320px" }}>
+                <strong style={{ color:"rgba(255,255,255,0.85)" }}>SeekhowithRua</strong> by{" "}
+                <strong style={{ color:"#fbbf24" }}>Master Rua (Sachin Kumar)</strong> — India's unique
+                learning revolution. We teach through{" "}
+                <strong style={{ color:"#00d4ff" }}>visual cortex, mnemonics, gaming & animation</strong>{" "}
+                — not boring slides. The UEEP Model changes how you learn forever.
               </p>
 
-              {/* Social links */}
-              <nav aria-label="Seekho With Rua social media links">
-                <div style={{ display: "flex", gap: "10px" }}>
-                  {SOCIAL_LINKS.map((s) => (
-                    <a
-                      key={s.label}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Seekho With Rua on ${s.label}`}
-                      title={`Follow Seekho With Rua on ${s.label}`}
-                      style={{
-                        width: "36px",
-                        height: "36px",
-                        borderRadius: "8px",
-                        border: "1px solid rgba(124,58,237,0.3)",
-                        background: "rgba(124,58,237,0.08)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        color: "rgba(255,255,255,0.7)",
-                        textDecoration: "none",
-                        fontSize: "13px",
-                        fontWeight: 700,
-                        transition: "all 0.25s",
-                      }}
-                      className="social-btn"
-                    >
-                      {s.icon}
-                    </a>
-                  ))}
-                </div>
-              </nav>
+              {/* SEO alternate names */}
+              <p style={{ fontSize:"11px",lineHeight:1.8,color:"rgba(255,255,255,0.28)",marginBottom:"16px",maxWidth:"320px" }}>
+                Also known as: seekho with rua · seekhowithrua · master rua ·
+                sachin rua · sikhowithrua · seekhow rua · rua learning · mr rua
+              </p>
+
+              {/* Master Rua badge */}
+              <Link href="/master-rua" style={{
+                display:"inline-flex",alignItems:"center",gap:"8px",
+                padding:"7px 14px",borderRadius:"20px",marginBottom:"20px",
+                background:"rgba(251,191,36,0.08)",
+                border:"1px solid rgba(251,191,36,0.3)",
+                color:"#fbbf24",fontSize:"11px",fontWeight:700,
+                textDecoration:"none",fontFamily:"monospace",letterSpacing:"1px",
+              }}>
+                👑 EARN THE MASTER RUA TITLE →
+              </Link>
+
+              {/* Contact info */}
+              <div style={{ display:"flex",flexDirection:"column",gap:"6px",marginBottom:"20px" }}>
+                {CONTACT_INFO.map((c) => (
+                  <a
+                    key={c.text}
+                    href={c.href}
+                    target={c.external ? "_blank" : undefined}
+                    rel={c.external ? "noopener noreferrer" : undefined}
+                    className="ft-contact"
+                    style={{
+                      display:"flex",alignItems:"center",gap:"8px",
+                      color:"rgba(255,255,255,0.4)",textDecoration:"none",
+                      fontSize:"12px",fontFamily:"monospace",transition:"color 0.2s",
+                    }}
+                  >
+                    <span style={{ color:"#00d4ff",width:"16px",textAlign:"center",flexShrink:0 }}>{c.icon}</span>
+                    {c.text}
+                  </a>
+                ))}
+              </div>
+
+              {/* Stats */}
+              <div style={{
+                display:"flex",gap:"16px",flexWrap:"wrap",
+                padding:"12px 16px",borderRadius:"10px",
+                background:"rgba(124,58,237,0.07)",
+                border:"1px solid rgba(124,58,237,0.2)",
+              }}>
+                {[
+                  { n:"1000+", l:"Students" },
+                  { n:"45+",   l:"Deployments" },
+                  { n:"8",     l:"Courses" },
+                  { n:"USA",   l:"Clients" },
+                ].map(s => (
+                  <div key={s.l} style={{ textAlign:"center" }}>
+                    <div style={{ fontSize:"16px",fontWeight:700,color:"#7c3aed",fontFamily:"'Rajdhani',sans-serif" }}>{s.n}</div>
+                    <div style={{ fontSize:"9px",color:"rgba(255,255,255,0.3)",letterSpacing:"1px",fontFamily:"monospace" }}>{s.l}</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Courses column */}
+            {/* ── COURSES ── */}
             <div>
               <h3 style={{
-                fontSize: "11px",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "#00d4ff",
-                marginBottom: "20px",
-                fontWeight: 600,
+                fontSize:"11px",letterSpacing:"2px",textTransform:"uppercase",
+                color:"#00d4ff",marginBottom:"20px",fontWeight:600,margin:"0 0 20px",
               }}>
-                All Courses
+                All Courses — 2026
               </h3>
-              <nav aria-label="All courses at Seekho With Rua">
-                <ul role="list" style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "2px" }}>
+              <nav aria-label="All courses at SeekhowithRua by Master Rua">
+                <ul role="list" style={{ listStyle:"none",margin:0,padding:0,display:"flex",flexDirection:"column",gap:"2px" }}>
                   {COURSE_LINKS.map((course) => (
-                    <li key={course.href + course.label}>
+                    <li key={course.href}>
                       <Link
                         href={course.href}
-                        title={`${course.label} — Seekho With Rua | SekhoWithRua`}
-                        aria-label={`${course.label}: ${course.desc}`}
+                        title={`${course.label} — SeekhowithRua by Master Rua (Sachin Kumar) India 2026`}
+                        className="ft-course"
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "8px",
-                          padding: "7px 10px",
-                          borderRadius: "6px",
-                          textDecoration: "none",
-                          color: "rgba(255,255,255,0.65)",
-                          fontSize: "13.5px",
-                          transition: "all 0.2s",
-                          border: "1px solid transparent",
+                          display:"flex",alignItems:"center",gap:"8px",
+                          padding:"7px 10px",borderRadius:"6px",
+                          textDecoration:"none",color:"rgba(255,255,255,0.65)",
+                          fontSize:"13.5px",transition:"all 0.2s",
+                          border:"1px solid transparent",
                         }}
-                        className="footer-course-link"
                       >
-                        <span aria-hidden="true" style={{ fontSize: "14px", flexShrink: 0 }}>{course.emoji}</span>
+                        <span aria-hidden="true" style={{ fontSize:"14px",flexShrink:0 }}>{course.emoji}</span>
                         <span>{course.label}</span>
                       </Link>
                     </li>
                   ))}
                 </ul>
               </nav>
+
+              {/* Vision box */}
+              <div style={{
+                marginTop:"24px",padding:"16px",borderRadius:"10px",
+                background:"rgba(29,158,117,0.07)",
+                border:"1px solid rgba(29,158,117,0.2)",
+              }}>
+                <p style={{ margin:"0 0 6px",fontSize:"11px",color:"#1D9E75",fontWeight:700,letterSpacing:"1px",fontFamily:"monospace" }}>
+                  THE UEEP MODEL
+                </p>
+                <p style={{ margin:0,fontSize:"12px",color:"rgba(255,255,255,0.45)",lineHeight:1.7 }}>
+                  <strong style={{ color:"rgba(255,255,255,0.7)" }}>U</strong>nderstand ·{" "}
+                  <strong style={{ color:"rgba(255,255,255,0.7)" }}>E</strong>xecute ·{" "}
+                  <strong style={{ color:"rgba(255,255,255,0.7)" }}>E</strong>xplain ·{" "}
+                  <strong style={{ color:"rgba(255,255,255,0.7)" }}>P</strong>ractice<br />
+                  The fastest way to master any skill permanently.
+                </p>
+              </div>
             </div>
 
-            {/* Quick links column */}
+            {/* ── QUICK LINKS ── */}
             <div>
               <h3 style={{
-                fontSize: "11px",
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "#7c3aed",
-                marginBottom: "20px",
-                fontWeight: 600,
+                fontSize:"11px",letterSpacing:"2px",textTransform:"uppercase",
+                color:"#7c3aed",marginBottom:"20px",fontWeight:600,margin:"0 0 20px",
               }}>
-                Quick Links
+                Explore
               </h3>
-              <nav aria-label="Quick links">
-                <ul role="list" style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "4px" }}>
+              <nav aria-label="SeekhowithRua quick links">
+                <ul role="list" style={{ listStyle:"none",margin:0,padding:0,display:"flex",flexDirection:"column",gap:"4px" }}>
                   {QUICK_LINKS.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        title={`${link.label} — Seekho With Rua`}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener noreferrer" : undefined}
+                        title={`${link.label} — SeekhowithRua Master Rua`}
+                        className="ft-quick"
                         style={{
-                          display: "block",
-                          padding: "6px 0",
-                          textDecoration: "none",
-                          color: "rgba(255,255,255,0.5)",
-                          fontSize: "13.5px",
-                          transition: "color 0.2s",
-                          borderBottom: "1px solid transparent",
+                          display:"block",padding:"6px 0",
+                          textDecoration:"none",color:"rgba(255,255,255,0.5)",
+                          fontSize:"13.5px",transition:"color 0.2s",
                         }}
-                        className="footer-quick-link"
                       >
                         {link.label}
                       </Link>
@@ -277,76 +279,102 @@ export default function Footer() {
                 </ul>
               </nav>
 
-              {/* Newsletter / trust badge */}
+              {/* Mr Rua challenge card */}
               <div style={{
-                marginTop: "28px",
-                padding: "16px",
-                borderRadius: "10px",
-                background: "rgba(124,58,237,0.08)",
-                border: "1px solid rgba(124,58,237,0.2)",
+                marginTop:"28px",padding:"18px",borderRadius:"12px",
+                background:"rgba(251,191,36,0.06)",
+                border:"1px solid rgba(251,191,36,0.2)",
               }}>
-                <p style={{ margin: 0, fontSize: "11px", color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>
-                  🇮🇳 Made in India · Trusted by{" "}
-                  <strong style={{ color: "#00d4ff" }}>10,000+</strong> learners
+                <p style={{ margin:"0 0 8px",fontSize:"12px",color:"#fbbf24",fontWeight:700,fontFamily:"monospace",letterSpacing:"1px" }}>
+                  👑 BECOME MR. RUA
+                </p>
+                <p style={{ margin:"0 0 12px",fontSize:"11px",color:"rgba(255,255,255,0.45)",lineHeight:1.6 }}>
+                  Take the 30-Day Challenge. Master 2+ skills. Earn the Mr. Rua title.
+                </p>
+                <Link href="/master-rua" style={{
+                  display:"block",padding:"8px",textAlign:"center",
+                  borderRadius:"8px",background:"rgba(251,191,36,0.12)",
+                  border:"1px solid rgba(251,191,36,0.3)",
+                  color:"#fbbf24",fontSize:"11px",fontWeight:700,
+                  textDecoration:"none",fontFamily:"monospace",transition:"all 0.2s",
+                }}
+                  className="ft-challenge-btn"
+                >
+                  START THE CHALLENGE →
+                </Link>
+              </div>
+
+              {/* Made in India badge */}
+              <div style={{
+                marginTop:"16px",padding:"12px 16px",borderRadius:"10px",
+                background:"rgba(255,255,255,0.03)",
+                border:"1px solid rgba(255,255,255,0.06)",
+                textAlign:"center",
+              }}>
+                <p style={{ margin:0,fontSize:"11px",color:"rgba(255,255,255,0.35)",lineHeight:1.7 }}>
+                  🇮🇳 Made in India · Noida, UP<br />
+                  🌍 Serving students globally<br />
+                  📧 seekhowithrua@gmail.com
                 </p>
               </div>
             </div>
           </div>
 
-          {/* SEO hidden but accessible keyword section */}
-          <div
-            role="complementary"
-            aria-label="Related search terms"
-            style={{
-              marginTop: "48px",
-              paddingTop: "24px",
-              borderTop: "1px solid rgba(255,255,255,0.06)",
-            }}
-          >
+          {/* ── SEO KEYWORDS ── */}
+          <div style={{
+            marginTop:"48px",paddingTop:"24px",
+            borderTop:"1px solid rgba(255,255,255,0.06)",
+          }}>
             <p style={{
-              fontSize: "10.5px",
-              color: "rgba(255,255,255,0.2)",
-              lineHeight: 1.8,
-              textAlign: "center",
-              maxWidth: "900px",
-              margin: "0 auto 28px",
+              fontSize:"10px",color:"rgba(255,255,255,0.15)",
+              lineHeight:1.9,textAlign:"center",
+              maxWidth:"1100px",margin:"0 auto 28px",
             }}>
-              Seekho With Rua · SekhoWithRua · SikhoWithRua · Seekhow Rua ·
-              Data Science Course India · AI Course Online · Machine Learning India ·
-              Full Stack Development Course · Mobile App Development · Game Development ·
-              IoT Robotics Course · Python Programming · Best EdTech India 2026 ·
-              Learn Coding Online India · AI ML Course Hindi · Data Science with AI
+              SeekhowithRua · Seekho With Rua · Master Rua · Sachin Kumar · Mr Rua ·
+              Who is Master Rua · How to become Master Rua · Sachin Rua · Rua Title ·
+              How to become Mr Rua · SekhoWithRua · SikhoWithRua · Seekhow Rua ·
+              Rua Learning Platform · Master Rua India · Master Rua Coding ·
+              Data Science Course India 2026 · AI Course India 2026 ·
+              Machine Learning Course India · Full Stack Development India ·
+              Mobile App Development React Native India · Game Development India 2026 ·
+              Unity Three.js Course India · IoT Robotics Course India ·
+              Python Programming Course India · Best EdTech India 2026 ·
+              Learn Coding Online India · UEEP Model Learning · Visual Cortex Learning ·
+              Mnemonic Learning Platform India · Learn Through Gaming India ·
+              How to learn Game Development 2026 · How to learn AI ML 2026 ·
+              Learn Python 5 days · Full Stack Game Dev Robotics India ·
+              Sachin Kumar AI Trainer · Sachin Kumar Full Stack Developer ·
+              Seekhowithrua.com · app.seekhowithrua.com
             </p>
 
-            {/* Bottom bar */}
+            {/* ── BOTTOM BAR ── */}
             <div style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: "12px",
+              display:"flex",alignItems:"center",
+              justifyContent:"space-between",flexWrap:"wrap",gap:"12px",
             }}>
-              <p style={{ margin: 0, fontSize: "13px", color: "rgba(255,255,255,0.3)" }}>
+              <p style={{ margin:0,fontSize:"13px",color:"rgba(255,255,255,0.3)" }}>
                 © 2026{" "}
-                <Link
-                  href="/"
-                  title="Seekho With Rua — EdTech platform"
-                  style={{ color: "rgba(0,212,255,0.6)", textDecoration: "none" }}
-                >
-                  Seekho With Rua
+                <Link href="/" style={{ color:"rgba(0,212,255,0.6)",textDecoration:"none" }}>
+                  SeekhowithRua
                 </Link>
-                . All rights reserved.
+                {" "}· Built with ❤️ by{" "}
+                <Link href="/master-rua" style={{ color:"rgba(251,191,36,0.7)",textDecoration:"none" }}>
+                  Master Rua
+                </Link>
+                {" "}· Noida, India
               </p>
-              <div style={{ display: "flex", gap: "16px" }}>
+              <div style={{ display:"flex",gap:"16px",alignItems:"center" }}>
                 {[
-                  { label: "Privacy", href: "/privacy" },
-                  { label: "Terms", href: "/terms" },
-                  { label: "Sitemap", href: "/sitemap.xml" },
+                  { label:"Master Rua", href:"/master-rua" },
+                  { label:"Blog",       href:"/blog" },
+                  { label:"Sitemap",    href:"/sitemap.xml" },
+                  { label:"Platform",   href:"https://app.seekhowithrua.com" },
                 ].map((l) => (
                   <Link
                     key={l.href}
                     href={l.href}
-                    style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", textDecoration: "none" }}
+                    style={{ fontSize:"12px",color:"rgba(255,255,255,0.3)",textDecoration:"none" }}
+                    className="ft-bottom-link"
                   >
                     {l.label}
                   </Link>
@@ -359,34 +387,29 @@ export default function Footer() {
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@400;600;700&display=swap');
 
-          .social-btn:hover {
-            background: rgba(0,212,255,0.15) !important;
-            border-color: rgba(0,212,255,0.5) !important;
-            color: #00d4ff !important;
-            transform: translateY(-2px);
+          .ft-grid {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1.2fr;
+            gap: 48px;
           }
-
-          .footer-course-link:hover {
+          .ft-contact:hover { color: #00d4ff !important; }
+          .ft-course:hover {
             color: #00d4ff !important;
             background: rgba(0,212,255,0.06) !important;
             border-color: rgba(0,212,255,0.15) !important;
           }
-
-          .footer-quick-link:hover {
-            color: rgba(124,58,237,0.9) !important;
+          .ft-quick:hover { color: rgba(124,58,237,0.9) !important; }
+          .ft-challenge-btn:hover {
+            background: rgba(251,191,36,0.2) !important;
+            box-shadow: 0 0 16px rgba(251,191,36,0.2);
           }
+          .ft-bottom-link:hover { color: rgba(255,255,255,0.7) !important; }
 
-          @media (max-width: 900px) {
-            .footer-grid {
-              grid-template-columns: 1fr !important;
-              gap: 32px !important;
-            }
+          @media (max-width:1024px) {
+            .ft-grid { grid-template-columns: 1fr 1fr !important; }
           }
-
-          @media (max-width: 600px) {
-            .footer-grid {
-              grid-template-columns: 1fr !important;
-            }
+          @media (max-width:640px) {
+            .ft-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           }
         `}</style>
       </footer>
