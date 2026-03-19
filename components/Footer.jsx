@@ -24,7 +24,7 @@ const QUICK_LINKS = [
 const CONTACT_INFO = [
   { icon: "📧", text: "seekhowithrua@gmail.com",  href: "mailto:seekhowithrua@gmail.com",                    external: false },
   { icon: "📞", text: "8826776018",               href: "tel:+918826776018",                                 external: false },
-  { icon: "▶",  text: "YouTube @seekhowithrua",   href: "https://www.youtube.com/@seekhowithrua",            external: true  },
+  { icon: "▶",  text: "YouTube @seekhowithrua",   href: "https://www.youtube.com/@seekhowithrua_",            external: true  },
   { icon: "in", text: "LinkedIn — Sachin Kumar",  href: "https://www.linkedin.com/in/sachin-kumar-2b92a8347", external: true },
   { icon: "⌥",  text: "GitHub — SachinKumarRua2023", href: "https://github.com/SachinKumarRua2023",          external: true  },
 ];

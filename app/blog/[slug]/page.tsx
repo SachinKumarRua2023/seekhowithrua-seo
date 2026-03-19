@@ -6,6 +6,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+// ✅ ADD THESE — forces Next.js to pre-render all slugs
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
 const POSTS = [
   {
     slug: "how-to-learn-machine-learning-india-2025",
