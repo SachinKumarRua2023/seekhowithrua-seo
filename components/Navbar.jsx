@@ -158,8 +158,8 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" className="nv-in">Login</Link>
-                <Link href="/signup" className="nv-up">Get Started <span className="nv-arr">→</span></Link>
+                <Link href="https://app.seekhowithrua.com/login" className="nv-in">Login</Link>
+                <Link href="https://app.seekhowithrua.com/signup" className="nv-up">Get Started <span className="nv-arr">→</span></Link>
               </>
             )}
             <button className="nv-ham" onClick={() => setMenuOpen(p => !p)} aria-label="Menu">
