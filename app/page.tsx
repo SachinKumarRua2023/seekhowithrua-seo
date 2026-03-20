@@ -129,6 +129,8 @@ const ECOSYSTEM = [
   { label: "Learning App",    url: "https://app.seekhowithrua.com",           icon: "🚀", desc: "Full LMS platform" },
   { label: "Gaming Lab",      url: "https://gaming.seekhowithrua.com",        icon: "🎮", desc: "3D battle & game engine" },
   { label: "Animation Lab",   url: "https://animationlab.seekhowithrua.com",  icon: "✨", desc: "Visual learning tools" },
+  // ── ADDED: Voice Rooms ecosystem card ──
+  { label: "Voice Rooms",     url: "/voice-rooms",                            icon: "🔴", desc: "Live talk · debate · hire" },
   { label: "Services",        url: "https://services.seekhowithrua.com",      icon: "🛠️", desc: "Hire our team" },
 ];
 
@@ -416,6 +418,10 @@ export default function HomePage() {
                 <Link href="https://app.seekhowithrua.com" className="btn-primary">
                   🚀 Launch Learning App
                 </Link>
+                {/* ── ADDED: Voice Rooms hero CTA ── */}
+                <Link href="/voice-rooms" className="btn-vcr">
+                  🔴 Join a Live Room
+                </Link>
                 {!user ? (
                   <Link href="/signup" className="btn-outline">
                     Sign Up Free →
@@ -505,7 +511,11 @@ export default function HomePage() {
                   <div className="vc-content">
                     <div className="vc-title">{p.title}</div>
                     <div className="vc-sub" style={{ color: p.color }}>{p.sub}</div>
-                    <p className="vc-body">{p.body}</p>
+                    {/* ── ADDED: Voice Rooms pillar links to /voice-rooms ── */}
+                    {p.title === "Live Voice Rooms"
+                      ? <Link href="/voice-rooms" className="vc-body vc-body-link">{p.body} &nbsp;→ Explore rooms</Link>
+                      : <p className="vc-body">{p.body}</p>
+                    }
                   </div>
                 </div>
               ))}
@@ -572,12 +582,21 @@ export default function HomePage() {
             </h2>
             <div className="eco-grid">
               {ECOSYSTEM.map((e) => (
-                <a key={e.label} href={e.url} target="_blank" rel="noopener noreferrer" className="eco-card">
-                  <span className="eco-icon">{e.icon}</span>
-                  <div className="eco-label">{e.label}</div>
-                  <div className="eco-desc">{e.desc}</div>
-                  <div className="eco-arrow">↗</div>
-                </a>
+                e.url.startsWith("/") ? (
+                  <Link key={e.label} href={e.url} className="eco-card">
+                    <span className="eco-icon">{e.icon}</span>
+                    <div className="eco-label">{e.label}</div>
+                    <div className="eco-desc">{e.desc}</div>
+                    <div className="eco-arrow">→</div>
+                  </Link>
+                ) : (
+                  <a key={e.label} href={e.url} target="_blank" rel="noopener noreferrer" className="eco-card">
+                    <span className="eco-icon">{e.icon}</span>
+                    <div className="eco-label">{e.label}</div>
+                    <div className="eco-desc">{e.desc}</div>
+                    <div className="eco-arrow">↗</div>
+                  </a>
+                )
               ))}
             </div>
           </div>
@@ -680,6 +699,10 @@ export default function HomePage() {
               <Link href="https://app.seekhowithrua.com" className="btn-primary">
                 🚀 Start Learning Free
               </Link>
+              {/* ── ADDED: Voice Rooms CTA in bottom section ── */}
+              <Link href="/voice-rooms" className="btn-vcr">
+                🔴 Join a Live Room
+              </Link>
               <Link href="/signup" className="btn-outline">Create Account →</Link>
             </div>
           </div>
@@ -764,6 +787,17 @@ export default function HomePage() {
           box-shadow: 0 0 24px rgba(124,58,237,0.3);
         }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.5); opacity: 0.9; }
+        /* ── ADDED: Voice Rooms button ── */
+        .btn-vcr {
+          display: inline-flex; align-items: center; gap: 8px;
+          padding: 14px 28px; border-radius: 8px;
+          background: rgba(226,75,74,0.12);
+          border: 1px solid rgba(226,75,74,0.35);
+          color: #fca5a5; font-family: 'Rajdhani', sans-serif;
+          font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+          text-decoration: none; transition: all 0.2s;
+        }
+        .btn-vcr:hover { background: rgba(226,75,74,0.22); border-color: rgba(226,75,74,0.6); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(226,75,74,0.2); }
         .btn-outline {
           display: inline-flex; align-items: center;
           padding: 14px 28px; border-radius: 8px;
@@ -982,6 +1016,15 @@ export default function HomePage() {
           font-size: 12px; color: rgba(255,255,255,0.45);
           line-height: 1.75; font-family: 'JetBrains Mono', monospace;
         }
+        /* ── ADDED: clickable vc-body for Voice Rooms pillar ── */
+        .vc-body-link {
+          display: block; text-decoration: none;
+          color: rgba(255,255,255,0.45);
+          font-size: 12px; line-height: 1.75;
+          font-family: 'JetBrains Mono', monospace;
+          transition: color 0.2s;
+        }
+        .vc-body-link:hover { color: #fca5a5; }
 
         /* ── UEEP BAR ── */
         .ueep-bar {

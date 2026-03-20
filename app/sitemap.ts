@@ -17,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog`, lastModified: now, priority: 0.9, changeFrequency: "daily" },
     { url: `${base}/login`, lastModified: now, priority: 0.5, changeFrequency: "monthly" },
     { url: `${base}/signup`, lastModified: now, priority: 0.6, changeFrequency: "monthly" },
+
+    // ── Voice Rooms (VCR) — high priority for all keyword clusters ──
+    { url: `${base}/voice-rooms`, lastModified: now, priority: 0.9, changeFrequency: "weekly" },
+    // Alternate slugs — catch searchers using different terms
+    // These can be simple redirects in next.config.js pointing to /voice-rooms
+    // OR individual pages if you want unique content per cluster
   ];
 
   const courseRoutes: MetadataRoute.Sitemap = Object.entries(ALL_COURSES).flatMap(([slug, course]) => [
@@ -30,7 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))),
   ]);
 
-  // Data science course (already exists)
   const dsExtra: MetadataRoute.Sitemap = [
     { url: `${base}/data-science-course`, lastModified: now, priority: 0.9, changeFrequency: "weekly" },
     { url: `${base}/mobile-app-development`, lastModified: now, priority: 0.9, changeFrequency: "weekly" },

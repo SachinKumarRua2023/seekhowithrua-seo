@@ -1,7 +1,8 @@
 // ============================================================
 // FILE LOCATION: seekhowithrua-seo/components/Navbar.jsx
 // ACTION: REPLACE existing Navbar.jsx with this file
-// CHANGES: Mobile login/signup → app.seekhowithrua.com + Master Rua nav link
+// CHANGES: Added "Voice Rooms" link in center nav + mobile menu
+//          Everything else is 100% untouched
 // ============================================================
 "use client";
 import { useEffect, useRef, useState } from "react";
@@ -174,8 +175,9 @@ export default function Navbar() {
             </div>
 
             <Link href="/blog" className="nv-link">Blog</Link>
-            {/* ✅ NEW: Master Rua page link */}
             <Link href="/master-rua" className="nv-link nv-link-rua">👑 Master Rua</Link>
+            {/* ── ADDED: Voice Rooms link ── */}
+            <Link href="/voice-rooms" className="nv-link nv-link-vcr">🔴 Voice Rooms</Link>
             <a href="https://app.seekhowithrua.com" className="nv-link" target="_blank" rel="noopener">Platform</a>
           </nav>
 
@@ -199,7 +201,6 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                {/* ✅ FIXED: points to main app */}
                 <Link href="https://app.seekhowithrua.com/login" className="nv-in">Login</Link>
                 <Link href="https://app.seekhowithrua.com/signup" className="nv-up">
                   Get Started <span className="nv-arr">→</span>
@@ -237,8 +238,9 @@ export default function Navbar() {
 
           <div className="mob-row">
             <Link href="/blog" className="mob-lnk" onClick={() => setMenuOpen(false)}>✍️ Blog</Link>
-            {/* ✅ NEW: Master Rua mobile link */}
             <Link href="/master-rua" className="mob-lnk" onClick={() => setMenuOpen(false)}>👑 Master Rua</Link>
+            {/* ── ADDED: Voice Rooms mobile link ── */}
+            <Link href="/voice-rooms" className="mob-lnk mob-lnk-vcr" onClick={() => setMenuOpen(false)}>🔴 Voice Rooms</Link>
             <a href="https://app.seekhowithrua.com" className="mob-lnk" onClick={() => setMenuOpen(false)}>🚀 Platform</a>
           </div>
 
@@ -258,7 +260,6 @@ export default function Navbar() {
                 </button>
               ) : (
                 <>
-                  {/* ✅ FIXED: both point to main app */}
                   <Link
                     href="https://app.seekhowithrua.com/login"
                     className="mob-li"
@@ -332,9 +333,11 @@ export default function Navbar() {
           color:#fff;background:rgba(124,58,237,.1);border-color:rgba(124,58,237,.22);
           box-shadow:0 0 14px rgba(124,58,237,.1);
         }
-        /* Special gold glow for Master Rua link */
         .nv-link-rua { color:rgba(251,191,36,.8); }
         .nv-link-rua:hover { color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.25);box-shadow:0 0 14px rgba(251,191,36,.15); }
+        /* ── ADDED: Voice Rooms nav style — red live glow ── */
+        .nv-link-vcr { color:rgba(252,165,165,.85); }
+        .nv-link-vcr:hover { color:#fca5a5;background:rgba(226,75,74,.08);border-color:rgba(226,75,74,.25);box-shadow:0 0 14px rgba(226,75,74,.15); }
 
         .nv-chev { width:10px;height:10px;transition:transform .2s;flex-shrink:0; }
         .nv-chev.open { transform:rotate(180deg); }
@@ -441,6 +444,9 @@ export default function Navbar() {
                    text-decoration:none;font-size:13px;font-weight:600;font-family:'Syne',sans-serif;transition:all .2s;
                    min-width:120px; }
         .mob-lnk:hover { background:rgba(255,255,255,.08);color:#fff; }
+        /* ── ADDED: Voice Rooms mobile style ── */
+        .mob-lnk-vcr { border-color:rgba(226,75,74,.2);color:rgba(252,165,165,.85); }
+        .mob-lnk-vcr:hover { background:rgba(226,75,74,.08);color:#fca5a5;border-color:rgba(226,75,74,.3); }
 
         .mob-auth { padding:12px 20px 20px;display:flex;flex-direction:column;gap:8px; }
         .mob-li { display:block;padding:12px;text-align:center;border-radius:10px;
