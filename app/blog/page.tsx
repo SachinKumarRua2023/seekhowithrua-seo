@@ -1,5 +1,7 @@
 // ============================================================
 // FILE LOCATION: seekhowithrua-seo/app/blog/page.tsx
+// ACTION: REPLACE — 5 new SEO posts added to POSTS array (top)
+//         Nothing else changed
 // ============================================================
 
 import type { Metadata } from "next";
@@ -18,6 +20,53 @@ export const metadata: Metadata = {
 };
 
 const POSTS = [
+  // ── 5 NEW SEO posts targeting new keyword clusters ──
+  {
+    slug: "memory-enhancement-game-online-india-2026",
+    title: "Best Memory Enhancement Game Online India 2026 — Train Your Brain Free",
+    excerpt: "The best free memory enhancement games for students in India. WMSC techniques gamified — memorise 400 numbers in 21 days. Master Rua's Memory Champion Arena explained.",
+    date: "2026-03-21",
+    category: "Memory Game",
+    color: "#00d4ff",
+    readTime: "5 min read"
+  },
+  {
+    slug: "free-fire-style-study-game-india-2026",
+    title: "Free Fire Style Study Game India 2026 — Learn While Playing, Rank While Studying",
+    excerpt: "What if Free Fire taught you Data Science, Python and AI instead of just shooting? SeekhoWithRua's Quiz Battle does exactly that. Multiplayer MCQ battles where your quiz score is your armor.",
+    date: "2026-03-21",
+    category: "Gaming Lab",
+    color: "#f59e0b",
+    readTime: "5 min read"
+  },
+  {
+    slug: "3d-animation-data-science-course-india-2026",
+    title: "How 3D Animations Make Data Science 6x Easier to Learn — SeekhoWithRua Animation Lab",
+    excerpt: "Neural networks, gradient descent, PCA — all visualised in 3D in your browser. Why visual learning beats video lectures for data science and AI courses in India 2026.",
+    date: "2026-03-21",
+    category: "Animation Lab",
+    color: "#1D9E75",
+    readTime: "6 min read"
+  },
+  {
+    slug: "hire-game-developer-india-2026",
+    title: "Hire Game Developer India 2026 — Three.js, Unity, WebGL Browser Games & Mobile",
+    excerpt: "Looking to hire a game developer in India? Master Rua builds browser games with Three.js and Babylon.js, Unity mobile games, and educational game platforms. Fast delivery, live demos.",
+    date: "2026-03-21",
+    category: "Services",
+    color: "#a855f7",
+    readTime: "5 min read"
+  },
+  {
+    slug: "live-voice-chat-room-it-students-india-2026",
+    title: "Live Voice Chat Rooms for IT Students India 2026 — Debate, Learn & Get Hired",
+    excerpt: "Free live voice rooms for IT professionals, students and developers in India. Spiritual talk, tech debates, hiring rooms, virtual friends. SeekhoWithRua VCR — no app needed.",
+    date: "2026-03-21",
+    category: "Voice Rooms",
+    color: "#E24B4A",
+    readTime: "5 min read"
+  },
+  // ── existing posts below — untouched ──
   // ✅ NEW POST — added at TOP so it shows as featured
   {
     slug: "who-is-master-rua-seekhowithrua-story-2026",

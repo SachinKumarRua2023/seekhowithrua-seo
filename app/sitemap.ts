@@ -68,6 +68,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/mobile-app-development`, lastModified: now, priority: 0.9, changeFrequency: "weekly" },
   ];
 
+  // ── 5 new blog posts — added manually since getPostSlugs() may not pick them up immediately ──
+  const newBlogRoutes: MetadataRoute.Sitemap = [
+    { url: `${base}/blog/memory-enhancement-game-online-india-2026`, lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${base}/blog/free-fire-style-study-game-india-2026`, lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${base}/blog/3d-animation-data-science-course-india-2026`, lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${base}/blog/hire-game-developer-india-2026`, lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${base}/blog/live-voice-chat-room-it-students-india-2026`, lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
+  ];
+
   const blogRoutes: MetadataRoute.Sitemap = getPostSlugs().map(slug => ({
     url: `${base}/blog/${slug}`,
     lastModified: now,
@@ -75,5 +84,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  return [...staticRoutes, ...courseRoutes, ...dsExtra, ...blogRoutes];
+  return [...staticRoutes, ...courseRoutes, ...dsExtra, ...newBlogRoutes, ...blogRoutes];
 }
