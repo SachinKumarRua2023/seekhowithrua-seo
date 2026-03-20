@@ -1,7 +1,11 @@
+// ═══════════════════════════════════════════════════════════════
+// REPO FILE:  seekhowithrua-seo/app/sitemap.ts
+// ACTION:     REPLACE existing sitemap.ts with this file
+// ═══════════════════════════════════════════════════════════════
+
 // ============================================================
 // FILE LOCATION: seekhowithrua-seo/app/sitemap.ts
-// ACTION: REPLACE the existing sitemap.ts inside app/
-// NOTE: This auto-generates 200+ URLs for Google Search Console
+// ACTION: REPLACE existing sitemap.ts
 // ============================================================
 
 import type { MetadataRoute } from "next";
@@ -18,11 +22,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/login`, lastModified: now, priority: 0.5, changeFrequency: "monthly" },
     { url: `${base}/signup`, lastModified: now, priority: 0.6, changeFrequency: "monthly" },
 
-    // ── Voice Rooms (VCR) — high priority for all keyword clusters ──
+    // ── Master Rua ───────────────────────────────────────────────────────────
+    { url: `${base}/master-rua`, lastModified: now, priority: 0.85, changeFrequency: "weekly" },
+
+    // ── Voice Rooms ──────────────────────────────────────────────────────────
     { url: `${base}/voice-rooms`, lastModified: now, priority: 0.9, changeFrequency: "weekly" },
-    // Alternate slugs — catch searchers using different terms
-    // These can be simple redirects in next.config.js pointing to /voice-rooms
-    // OR individual pages if you want unique content per cluster
+
+    // ── Gaming Lab ───────────────────────────────────────────────────────────
+    { url: `${base}/gaming-lab`, lastModified: now, priority: 0.9, changeFrequency: "weekly" },
+    { url: `${base}/gaming-lab/memory-game`, lastModified: now, priority: 0.8, changeFrequency: "weekly" },
+    { url: `${base}/gaming-lab/quiz-battle`, lastModified: now, priority: 0.8, changeFrequency: "weekly" },
+    { url: `${base}/gaming-lab/hatim-quest`, lastModified: now, priority: 0.8, changeFrequency: "weekly" },
+
+    // ── Animation Lab ────────────────────────────────────────────────────────
+    { url: `${base}/animation-lab`, lastModified: now, priority: 0.9, changeFrequency: "weekly" },
+    { url: `${base}/animation-lab/data-science`, lastModified: now, priority: 0.75, changeFrequency: "monthly" },
+    { url: `${base}/animation-lab/ai-course`, lastModified: now, priority: 0.75, changeFrequency: "monthly" },
+    { url: `${base}/animation-lab/full-stack-development`, lastModified: now, priority: 0.75, changeFrequency: "monthly" },
+    { url: `${base}/animation-lab/game-development`, lastModified: now, priority: 0.75, changeFrequency: "monthly" },
+    { url: `${base}/animation-lab/python-programming-course`, lastModified: now, priority: 0.75, changeFrequency: "monthly" },
+    { url: `${base}/animation-lab/iot-robotics`, lastModified: now, priority: 0.75, changeFrequency: "monthly" },
+    { url: `${base}/animation-lab/mobile-app-development`, lastModified: now, priority: 0.75, changeFrequency: "monthly" },
+    { url: `${base}/animation-lab/web-development-course`, lastModified: now, priority: 0.75, changeFrequency: "monthly" },
+
+    // ── Services ─────────────────────────────────────────────────────────────
+    { url: `${base}/services`, lastModified: now, priority: 0.9, changeFrequency: "weekly" },
+    { url: `${base}/services/game-development`, lastModified: now, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${base}/services/web-app-development`, lastModified: now, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${base}/services/mobile-app-development`, lastModified: now, priority: 0.8, changeFrequency: "monthly" },
   ];
 
   const courseRoutes: MetadataRoute.Sitemap = Object.entries(ALL_COURSES).flatMap(([slug, course]) => [

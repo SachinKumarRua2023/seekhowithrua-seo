@@ -178,6 +178,10 @@ export default function Navbar() {
             <Link href="/master-rua" className="nv-link nv-link-rua">👑 Master Rua</Link>
             {/* ── ADDED: Voice Rooms link ── */}
             <Link href="/voice-rooms" className="nv-link nv-link-vcr">🔴 Voice Rooms</Link>
+            {/* ── ADDED: Gaming Lab, Animation Lab, Services ── */}
+            <Link href="/gaming-lab" className="nv-link nv-link-game">🎮 Gaming Lab</Link>
+            <Link href="/animation-lab" className="nv-link nv-link-anim">✨ Animation Lab</Link>
+            <Link href="/services" className="nv-link nv-link-svc">🛠️ Services</Link>
             <a href="https://app.seekhowithrua.com" className="nv-link" target="_blank" rel="noopener">Platform</a>
           </nav>
 
@@ -241,6 +245,10 @@ export default function Navbar() {
             <Link href="/master-rua" className="mob-lnk" onClick={() => setMenuOpen(false)}>👑 Master Rua</Link>
             {/* ── ADDED: Voice Rooms mobile link ── */}
             <Link href="/voice-rooms" className="mob-lnk mob-lnk-vcr" onClick={() => setMenuOpen(false)}>🔴 Voice Rooms</Link>
+            {/* ── ADDED: Gaming Lab, Animation Lab, Services mobile ── */}
+            <Link href="/gaming-lab" className="mob-lnk mob-lnk-game" onClick={() => setMenuOpen(false)}>🎮 Gaming Lab</Link>
+            <Link href="/animation-lab" className="mob-lnk mob-lnk-anim" onClick={() => setMenuOpen(false)}>✨ Animation Lab</Link>
+            <Link href="/services" className="mob-lnk mob-lnk-svc" onClick={() => setMenuOpen(false)}>🛠️ Services</Link>
             <a href="https://app.seekhowithrua.com" className="mob-lnk" onClick={() => setMenuOpen(false)}>🚀 Platform</a>
           </div>
 
@@ -338,6 +346,13 @@ export default function Navbar() {
         /* ── ADDED: Voice Rooms nav style — red live glow ── */
         .nv-link-vcr { color:rgba(252,165,165,.85); }
         .nv-link-vcr:hover { color:#fca5a5;background:rgba(226,75,74,.08);border-color:rgba(226,75,74,.25);box-shadow:0 0 14px rgba(226,75,74,.15); }
+        /* ── ADDED: Gaming Lab, Animation Lab, Services nav styles ── */
+        .nv-link-game { color:rgba(251,191,36,.8); }
+        .nv-link-game:hover { color:#fbbf24;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);box-shadow:0 0 14px rgba(245,158,11,.15); }
+        .nv-link-anim { color:rgba(110,231,183,.8); }
+        .nv-link-anim:hover { color:#6ee7b7;background:rgba(29,158,117,.08);border-color:rgba(29,158,117,.25);box-shadow:0 0 14px rgba(29,158,117,.15); }
+        .nv-link-svc { color:rgba(196,181,253,.8); }
+        .nv-link-svc:hover { color:#c4b5fd;background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.25);box-shadow:0 0 14px rgba(124,58,237,.15); }
 
         .nv-chev { width:10px;height:10px;transition:transform .2s;flex-shrink:0; }
         .nv-chev.open { transform:rotate(180deg); }
@@ -447,6 +462,13 @@ export default function Navbar() {
         /* ── ADDED: Voice Rooms mobile style ── */
         .mob-lnk-vcr { border-color:rgba(226,75,74,.2);color:rgba(252,165,165,.85); }
         .mob-lnk-vcr:hover { background:rgba(226,75,74,.08);color:#fca5a5;border-color:rgba(226,75,74,.3); }
+        /* ── ADDED: Gaming Lab, Animation Lab, Services mobile styles ── */
+        .mob-lnk-game { border-color:rgba(245,158,11,.2);color:rgba(251,191,36,.85); }
+        .mob-lnk-game:hover { background:rgba(245,158,11,.08);color:#fbbf24;border-color:rgba(245,158,11,.3); }
+        .mob-lnk-anim { border-color:rgba(29,158,117,.2);color:rgba(110,231,183,.85); }
+        .mob-lnk-anim:hover { background:rgba(29,158,117,.08);color:#6ee7b7;border-color:rgba(29,158,117,.3); }
+        .mob-lnk-svc { border-color:rgba(124,58,237,.2);color:rgba(196,181,253,.85); }
+        .mob-lnk-svc:hover { background:rgba(124,58,237,.08);color:#c4b5fd;border-color:rgba(124,58,237,.3); }
 
         .mob-auth { padding:12px 20px 20px;display:flex;flex-direction:column;gap:8px; }
         .mob-li { display:block;padding:12px;text-align:center;border-radius:10px;
