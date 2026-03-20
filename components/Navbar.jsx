@@ -174,15 +174,11 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link href="/blog" className="nv-link">Blog</Link>
-            <Link href="/master-rua" className="nv-link nv-link-rua">👑 Master Rua</Link>
-            {/* ── ADDED: Voice Rooms link ── */}
+            {/* ── VISIBLE ON DESKTOP: Courses, Voice Rooms, Gaming Lab, Animation Lab ── */}
             <Link href="/voice-rooms" className="nv-link nv-link-vcr">🔴 Voice Rooms</Link>
-            {/* ── ADDED: Gaming Lab, Animation Lab, Services ── */}
             <Link href="/gaming-lab" className="nv-link nv-link-game">🎮 Gaming Lab</Link>
             <Link href="/animation-lab" className="nv-link nv-link-anim">✨ Animation Lab</Link>
-            <Link href="/services" className="nv-link nv-link-svc">🛠️ Services</Link>
-            <a href="https://app.seekhowithrua.com" className="nv-link" target="_blank" rel="noopener">Platform</a>
+            {/* Blog, Master Rua, Services, Platform → hamburger menu only */}
           </nav>
 
           {/* ── RIGHT ── */}
@@ -241,14 +237,13 @@ export default function Navbar() {
           </div>
 
           <div className="mob-row">
-            <Link href="/blog" className="mob-lnk" onClick={() => setMenuOpen(false)}>✍️ Blog</Link>
-            <Link href="/master-rua" className="mob-lnk" onClick={() => setMenuOpen(false)}>👑 Master Rua</Link>
-            {/* ── ADDED: Voice Rooms mobile link ── */}
+            {/* ── ALL links available in hamburger ── */}
             <Link href="/voice-rooms" className="mob-lnk mob-lnk-vcr" onClick={() => setMenuOpen(false)}>🔴 Voice Rooms</Link>
-            {/* ── ADDED: Gaming Lab, Animation Lab, Services mobile ── */}
             <Link href="/gaming-lab" className="mob-lnk mob-lnk-game" onClick={() => setMenuOpen(false)}>🎮 Gaming Lab</Link>
             <Link href="/animation-lab" className="mob-lnk mob-lnk-anim" onClick={() => setMenuOpen(false)}>✨ Animation Lab</Link>
             <Link href="/services" className="mob-lnk mob-lnk-svc" onClick={() => setMenuOpen(false)}>🛠️ Services</Link>
+            <Link href="/blog" className="mob-lnk" onClick={() => setMenuOpen(false)}>✍️ Blog</Link>
+            <Link href="/master-rua" className="mob-lnk mob-lnk-rua" onClick={() => setMenuOpen(false)}>👑 Master Rua</Link>
             <a href="https://app.seekhowithrua.com" className="mob-lnk" onClick={() => setMenuOpen(false)}>🚀 Platform</a>
           </div>
 
@@ -462,6 +457,9 @@ export default function Navbar() {
         /* ── ADDED: Voice Rooms mobile style ── */
         .mob-lnk-vcr { border-color:rgba(226,75,74,.2);color:rgba(252,165,165,.85); }
         .mob-lnk-vcr:hover { background:rgba(226,75,74,.08);color:#fca5a5;border-color:rgba(226,75,74,.3); }
+        /* ── ADDED: Master Rua mobile style ── */
+        .mob-lnk-rua { border-color:rgba(251,191,36,.2);color:rgba(251,191,36,.85); }
+        .mob-lnk-rua:hover { background:rgba(251,191,36,.08);color:#fbbf24;border-color:rgba(251,191,36,.3); }
         /* ── ADDED: Gaming Lab, Animation Lab, Services mobile styles ── */
         .mob-lnk-game { border-color:rgba(245,158,11,.2);color:rgba(251,191,36,.85); }
         .mob-lnk-game:hover { background:rgba(245,158,11,.08);color:#fbbf24;border-color:rgba(245,158,11,.3); }
@@ -485,7 +483,7 @@ export default function Navbar() {
                    border:1px solid rgba(248,113,113,.15);color:#f87171;
                    font-family:'Syne',sans-serif;font-weight:600;font-size:14px;cursor:pointer; }
 
-        @media(max-width:960px) {
+        @media(max-width:1100px) {
           .nv-center,.nv-in,.nv-up { display:none!important; }
           .nv-ham { display:flex; }
           .nv-mob { display:flex; }
