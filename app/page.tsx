@@ -124,17 +124,50 @@ const STATS = [
   { num: "45+", label: "Deployments" },
 ];
 
+// ── UPDATED: correct URLs + added Gaming, Animation Lab, Services ──────────────
 const ECOSYSTEM = [
-  { label: "Learning App", url: "https://app.seekhowithrua.com", icon: "🚀", desc: "Full LMS platform" },
-  { label: "Gaming Lab", url: "https://gaming.seekhowithrua.com", icon: "🎮", desc: "3D character engine" },
-  { label: "Animation Lab", url: "https://animationlab.seekhowithrua.com", icon: "✨", desc: "Visual learning tools" },
-  { label: "Services", url: "https://services.seekhowithrua.com", icon: "🛠️", desc: "Hire our team" },
+  { label: "Learning App",    url: "https://app.seekhowithrua.com",           icon: "🚀", desc: "Full LMS platform" },
+  { label: "Gaming Lab",      url: "https://gaming.seekhowithrua.com",        icon: "🎮", desc: "3D battle & game engine" },
+  { label: "Animation Lab",   url: "https://animationlab.seekhowithrua.com",  icon: "✨", desc: "Visual learning tools" },
+  { label: "Services",        url: "https://services.seekhowithrua.com",      icon: "🛠️", desc: "Hire our team" },
 ];
 
 const TESTIMONIALS = [
   { name: "Rahul Sharma", role: "ML Engineer @ Startup", text: "Master Rua's UEEP model changed how I learn. Got my first ML job in 4 months.", avatar: "RS" },
   { name: "Priya Patel", role: "React Native Dev", text: "The mobile dev course is insanely detailed. Built and published my first app!", avatar: "PP" },
   { name: "Arjun Verma", role: "Freelancer, USA Client", text: "Learned full stack here. Now earning ₹2L/month freelancing for US clients.", avatar: "AV" },
+];
+
+// ── NEW: RUA vision pillars ───────────────────────────────────────────────────
+const VISION_PILLARS = [
+  {
+    icon: "🧠",
+    color: "#00d4ff",
+    title: "Memory Science",
+    sub: "Not just learning — permanent encoding",
+    body: "WMSC-level memory techniques. Students who couldn't recall 20 words were memorising 400 numbers in 21 days. The same tools memory trainers charge ₹1 lakh to teach — free here.",
+  },
+  {
+    icon: "🎮",
+    color: "#f59e0b",
+    title: "Learn by Playing",
+    sub: "HatimAI Game Mode · Battle Zone",
+    body: "3D dungeon where real problems block your path. Multiplayer quiz battles where your score is your armor. When you're stuck in a game, your brain encodes the solution permanently.",
+  },
+  {
+    icon: "🥋",
+    color: "#a855f7",
+    title: "Right Unique Allrounder",
+    sub: "RUA = the human AI can't replace",
+    body: "AI masters one skill. You master many. Kung Fu + Coding + Memory + Philosophy = irreplaceable. The Mr. Rua and Master Rua titles are earned — not given. No other platform rewards this.",
+  },
+  {
+    icon: "🔴",
+    color: "#1D9E75",
+    title: "Live Voice Rooms",
+    sub: "Learn · Debate · Get Hired",
+    body: "WebRTC-powered free voice rooms. Learn from experts. Join philosophy debates. Companies post hiring rooms. 1,000 followers = monetisation unlocks. This is YouTube for knowledge.",
+  },
 ];
 
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
@@ -247,6 +280,48 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* ── NEW: VISION SECTION ─────────────────────────────────────────── */}
+        <section className="section vision-section" aria-label="Vision">
+          <div className="section-inner">
+            <div className="section-tag">WHY SEEKHOWITHRUA IS DIFFERENT</div>
+            <h2 className="section-title">
+              Not just EdTech. A <span className="accent-purple">Movement.</span>
+            </h2>
+            <p className="section-desc">
+              AI can master one skill. We build humans who can't be replaced — Right Unique Allrounders who combine tech, memory science, physical discipline and creative thinking.
+              <br /><br />
+              <em style={{ color: "rgba(0,212,255,0.7)", fontStyle: "italic" }}>
+                "Be a Rider, Not a Runner." — Master Rua
+              </em>
+            </p>
+            <div className="vision-grid">
+              {VISION_PILLARS.map((p) => (
+                <div key={p.title} className="vision-card" style={{ "--vc": p.color } as any}>
+                  <div className="vc-icon-wrap" style={{ background: p.color + "14", border: `1px solid ${p.color}30` }}>
+                    <span className="vc-icon">{p.icon}</span>
+                  </div>
+                  <div className="vc-content">
+                    <div className="vc-title">{p.title}</div>
+                    <div className="vc-sub" style={{ color: p.color }}>{p.sub}</div>
+                    <p className="vc-body">{p.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* UEEP bar */}
+            <div className="ueep-bar">
+              {["Understand", "Execute", "Explain", "Practice"].map((step, i) => (
+                <div key={step} className="ueep-step">
+                  <div className="ueep-num">{String(i + 1).padStart(2, "0")}</div>
+                  <div className="ueep-label">{step}</div>
+                  {i < 3 && <div className="ueep-connector" />}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        {/* ── END VISION SECTION ──────────────────────────────────────────── */}
 
         {/* ── COURSES ── */}
         <section className="section" aria-label="Courses">
@@ -586,6 +661,82 @@ export default function HomePage() {
           font-family: 'JetBrains Mono', monospace;
         }
 
+        /* ── VISION SECTION ── */
+        .vision-section {
+          background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.07) 0%, transparent 60%);
+        }
+        .vision-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 16px;
+          margin-bottom: 40px;
+        }
+        .vision-card {
+          display: flex; gap: 16px; align-items: flex-start;
+          padding: 24px; border-radius: 14px;
+          background: rgba(10,10,30,0.8);
+          border: 1px solid rgba(255,255,255,0.06);
+          border-left: 2px solid var(--vc);
+          transition: all 0.2s;
+        }
+        .vision-card:hover {
+          transform: translateY(-3px);
+          border-color: var(--vc);
+          box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .vc-icon-wrap {
+          width: 44px; height: 44px; border-radius: 12px;
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0;
+        }
+        .vc-icon { font-size: 22px; }
+        .vc-content { flex: 1; min-width: 0; }
+        .vc-title {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 16px; font-weight: 700; color: #fff;
+          margin-bottom: 3px;
+        }
+        .vc-sub {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 9px; letter-spacing: 1px;
+          text-transform: uppercase; margin-bottom: 10px;
+        }
+        .vc-body {
+          font-size: 12px; color: rgba(255,255,255,0.45);
+          line-height: 1.75; font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ── UEEP BAR ── */
+        .ueep-bar {
+          display: flex; align-items: center; justify-content: center;
+          gap: 0; flex-wrap: wrap;
+          padding: 24px 32px;
+          background: rgba(10,10,30,0.6);
+          border: 1px solid rgba(124,58,237,0.15);
+          border-radius: 14px;
+          position: relative;
+        }
+        .ueep-step {
+          display: flex; align-items: center; gap: 0;
+        }
+        .ueep-num {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 9px; color: rgba(124,58,237,0.6);
+          margin-right: 6px;
+        }
+        .ueep-label {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.8);
+          letter-spacing: 1px; padding: 6px 16px;
+          border: 1px solid rgba(124,58,237,0.2);
+          border-radius: 20px; background: rgba(124,58,237,0.07);
+        }
+        .ueep-connector {
+          width: 40px; height: 1px;
+          background: linear-gradient(90deg, rgba(124,58,237,0.4), rgba(0,212,255,0.4));
+          margin: 0 4px;
+        }
+
         /* ── COURSES GRID ── */
         .courses-grid {
           display: grid;
@@ -744,6 +895,9 @@ export default function HomePage() {
           .blog-grid { grid-template-columns: 1fr; }
           .hero-stats { gap: 16px; }
           .hero-btns { flex-direction: column; }
+          .vision-grid { grid-template-columns: 1fr; }
+          .ueep-bar { gap: 8px; padding: 16px; }
+          .ueep-connector { width: 16px; }
         }
       `}</style>
     </>

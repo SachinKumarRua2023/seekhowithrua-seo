@@ -28,6 +28,16 @@ const POSTS = [
     color: "#fbbf24",
     readTime: "7 min read"
   },
+  // ✅ NEW POST — Mission & Vision with full research evidence
+  {
+    slug: "seekhowithrua-mission-vision-evidence-2026",
+    title: "SeekhoWithRua Mission & Vision 2026 — The Scientific Evidence That Will Change How India Learns",
+    excerpt: "Why the current education system is broken — backed by 10+ peer-reviewed studies. And how SeekhoWithRua's UEEP Model, 3D learning, gamification and memory science are the scientifically-proven answer.",
+    date: "2026-03-20",
+    category: "Mission",
+    color: "#00d4ff",
+    readTime: "12 min read"
+  },
   {
     slug: "how-to-learn-machine-learning-india-2025",
     title: "How to Learn Machine Learning in India 2026 — Complete Roadmap",
