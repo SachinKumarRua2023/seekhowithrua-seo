@@ -208,9 +208,7 @@ export default function Navbar() {
               </>
             )}
             <button className="nv-ham" onClick={() => setMenuOpen(p => !p)} aria-label="Menu">
-              <span className={menuOpen ? "h1o" : "h1"} />
-              <span className={menuOpen ? "h2o" : "h2"} />
-              <span className={menuOpen ? "h3o" : "h3"} />
+              {menuOpen ? "✕" : "☰"}
             </button>
           </div>
         </div>
@@ -422,16 +420,12 @@ export default function Navbar() {
         .nv-arr { transition:transform .2s; }
         .nv-up:hover .nv-arr { transform:translateX(3px); }
 
-        .nv-ham { display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;
-                  padding:8px;border-radius:8px;transition:background .2s; }
-        .nv-ham:hover { background:rgba(255,255,255,.06); }
-        .nv-ham span { display:block;height:2px;width:22px;background:rgba(255,255,255,.8);
-                       border-radius:2px;transition:all .3s ease; }
-        .h1o { transform:rotate(45deg) translate(5px,5px)!important; }
-        .h2o { opacity:0!important;transform:scaleX(0)!important; }
-        .h3o { transform:rotate(-45deg) translate(5px,-5px)!important; }
+        .nv-ham { display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);cursor:pointer;
+                  padding:0;width:36px;height:36px;border-radius:8px;transition:background .2s;
+                  font-size:18px;color:rgba(255,255,255,.8);flex-shrink:0; }
+        .nv-ham:hover { background:rgba(255,255,255,.12);color:#fff; }
 
-        .nv-mob { position:relative;z-index:2;display:none;flex-direction:column;
+        .nv-mob { position:relative;z-index:2;display:flex;flex-direction:column;
                   background:rgba(3,3,14,.98);border-top:1px solid rgba(124,58,237,.1);
                   max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1); }
         .nv-mob.open { max-height:900px; }
@@ -486,7 +480,6 @@ export default function Navbar() {
         @media(max-width:1100px) {
           .nv-center,.nv-in,.nv-up { display:none!important; }
           .nv-ham { display:flex; }
-          .nv-mob { display:flex; }
         }
         @media(max-width:500px) {
           .nv-wrap { padding:0 16px; }
