@@ -422,7 +422,7 @@ export default function Navbar() {
         .nv-arr { transition:transform .2s; }
         .nv-up:hover .nv-arr { transform:translateX(3px); }
 
-        .nv-ham { display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;
+        .nv-ham { display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;
                   padding:8px;border-radius:8px;transition:background .2s; }
         .nv-ham:hover { background:rgba(255,255,255,.06); }
         .nv-ham span { display:block;height:2px;width:22px;background:rgba(255,255,255,.8);
