@@ -136,6 +136,7 @@ const TESTIMONIALS = [
   { name: "Rahul Sharma", role: "ML Engineer @ Startup", text: "Master Rua's UEEP model changed how I learn. Got my first ML job in 4 months.", avatar: "RS" },
   { name: "Priya Patel", role: "React Native Dev", text: "The mobile dev course is insanely detailed. Built and published my first app!", avatar: "PP" },
   { name: "Arjun Verma", role: "Freelancer, USA Client", text: "Learned full stack here. Now earning ₹2L/month freelancing for US clients.", avatar: "AV" },
+  { name: "Aditya Krishnamurthy", role: "CS Grad Student · MIT, USA", text: "I've studied at MIT and taken Coursera specialisations. SeekhoWithRua's visual-first approach and the UEEP model actually made neural networks click for me faster than any lecture ever did. The 3D animations are genuinely world-class.", avatar: "AK", highlight: true },
 ];
 
 // ── NEW: RUA vision pillars ───────────────────────────────────────────────────
@@ -169,6 +170,190 @@ const VISION_PILLARS = [
     body: "WebRTC-powered free voice rooms. Learn from experts. Join philosophy debates. Companies post hiring rooms. 1,000 followers = monetisation unlocks. This is YouTube for knowledge.",
   },
 ];
+
+// ── STUDENT FEEDBACK VIDEOS (real links from in-house training) ───────────────
+const FEEDBACK_VIDEOS = [
+  { title: "MIT College Student Feedback",  url: "https://www.youtube.com/embed/BZFBb3DBhLY", tag: "🎓 MIT, USA" },
+  { title: "Student Experience Review",     url: "https://www.youtube.com/embed/51-wVCd7dfI", tag: "⭐ In-House Training" },
+  { title: "Learning Journey Testimonial",  url: "https://www.youtube.com/embed/W43530w_3Mk", tag: "🚀 Ground Level Proof" },
+  { title: "Course Impact Feedback",        url: "https://www.youtube.com/embed/9gb9qf5ouWA", tag: "💡 Real Result" },
+];
+
+// ── RUABOT — 8 instant presets + optional Groq API fallback ──────────────────
+// Add NEXT_PUBLIC_GROQ_API_KEY to .env.local for live AI. Works without it too.
+const GROQ_KEY = typeof process !== "undefined"
+  ? (process.env?.NEXT_PUBLIC_GROQ_API_KEY ?? "")
+  : "";
+
+const PRESETS = [
+  { q: "What is SeekhoWithRua?",         a: "SeekhoWithRua is India's first AI + Gamified + Memory-Science learning ecosystem — built by Master Rua (Sachin Kumar). It combines 3D visual courses, HatimAI battle-zone games, live voice rooms and memory science to produce Right Unique Allrounders — humans AI can never replace." },
+  { q: "What courses are available?",    a: "8 free courses: AI & Machine Learning, Data Science, Full Stack Dev (React + Django), Mobile Apps (React Native + Expo), Game Development (Unity + Three.js), Python, IoT & Robotics, and Web Development. Start at seekhowithrua.com — no sign-up needed." },
+  { q: "What is the UEEP Model?",        a: "UEEP = Understand → Execute → Explain → Practice. Every lesson builds visual understanding via 3D animations, then you build something, explain to others (Protégé Effect), and review with AI-spaced repetition. Backed by 13 peer-reviewed research papers." },
+  { q: "What is the Master Rua title?",  a: "It's earned — not given. Learner Rua → Mr. Rua (tech + a physical or creative skill, 30-day challenge) → 👑 Master Rua (multi-domain mastery + community impact). Currently held by Sachin Kumar. You can start your journey at app.seekhowithrua.com." },
+  { q: "Is it really free?",             a: "Yes — all 8 courses, the Memory Champion Arena and Gaming Lab are completely free. The full learning app at app.seekhowithrua.com is free to join. No credit card required. Premium features are coming soon." },
+  { q: "Who is Master Rua?",             a: "Master Rua is Sachin Kumar — Full Stack Developer, AI/ML Trainer (USA clients at Xziant), Kung Fu practitioner, memory science expert and NLP practitioner. He trained 10–15 schools; students memorised 400 numbers in 21 days. He built this entire platform solo, while working full-time." },
+  { q: "How do I reach Master Rua?",     a: "WhatsApp: 8826776018 · Email: seekhowithrua@gmail.com · YouTube: @seekhowithrua_ · Instagram: @seekhowithrua_. The fastest response is WhatsApp. Direct mentorship available." },
+  { q: "What is the Gaming Lab?",        a: "gaming.seekhowithrua.com — a Three.js 3D character engine and the HatimAI Game Mode where real coding/ML problems block your path. Your quiz score = your armor in battle. Solve to progress. Multiplayer Free Fire-style battles and the Memory Champion Arena are coming next." },
+];
+
+// ── RUABOT COMPONENT ──────────────────────────────────────────────────────────
+function RuaBot() {
+  const [open, setOpen] = useState(false);
+  const [msgs, setMsgs] = useState<{ role: "bot" | "user"; text: string }[]>([
+    { role: "bot", text: "Namaste! 👋 I'm RuaBot — your guide to SeekhoWithRua. Pick a quick question below or type your own." },
+  ]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showPresets, setShowPresets] = useState(true);
+  const endRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
+
+  const send = async (text: string) => {
+    if (!text.trim() || loading) return;
+    setShowPresets(false);
+    setMsgs(prev => [...prev, { role: "user", text }]);
+    setInput("");
+    setLoading(true);
+
+    // Fuzzy preset match first — instant, no API needed
+    const lower = text.toLowerCase();
+    const hit = PRESETS.find(p =>
+      lower.includes(p.q.toLowerCase().split(" ").slice(1, 3).join(" ")) ||
+      p.q.toLowerCase().split(" ").some((w: string) => w.length > 4 && lower.includes(w))
+    );
+    if (hit) {
+      setTimeout(() => {
+        setMsgs(prev => [...prev, { role: "bot", text: hit.a }]);
+        setLoading(false);
+      }, 380);
+      return;
+    }
+
+    // Groq API fallback — only if env var is set
+    if (GROQ_KEY) {
+      try {
+        const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Authorization": `Bearer ${GROQ_KEY}` },
+          body: JSON.stringify({
+            model: "llama-3.3-70b-versatile",
+            max_tokens: 280,
+            temperature: 0.7,
+            messages: [
+              { role: "system", content: "You are RuaBot, the friendly assistant for SeekhoWithRua — India's AI + gamified + memory-science EdTech platform by Sachin Kumar (Master Rua). Answer in 2-3 concise sentences. Be warm and helpful. If unrelated, politely redirect to seekhowithrua.com." },
+              { role: "user", content: text },
+            ],
+          }),
+        });
+        const data = await res.json();
+        const reply = data.choices?.[0]?.message?.content
+          ?? "Try WhatsApp for a direct answer from Master Rua: 8826776018 🙏";
+        setMsgs(prev => [...prev, { role: "bot", text: reply }]);
+      } catch {
+        setMsgs(prev => [...prev, { role: "bot", text: "Oops — something went wrong. Reach Master Rua on WhatsApp: 8826776018 🙏" }]);
+      }
+    } else {
+      // No API key → graceful preset-style fallback
+      setMsgs(prev => [...prev, { role: "bot", text: "Great question! Explore seekhowithrua.com for the full answer — or WhatsApp Master Rua directly: 8826776018. The fastest answers come from him directly 🙏" }]);
+    }
+    setLoading(false);
+  };
+
+  const onKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") send(input);
+  };
+
+  return (
+    <>
+      {/* ── Floating trigger ── */}
+      {!open && (
+        <button
+          onClick={() => setOpen(true)}
+          aria-label="Open RuaBot chat"
+          style={{ position: "fixed", bottom: 24, right: 24, zIndex: 999, width: 58, height: 58, borderRadius: "50%", background: "linear-gradient(135deg,#7c3aed,#00d4ff)", border: "none", cursor: "pointer", fontSize: 26, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 24px rgba(124,58,237,0.55)", animation: "rbPulse 2.8s ease-in-out infinite" }}
+        >🤖</button>
+      )}
+
+      {/* ── Chat window ── */}
+      {open && (
+        <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 1000, width: "min(360px,calc(100vw - 32px))", height: "min(530px,calc(100vh - 48px))", background: "#04040f", border: "1px solid rgba(124,58,237,0.3)", borderRadius: 20, display: "flex", flexDirection: "column", overflow: "hidden", boxShadow: "0 24px 64px rgba(0,0,0,0.75),0 0 32px rgba(124,58,237,0.12)", animation: "rbOpen 0.3s cubic-bezier(0.34,1.56,0.64,1)" }}>
+
+          {/* Header */}
+          <div style={{ padding: "13px 16px", background: "linear-gradient(135deg,rgba(124,58,237,0.22),rgba(0,212,255,0.08))", borderBottom: "1px solid rgba(124,58,237,0.18)", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 38, height: 38, borderRadius: "50%", background: "linear-gradient(135deg,#7c3aed,#00d4ff)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20 }}>🤖</div>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "#fff", letterSpacing: 0.3 }}>RuaBot</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 5, marginTop: 2 }}>
+                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: loading ? "#f59e0b" : "#22c55e" }} />
+                  <span style={{ fontSize: 9, color: loading ? "#f59e0b" : "#22c55e", letterSpacing: 0.5 }}>
+                    {loading ? "Thinking…" : "Online · SeekhoWithRua Guide"}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <button onClick={() => setOpen(false)} style={{ width: 28, height: 28, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.12)", background: "rgba(255,255,255,0.04)", cursor: "pointer", color: "#6b7280", fontSize: 14, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+          </div>
+
+          {/* Messages */}
+          <div style={{ flex: 1, overflowY: "auto", padding: "14px 12px", display: "flex", flexDirection: "column", gap: 10, scrollbarWidth: "thin", scrollbarColor: "#1a1a2e transparent" }}>
+            {msgs.map((m, i) => (
+              <div key={i} style={{ display: "flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start", animation: "rbFade 0.25s ease" }}>
+                <div style={{ maxWidth: "84%", padding: "10px 14px", borderRadius: m.role === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px", background: m.role === "user" ? "linear-gradient(135deg,#4c1d95,#0c4a6e)" : "rgba(15,15,35,0.95)", border: `1px solid ${m.role === "user" ? "rgba(124,58,237,0.28)" : "rgba(255,255,255,0.06)"}`, color: m.role === "user" ? "#e0e7ff" : "#e2e8f0", fontSize: 13, lineHeight: 1.75 }}>
+                  {m.text}
+                </div>
+              </div>
+            ))}
+            {loading && (
+              <div style={{ display: "flex" }}>
+                <div style={{ padding: "10px 16px", borderRadius: "16px 16px 16px 4px", background: "rgba(15,15,35,0.95)", border: "1px solid rgba(255,255,255,0.06)", display: "flex", gap: 5, alignItems: "center" }}>
+                  {[0,1,2].map(i => <div key={i} style={{ width: 6, height: 6, borderRadius: "50%", background: "#7c3aed", animation: `rbDot 1.2s ${i*0.2}s infinite` }} />)}
+                </div>
+              </div>
+            )}
+            {showPresets && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 6 }}>
+                <div style={{ fontSize: 9, color: "rgba(255,255,255,0.22)", letterSpacing: 2, paddingLeft: 2 }}>QUICK QUESTIONS</div>
+                {PRESETS.map((p, i) => (
+                  <button key={i} onClick={() => send(p.q)}
+                    style={{ padding: "8px 13px", background: "rgba(124,58,237,0.07)", border: "1px solid rgba(124,58,237,0.18)", borderRadius: 10, color: "rgba(255,255,255,0.6)", fontSize: 12, cursor: "pointer", textAlign: "left", fontFamily: "inherit", transition: "all 0.15s" }}
+                    onMouseEnter={e => { const el = e.currentTarget; el.style.background = "rgba(124,58,237,0.18)"; el.style.color = "#fff"; }}
+                    onMouseLeave={e => { const el = e.currentTarget; el.style.background = "rgba(124,58,237,0.07)"; el.style.color = "rgba(255,255,255,0.6)"; }}
+                  >{p.q}</button>
+                ))}
+              </div>
+            )}
+            <div ref={endRef} />
+          </div>
+
+          {/* Input bar */}
+          <div style={{ padding: "10px 12px 14px", borderTop: "1px solid rgba(124,58,237,0.12)", flexShrink: 0, display: "flex", gap: 8, background: "rgba(4,4,15,0.9)" }}>
+            <input
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={onKey}
+              placeholder="Type your question…"
+              style={{ flex: 1, padding: "10px 14px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(124,58,237,0.22)", borderRadius: 10, color: "#e2e8f0", fontSize: 13, fontFamily: "inherit", outline: "none" }}
+            />
+            <button
+              onClick={() => send(input)}
+              disabled={loading || !input.trim()}
+              style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: input.trim() ? "linear-gradient(135deg,#7c3aed,#00d4ff)" : "rgba(255,255,255,0.05)", cursor: input.trim() ? "pointer" : "not-allowed", color: "#fff", fontSize: 17, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, transition: "all 0.2s" }}
+            >→</button>
+          </div>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes rbPulse { 0%,100%{box-shadow:0 4px 24px rgba(124,58,237,0.55)} 50%{box-shadow:0 4px 40px rgba(124,58,237,0.85),0 0 60px rgba(0,212,255,0.2)} }
+        @keyframes rbOpen  { from{opacity:0;transform:scale(0.88) translateY(18px)} to{opacity:1;transform:scale(1) translateY(0)} }
+        @keyframes rbDot   { 0%,80%,100%{transform:scale(0.6);opacity:0.3} 40%{transform:scale(1);opacity:1} }
+        @keyframes rbFade  { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+      `}</style>
+    </>
+  );
+}
 
 // ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 export default function HomePage() {
@@ -407,6 +592,38 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── STUDENT FEEDBACK VIDEOS ── */}
+        <section className="section" aria-label="Student Feedback">
+          <div className="section-inner">
+            <div className="section-tag">IN-HOUSE TRAINING · GROUND PROOF</div>
+            <h2 className="section-title">
+              Real Feedback from <span className="accent-purple">Real Sessions</span>
+            </h2>
+            <p className="section-desc" style={{ marginBottom: 32 }}>
+              Not testimonial screenshots — actual video feedback from students who were trained on the ground, including an MIT student from the USA.
+            </p>
+            <div className="feedback-grid">
+              {FEEDBACK_VIDEOS.map((v) => (
+                <div key={v.url} className="feedback-card">
+                  <div className="feedback-tag">{v.tag}</div>
+                  <div className="feedback-iframe-wrap">
+                    <iframe
+                      src={v.url}
+                      title={v.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      style={{ width: "100%", height: "100%", borderRadius: 8 }}
+                    />
+                  </div>
+                  <div className="feedback-title">{v.title}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── BLOG PREVIEW ── */}
         <section className="section" aria-label="Blog">
           <div className="section-inner">
@@ -451,6 +668,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* ── RUABOT ── */}
+        <RuaBot />
 
         {/* ── SEO HIDDEN CONTENT ── */}
         <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", fontSize: "1px" }}>
@@ -878,6 +1098,40 @@ export default function HomePage() {
           font-family: 'JetBrains Mono', monospace;
         }
 
+        /* ── FEEDBACK VIDEOS ── */
+        .feedback-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 20px;
+        }
+        .feedback-card {
+          display: flex; flex-direction: column; gap: 10px;
+          padding: 16px; border-radius: 14px;
+          background: rgba(10,10,30,0.8);
+          border: 1px solid rgba(255,255,255,0.07);
+          transition: transform 0.2s, border-color 0.2s;
+        }
+        .feedback-card:hover { transform: translateY(-3px); border-color: rgba(124,58,237,0.3); }
+        .feedback-tag {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 9px; letter-spacing: 2px;
+          color: #7c3aed; text-transform: uppercase;
+        }
+        .feedback-iframe-wrap {
+          position: relative; width: 100%; padding-top: 56.25%;
+          border-radius: 8px; overflow: hidden;
+          background: rgba(0,0,0,0.4);
+        }
+        .feedback-iframe-wrap iframe {
+          position: absolute; top: 0; left: 0;
+          width: 100%; height: 100%; border-radius: 8px;
+        }
+        .feedback-title {
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 13px; font-weight: 600;
+          color: rgba(255,255,255,0.65); line-height: 1.4;
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
           .hero { padding: 100px 20px 60px; }
@@ -893,6 +1147,7 @@ export default function HomePage() {
           .eco-grid { grid-template-columns: 1fr 1fr; }
           .testi-grid { grid-template-columns: 1fr; }
           .blog-grid { grid-template-columns: 1fr; }
+          .feedback-grid { grid-template-columns: 1fr; }
           .hero-stats { gap: 16px; }
           .hero-btns { flex-direction: column; }
           .vision-grid { grid-template-columns: 1fr; }
