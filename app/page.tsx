@@ -441,8 +441,24 @@ export default function HomePage() {
             <div className="hero-right">
               <div className="master-card">
                 <div className="master-avatar">
+                  {/* Aura layers — 3 rings + spinning border */}
+                  <div className="aura-ring aura-r3" />
+                  <div className="aura-ring aura-r2" />
                   <div className="avatar-ring" />
-                  <div className="avatar-inner">MR</div>
+                  {/* Real photo — place master-rua.jpg in /public/ */}
+                  <div className="avatar-inner">
+                    <img
+                      src="/master-rua.jpeg"
+                      alt="Sachin Kumar — Master Rua"
+                      className="avatar-photo"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display = "none";
+                        const fb = e.currentTarget.nextElementSibling as HTMLElement;
+                        if (fb) fb.style.display = "flex";
+                      }}
+                    />
+                    <span className="avatar-fallback">MR</span>
+                  </div>
                   <div className="avatar-badge">🟢 LIVE</div>
                 </div>
                 <h2 className="master-name">Sachin Kumar</h2>
@@ -785,20 +801,61 @@ export default function HomePage() {
           box-shadow: 0 0 60px rgba(124,58,237,0.1);
         }
         .master-avatar { position: relative; display: inline-block; margin-bottom: 20px; }
+
+        /* ── Aura pulse rings ── */
+        .aura-ring {
+          position: absolute; border-radius: 50%;
+          pointer-events: none;
+        }
+        .aura-r3 {
+          inset: -22px;
+          background: radial-gradient(ellipse at center,
+            rgba(124,58,237,0.18) 0%, rgba(0,212,255,0.10) 45%, transparent 70%);
+          animation: auraPulse 3s ease-in-out infinite;
+        }
+        .aura-r2 {
+          inset: -13px;
+          background: radial-gradient(ellipse at center,
+            rgba(0,212,255,0.22) 0%, rgba(124,58,237,0.14) 50%, transparent 70%);
+          animation: auraPulse 3s ease-in-out infinite 0.6s;
+        }
+        @keyframes auraPulse {
+          0%,100% { opacity: 0.6; transform: scale(1); }
+          50%      { opacity: 1;   transform: scale(1.06); }
+        }
+
+        /* ── Spinning gradient border ── */
         .avatar-ring {
           position: absolute; inset: -8px;
           border-radius: 50%;
           border: 2px solid transparent;
-          background: linear-gradient(135deg, #7c3aed, #00d4ff) border-box;
+          background: linear-gradient(135deg, #7c3aed, #00d4ff, #a855f7, #7c3aed) border-box;
           -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
           -webkit-mask-composite: destination-out;
-          animation: spin 8s linear infinite;
+          mask-composite: exclude;
+          animation: spin 5s linear infinite;
+          box-shadow: 0 0 18px rgba(124,58,237,0.5), 0 0 36px rgba(0,212,255,0.2);
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Photo container ── */
         .avatar-inner {
-          width: 80px; height: 80px; border-radius: 50%;
+          width: 96px; height: 96px; border-radius: 50%;
           background: linear-gradient(135deg, #7c3aed, #00d4ff);
           display: flex; align-items: center; justify-content: center;
+          overflow: hidden; position: relative;
+          box-shadow: 0 0 24px rgba(124,58,237,0.4), inset 0 0 12px rgba(0,212,255,0.1);
+        }
+        .avatar-photo {
+          width: 100%; height: 100%;
+          object-fit: cover; object-position: top center;
+          border-radius: 50%; display: block;
+        }
+        /* Fallback initials — shown only when image fails */
+        .avatar-fallback {
+          display: none;
+          position: absolute; inset: 0;
+          align-items: center; justify-content: center;
           font-family: 'Rajdhani', sans-serif;
           font-size: 28px; font-weight: 700; color: #fff;
         }
