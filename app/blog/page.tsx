@@ -1,7 +1,7 @@
 // ============================================================
 // FILE LOCATION: seekhowithrua-seo/app/blog/page.tsx
-// ACTION: REPLACE — 5 new SEO posts added to POSTS array (top)
-//         Nothing else changed
+// CLEAN VERSION — 32 posts, zero duplicates, correct order
+// Newest post first (featured), all slugs match [slug]/page.tsx
 // ============================================================
 
 import type { Metadata } from "next";
@@ -19,118 +19,215 @@ export const metadata: Metadata = {
   },
 };
 
+// ─────────────────────────────────────────────────────────────
+// POSTS — 32 unique entries, no duplicates
+// RULE: Every slug here MUST have a matching entry in [slug]/page.tsx
+// RULE: Newest date first (index 0 = featured post)
+// ─────────────────────────────────────────────────────────────
 const POSTS = [
-  // ── 5 NEW SEO posts targeting new keyword clusters ──
+
+  // ── March 24 ──────────────────────────────────────────────
+  {
+    slug: "why-seekhowithrua-bundle-course-is-best-india-global-2026",
+    title: "Why SeekhoWithRua Bundle Course is the Best Investment of 2026 — India and Global Students",
+    excerpt: "Udemy charges Rs 5,000 per course. UpGrad charges Rs 3 lakh for a bootcamp. SeekhoWithRua gives you 8 complete courses — Full Stack, AI, ML, Data Science, Mobile, Game Dev, IoT, Web Dev — in one bundle, free to start. Here is why this is the smartest learning decision of 2026.",
+    date: "2026-03-24", category: "Courses", color: "#00d4ff", readTime: "11 min read",
+  },
+
+  // ── March 23 ──────────────────────────────────────────────
+  {
+    slug: "it-layoff-2026-india-ai-rider-not-runner",
+    title: "IT Layoff 2026 India — 55,000 Jobs Gone. Are You a Rider or a Runner? Master Rua's Warning",
+    excerpt: "TCS cut 30,000 jobs. Amazon cut 16,000. Atlassian cut 1,600 including India. 55,911 tech jobs gone in 90 days. Master Rua explains why — and what YOU must do right now to never be laid off again.",
+    date: "2026-03-23", category: "Career", color: "#E24B4A", readTime: "10 min read",
+  },
+  {
+    slug: "chanakya-niti-ai-job-survival-india-2026",
+    title: "Chanakya Niti for Indian IT Professionals 2026 — Know the Threat, Master the Solution, Win the Market",
+    excerpt: "Chanakya said: Know your enemy before the battle. The enemy of every Indian IT professional in 2026 is not their manager — it is AI ignorance. Master Rua applies Chanakya's strategy to survive and dominate.",
+    date: "2026-03-23", category: "Career", color: "#fbbf24", readTime: "9 min read",
+  },
+  {
+    slug: "bruce-lee-wrong-2026-be-versatile-developer",
+    title: "Bruce Lee Was Wrong About Tech in 2026 — Don't Master One Skill. Master Everything.",
+    excerpt: "Bruce Lee said 'I fear the man who practiced one kick 10,000 times.' In 2026, AI does that kick in 0.3 seconds. Master Rua explains why versatility — not specialization — is the real superpower now.",
+    date: "2026-03-23", category: "Master Rua", color: "#7c3aed", readTime: "8 min read",
+  },
+  {
+    slug: "seekhowithrua-bundle-course-fullstack-ai-ml-iot-2026",
+    title: "SeekhoWithRua Bundle Course 2026 — Full Stack + AI + ML + Mobile + IoT + Robotics. One Platform. Free.",
+    excerpt: "India's only bundle course covering Full Stack Development, AI, Machine Learning, Web Dev, Mobile Apps, Game Dev and IoT Robotics — all in one. Built by Master Rua. Free to start. Visual learning. Real projects.",
+    date: "2026-03-23", category: "Courses", color: "#00d4ff", readTime: "8 min read",
+  },
+  {
+    slug: "be-a-rider-not-a-runner-master-rua-manifesto-2026",
+    title: "Be a Rider, Not a Runner — Master Rua's Manifesto for India's AI Generation 2026",
+    excerpt: "Sachin Kumar (Master Rua) shares his defining philosophy for 2026: The person who doesn't know AI will lose their job. The person who rides AI will own the market. Which one are you choosing to be?",
+    date: "2026-03-23", category: "Master Rua", color: "#fbbf24", readTime: "9 min read",
+  },
+
+  // ── March 22 — Trending keyword posts ─────────────────────
+  {
+    slug: "voice-chat-room-tech-india-2026",
+    title: "Live Voice Chat Room for Tech Students India 2026 — Talk, Debate & Get Hired",
+    excerpt: "Best live voice chat app for IT students, developers and tech enthusiasts in India. Open talk, baat karne wala app, spiritual philosophy tech debate — all in one free platform. SeekhoWithRua VCR.",
+    date: "2026-03-22", category: "Voice Rooms", color: "#E24B4A", readTime: "7 min read",
+  },
+  {
+    slug: "jee-mains-result-2026-python-data-science",
+    title: "JEE Mains 2026 Result — Now What? Learn Python, Data Science & AI to Get ₹20L+ Job",
+    excerpt: "JEE Mains 2026 result is out. Whether you cracked it or not — the real opportunity is in Python, Data Science and AI. Master Rua's complete guide for JEE students in India 2026.",
+    date: "2026-03-22", category: "Career", color: "#1D9E75", readTime: "8 min read",
+  },
+  {
+    slug: "10th-result-2026-coding-career-india",
+    title: "10वीं Result 2026 के बाद Coding सीखो — Python, AI और Data Science से ₹15L+ Job पाओ",
+    excerpt: "RBSE, CBSE 10th result 2026 आ गया। अब आगे क्या? Master Rua बताते हैं — 10th के बाद Coding, Python और AI सीखकर कैसे बड़ी job पाएं India में 2026 में।",
+    date: "2026-03-22", category: "Career", color: "#f59e0b", readTime: "6 min read",
+  },
+  {
+    slug: "bihar-board-12th-result-2026-tech-career",
+    title: "Bihar Board 12th Result 2026 — Tech Career Mein Kaise Jaayen? Python, AI, Web Dev Guide",
+    excerpt: "Bihar Board 12th result 2026 declared. Science stream students — here is your complete roadmap to a high-paying tech career using Python, AI, web development and data science. No IIT needed.",
+    date: "2026-03-22", category: "Career", color: "#a855f7", readTime: "6 min read",
+  },
+  {
+    slug: "gta-6-game-development-career-india-2026",
+    title: "GTA 6 Release Hype 2026 — Game Developer Kaise Bane India Mein? Three.js, Unity Guide",
+    excerpt: "Grand Theft Auto VI ka craze India mein peak par hai. Kya aap bhi game developer banana chahte hain? Master Rua ka complete guide — Three.js, Unity aur game development career India 2026.",
+    date: "2026-03-22", category: "Game Dev", color: "#f59e0b", readTime: "7 min read",
+  },
+  {
+    slug: "gold-price-silver-price-fintech-python-2026",
+    title: "Gold Price & Silver Price Tracker — Build a Live Finance App with Python in 2026",
+    excerpt: "Gold rate today is trending at 200k+ searches in India. Learn to build a live gold and silver price tracker using Python, APIs and data visualization. Real project, real skill, real career.",
+    date: "2026-03-22", category: "Python", color: "#ec4899", readTime: "6 min read",
+  },
+  {
+    slug: "samsung-galaxy-s25-ultra-android-dev-2026",
+    title: "Samsung Galaxy S25 Ultra 2026 — Build Android Apps for India's Top Smartphone",
+    excerpt: "Samsung Galaxy S25 Ultra is trending at 50k+ searches in India. Learn React Native and Android development to build apps for India's most popular flagship smartphone in 2026.",
+    date: "2026-03-22", category: "Mobile", color: "#00d4ff", readTime: "5 min read",
+  },
+  {
+    slug: "comet-space-science-python-simulation-2026",
+    title: "Comet 2026 India — Simulate Space Events with Python and Data Science",
+    excerpt: "A comet is currently visible from India and trending at 10k+ searches. Learn how to simulate orbital mechanics, visualize space data and build astronomy projects with Python in 2026.",
+    date: "2026-03-22", category: "Python", color: "#1D9E75", readTime: "5 min read",
+  },
+  {
+    slug: "world-water-day-2026-iot-tech-india",
+    title: "World Water Day 2026 — Build IoT Water Monitoring Systems with Arduino & Raspberry Pi",
+    excerpt: "World Water Day 2026 is trending at 2k+ in India. Learn to build real IoT solutions — water level sensors, quality monitors and smart irrigation systems using Arduino and Raspberry Pi.",
+    date: "2026-03-22", category: "IoT", color: "#00d4ff", readTime: "6 min read",
+  },
+  {
+    slug: "navami-march-2026-india-tech-startup",
+    title: "Navami March 2026 — Indian Festivals, EdTech Trends and Why This Is the Best Time to Learn",
+    excerpt: "Navami 2026 is being celebrated across India. Master Rua reflects on the wisdom of Indian festivals and why this sacred time is the perfect moment to begin your tech learning journey.",
+    date: "2026-03-22", category: "Master Rua", color: "#fbbf24", readTime: "5 min read",
+  },
+  {
+    slug: "best-python-course-india-2026-free",
+    title: "Best Python Course India 2026 — Free, Beginner to Advanced, Job Ready in 6 Months",
+    excerpt: "Looking for the best Python course in India 2026? Master Rua's Python course at SeekhoWithRua is free, visual, gamified and gets you job-ready in 6 months. Complete guide inside.",
+    date: "2026-03-22", category: "Python", color: "#ec4899", readTime: "7 min read",
+  },
+  {
+    slug: "best-data-science-course-india-2026",
+    title: "Best Data Science Course India 2026 — Free AI-Powered Learning with 3D Visualizations",
+    excerpt: "Searching for the best data science course in India? SeekhoWithRua teaches Data Science through 3D animations, gamified quizzes and real projects. Free. Beginner-friendly. Job-focused.",
+    date: "2026-03-22", category: "AI/ML", color: "#00d4ff", readTime: "7 min read",
+  },
+  {
+    slug: "best-machine-learning-course-india-2026",
+    title: "Best Machine Learning Course India 2026 — UEEP Model, Visual Learning, Real Projects",
+    excerpt: "The best machine learning course in India 2026 is not the most expensive one. It is the one that makes concepts visual, forces you to build, and gets you hired. SeekhoWithRua does all three.",
+    date: "2026-03-22", category: "AI/ML", color: "#7c3aed", readTime: "8 min read",
+  },
+  {
+    slug: "best-ai-course-india-free-2026",
+    title: "Best Free AI Course India 2026 — Learn Artificial Intelligence with Master Rua",
+    excerpt: "The best free AI course in India 2026 covers LLMs, AI agents, neural networks and real deployment. SeekhoWithRua's AI course is visual, gamified and completely free to start.",
+    date: "2026-03-22", category: "AI/ML", color: "#1D9E75", readTime: "7 min read",
+  },
+
+  // ── March 21 ──────────────────────────────────────────────
   {
     slug: "memory-enhancement-game-online-india-2026",
     title: "Best Memory Enhancement Game Online India 2026 — Train Your Brain Free",
     excerpt: "The best free memory enhancement games for students in India. WMSC techniques gamified — memorise 400 numbers in 21 days. Master Rua's Memory Champion Arena explained.",
-    date: "2026-03-21",
-    category: "Memory Game",
-    color: "#00d4ff",
-    readTime: "5 min read"
+    date: "2026-03-21", category: "Memory Game", color: "#00d4ff", readTime: "5 min read",
   },
   {
     slug: "free-fire-style-study-game-india-2026",
     title: "Free Fire Style Study Game India 2026 — Learn While Playing, Rank While Studying",
     excerpt: "What if Free Fire taught you Data Science, Python and AI instead of just shooting? SeekhoWithRua's Quiz Battle does exactly that. Multiplayer MCQ battles where your quiz score is your armor.",
-    date: "2026-03-21",
-    category: "Gaming Lab",
-    color: "#f59e0b",
-    readTime: "5 min read"
+    date: "2026-03-21", category: "Gaming Lab", color: "#f59e0b", readTime: "5 min read",
   },
   {
     slug: "3d-animation-data-science-course-india-2026",
     title: "How 3D Animations Make Data Science 6x Easier to Learn — SeekhoWithRua Animation Lab",
     excerpt: "Neural networks, gradient descent, PCA — all visualised in 3D in your browser. Why visual learning beats video lectures for data science and AI courses in India 2026.",
-    date: "2026-03-21",
-    category: "Animation Lab",
-    color: "#1D9E75",
-    readTime: "6 min read"
+    date: "2026-03-21", category: "Animation Lab", color: "#1D9E75", readTime: "6 min read",
   },
   {
     slug: "hire-game-developer-india-2026",
     title: "Hire Game Developer India 2026 — Three.js, Unity, WebGL Browser Games & Mobile",
     excerpt: "Looking to hire a game developer in India? Master Rua builds browser games with Three.js and Babylon.js, Unity mobile games, and educational game platforms. Fast delivery, live demos.",
-    date: "2026-03-21",
-    category: "Services",
-    color: "#a855f7",
-    readTime: "5 min read"
+    date: "2026-03-21", category: "Services", color: "#a855f7", readTime: "5 min read",
   },
   {
     slug: "live-voice-chat-room-it-students-india-2026",
     title: "Live Voice Chat Rooms for IT Students India 2026 — Debate, Learn & Get Hired",
     excerpt: "Free live voice rooms for IT professionals, students and developers in India. Spiritual talk, tech debates, hiring rooms, virtual friends. SeekhoWithRua VCR — no app needed.",
-    date: "2026-03-21",
-    category: "Voice Rooms",
-    color: "#E24B4A",
-    readTime: "5 min read"
+    date: "2026-03-21", category: "Voice Rooms", color: "#E24B4A", readTime: "5 min read",
   },
-  // ── existing posts below — untouched ──
-  // ✅ NEW POST — added at TOP so it shows as featured
+
+  // ── March 20 ──────────────────────────────────────────────
   {
     slug: "who-is-master-rua-seekhowithrua-story-2026",
     title: "Who is Master Rua? The Story Behind SeekhowithRua — India's Learning Revolution 2026",
     excerpt: "Master Rua is not just a person — it is a title earned by all-rounders who master tech, physical and creative skills. Meet Sachin Kumar, the founder of SeekhowithRua.",
-    date: "2026-03-20",
-    category: "Master Rua",
-    color: "#fbbf24",
-    readTime: "7 min read"
+    date: "2026-03-20", category: "Master Rua", color: "#fbbf24", readTime: "7 min read",
   },
-  // ✅ NEW POST — Mission & Vision with full research evidence
   {
     slug: "seekhowithrua-mission-vision-evidence-2026",
     title: "SeekhoWithRua Mission & Vision 2026 — The Scientific Evidence That Will Change How India Learns",
     excerpt: "Why the current education system is broken — backed by 10+ peer-reviewed studies. And how SeekhoWithRua's UEEP Model, 3D learning, gamification and memory science are the scientifically-proven answer.",
-    date: "2026-03-20",
-    category: "Mission",
-    color: "#00d4ff",
-    readTime: "12 min read"
+    date: "2026-03-20", category: "Mission", color: "#00d4ff", readTime: "12 min read",
   },
+
+  // ── March 19 and earlier — evergreen posts ─────────────────
   {
     slug: "how-to-learn-machine-learning-india-2025",
     title: "How to Learn Machine Learning in India 2026 — Complete Roadmap",
     excerpt: "A practical, step-by-step roadmap to learn ML in India. From Python basics to getting your first ML job.",
-    date: "2026-03-19",
-    category: "AI/ML",
-    color: "#00d4ff",
-    readTime: "8 min read"
+    date: "2026-03-19", category: "AI/ML", color: "#00d4ff", readTime: "8 min read",
   },
   {
     slug: "unity-vs-threejs-which-to-learn-first",
     title: "Unity vs Three.js: Which Game Engine Should You Learn First in 2026?",
     excerpt: "Confused between Unity and Three.js? Here's Master Rua's honest take based on your goals.",
-    date: "2026-03-18",
-    category: "Game Dev",
-    color: "#f59e0b",
-    readTime: "6 min read"
+    date: "2026-03-18", category: "Game Dev", color: "#f59e0b", readTime: "6 min read",
   },
   {
     slug: "how-to-get-20-lakh-tech-job-tier-2-city",
     title: "How to Get a ₹20L Tech Job from a Tier-2 City in India",
     excerpt: "You don't need to be in Bangalore. Here's the exact playbook Master Rua's students use.",
-    date: "2026-03-17",
-    category: "Career",
-    color: "#1D9E75",
-    readTime: "7 min read"
+    date: "2026-03-17", category: "Career", color: "#1D9E75", readTime: "7 min read",
   },
   {
     slug: "python-roadmap-beginners-india-2025",
     title: "Python Learning Roadmap for Absolute Beginners in India 2026",
     excerpt: "Zero to job-ready Python developer in 6 months. The exact roadmap Master Rua uses.",
-    date: "2026-03-16",
-    category: "Python",
-    color: "#ec4899",
-    readTime: "6 min read"
+    date: "2026-03-16", category: "Python", color: "#ec4899", readTime: "6 min read",
   },
   {
     slug: "react-native-expo-guide-2025",
     title: "Expo Managed vs Bare Workflow: Which Should You Use in 2026?",
     excerpt: "The eternal question for React Native developers. A clear, practical answer.",
-    date: "2026-03-15",
-    category: "Mobile",
-    color: "#a855f7",
-    readTime: "5 min read"
+    date: "2026-03-15", category: "Mobile", color: "#a855f7", readTime: "5 min read",
   },
 ];
 
@@ -185,7 +282,6 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="bl-cta">
             <div style={{ fontSize: 36, marginBottom: 14 }}>🚀</div>
             <h3 className="bl-cta-t">Learn with Master Rua</h3>
