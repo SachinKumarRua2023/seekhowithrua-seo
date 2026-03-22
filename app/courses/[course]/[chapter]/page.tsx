@@ -23,35 +23,37 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params }: { params: { course: string; chapter: string } }): Promise<Metadata> {
-  const course = ALL_COURSES[params.course];
+export async function generateMetadata({ params }: { params: Promise<{ course: string; chapter: string }> }): Promise<Metadata> {
+  const { course: courseSlug, chapter: chapterId } = await params;
+  const course = ALL_COURSES[courseSlug];
   if (!course) return { title: "Not Found" };
-  const chapter = course.modules.flatMap(m => m.chapters).find(c => c.id === params.chapter);
+  const chapter = course.modules.flatMap(m => m.chapters).find(c => c.id === chapterId);
   if (!chapter) return { title: "Not Found" };
   return {
     title: `${chapter.title} | ${course.title} | SeekhowithRua`,
     description: `Learn ${chapter.title} in our ${course.title} course. Topics: ${chapter.topics.join(", ")}.`,
     keywords: [chapter.title, course.title, ...chapter.topics, ...course.keywords],
-    alternates: { canonical: `https://seekhowithrua.com/courses/${params.course}/${params.chapter}` },
+    alternates: { canonical: `https://seekhowithrua.com/courses/${courseSlug}/${chapterId}` },
     openGraph: {
       title: `${chapter.title} | SeekhowithRua`,
       description: `Learn ${chapter.title}. Topics: ${chapter.topics.join(", ")}.`,
-      url: `https://seekhowithrua.com/courses/${params.course}/${params.chapter}`,
+      url: `https://seekhowithrua.com/courses/${courseSlug}/${chapterId}`,
       type: "article",
     },
   };
 }
 
-export default function ChapterSEOPage({ params }: { params: { course: string; chapter: string } }) {
-  const course = ALL_COURSES[params.course];
+export default async function ChapterSEOPage({ params }: { params: Promise<{ course: string; chapter: string }> }) {
+  const { course: courseSlug, chapter: chapterId } = await params;
+  const course = ALL_COURSES[courseSlug];
   if (!course) notFound();
 
-  const mod = course.modules.find(m => m.chapters.some(c => c.id === params.chapter));
-  const chapter = course.modules.flatMap(m => m.chapters).find(c => c.id === params.chapter);
+  const mod = course.modules.find(m => m.chapters.some(c => c.id === chapterId));
+  const chapter = course.modules.flatMap(m => m.chapters).find(c => c.id === chapterId);
   if (!chapter || !mod) notFound();
 
   const allChapters = course.modules.flatMap(m => m.chapters);
-  const idx = allChapters.findIndex(c => c.id === params.chapter);
+  const idx = allChapters.findIndex(c => c.id === chapterId);
   const prev = idx > 0 ? allChapters[idx - 1] : null;
   const next = idx < allChapters.length - 1 ? allChapters[idx + 1] : null;
 
@@ -65,7 +67,7 @@ export default function ChapterSEOPage({ params }: { params: { course: string; c
           description: `Learn ${chapter.title}. Topics: ${chapter.topics.join(", ")}.`,
           author: { "@type": "Person", name: "Sachin Kumar (Master Rua)" },
           publisher: { "@type": "Organization", name: "SeekhowithRua" },
-          url: `https://seekhowithrua.com/courses/${params.course}/${params.chapter}`,
+          url: `https://seekhowithrua.com/courses/${courseSlug}/${chapterId}`,
           isPartOf: { "@type": "Course", name: course.title, url: `https://seekhowithrua.com/${course.slug}` },
         }),
       }} />
@@ -75,7 +77,7 @@ export default function ChapterSEOPage({ params }: { params: { course: string; c
         <div style={{ padding: "24px 40px", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", background: "rgba(4,4,15,0.97)", fontSize: 12, fontFamily: "monospace" }}>
           <Link href={`/${course.slug}`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{course.icon} {course.title}</Link>
           <span style={{ color: "rgba(255,255,255,0.2)" }}>›</span>
-          <Link href={`/courses/${params.course}`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{mod.title}</Link>
+          <Link href={`/courses/${courseSlug}`} style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none" }}>{mod.title}</Link>
           <span style={{ color: "rgba(255,255,255,0.2)" }}>›</span>
           <span style={{ color: "#fff" }}>{chapter.title}</span>
         </div>
@@ -135,13 +137,13 @@ export default function ChapterSEOPage({ params }: { params: { course: string; c
           {/* Prev / Next Navigation */}
           <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
             {prev ? (
-              <Link href={`/courses/${params.course}/${prev.id}`}
+              <Link href={`/courses/${courseSlug}/${prev.id}`}
                 style={{ padding: "12px 18px", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, background: "rgba(255,255,255,0.03)", textDecoration: "none", color: "rgba(255,255,255,0.7)", fontSize: 13 }}>
                 ← {prev.title}
               </Link>
             ) : <div />}
             {next && (
-              <Link href={`/courses/${params.course}/${next.id}`}
+              <Link href={`/courses/${courseSlug}/${next.id}`}
                 style={{ padding: "12px 18px", border: `1px solid ${mod.color}40`, borderRadius: 8, background: `${mod.color}10`, textDecoration: "none", color: mod.color, fontSize: 13, fontWeight: 600 }}>
                 {next.title} →
               </Link>
