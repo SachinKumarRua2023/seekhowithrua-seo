@@ -301,7 +301,9 @@ export const WEB_DEV: CourseData = {
       { id: "m5c5", title: "Capstone Website", topics: ["Portfolio site", "Multi-page app", "Dark mode", "PWA basics"] },
     ]},
   ],
+  
 };
+
 
 export const ALL_COURSES: Record<string, CourseData> = {
   "game-development": GAME_DEV,

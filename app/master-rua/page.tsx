@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     "mr rua 30 day challenge",
     "earn master rua title",
     "rua game title",
+    "sachin kumar biography",
+    "sachin kumar story",
+    "sachin kumar vision",
   ],
   alternates: { canonical: "https://seekhowithrua.com/master-rua" },
   openGraph: {
