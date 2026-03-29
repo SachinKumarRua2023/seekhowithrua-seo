@@ -1,5 +1,3 @@
-"use client";
-
 // ============================================================
 // FILE LOCATION: seekhowithrua-seo/app/blog/page.tsx
 // CLEAN VERSION — 32 posts, zero duplicates, correct order
@@ -7,8 +5,7 @@
 // ============================================================
 
 import type { Metadata } from "next";
-import Link from "next/link";
-import { useState } from "react";
+import BlogContent from "./BlogContent";
 
 export const metadata: Metadata = {
   title: "Blog | SeekhowithRua — Master Rua Tech Tutorials & Career Tips 2026",
@@ -28,7 +25,6 @@ export const metadata: Metadata = {
 // RULE: Newest date first (index 0 = featured post)
 // ─────────────────────────────────────────────────────────────
 const POSTS = [
-
   // ── March 29 — Memory Game Post ──────────────────────────────
   {
     slug: "memory-training-game-free-online-2026",
@@ -36,7 +32,6 @@ const POSTS = [
     excerpt: "Play the best free memory training game online in 2026. Improve short-term memory, cognitive skills, and mental focus with daily brain exercises. Scientifically designed memory challenges.",
     date: "2026-03-29", category: "Gaming", color: "#7c3aed", readTime: "6 min read",
   },
-
   // ── March 24 ──────────────────────────────────────────────
   {
     slug: "why-seekhowithrua-bundle-course-is-best-india-global-2026",
@@ -44,7 +39,6 @@ const POSTS = [
     excerpt: "Udemy charges Rs 5,000 per course. UpGrad charges Rs 3 lakh for a bootcamp. SeekhoWithRua gives you 8 complete courses — Full Stack, AI, ML, Data Science, Mobile, Game Dev, IoT, Web Dev — in one bundle, free to start. Here is why this is the smartest learning decision of 2026.",
     date: "2026-03-24", category: "Courses", color: "#00d4ff", readTime: "11 min read",
   },
-
   // ── March 23 ──────────────────────────────────────────────
   {
     slug: "it-layoff-2026-india-ai-rider-not-runner",
@@ -76,8 +70,7 @@ const POSTS = [
     excerpt: "Sachin Kumar (Master Rua) shares his defining philosophy for 2026: The person who doesn't know AI will lose their job. The person who rides AI will own the market. Which one are you choosing to be?",
     date: "2026-03-23", category: "Master Rua", color: "#fbbf24", readTime: "9 min read",
   },
-
-  // ── March 22 — Trending keyword posts ─────────────────────
+  // ── March 22 ──────────────────────────────────────────────
   {
     slug: "voice-chat-room-tech-india-2026",
     title: "Live Voice Chat Room for Tech Students India 2026 — Talk, Debate & Get Hired",
@@ -162,7 +155,6 @@ const POSTS = [
     excerpt: "The best free AI course in India 2026 covers LLMs, AI agents, neural networks and real deployment. SeekhoWithRua's AI course is visual, gamified and completely free to start.",
     date: "2026-03-22", category: "AI/ML", color: "#1D9E75", readTime: "7 min read",
   },
-
   // ── March 21 ──────────────────────────────────────────────
   {
     slug: "memory-enhancement-game-online-india-2026",
@@ -194,7 +186,6 @@ const POSTS = [
     excerpt: "Free live voice rooms for IT professionals, students and developers in India. Spiritual talk, tech debates, hiring rooms, virtual friends. SeekhoWithRua VCR — no app needed.",
     date: "2026-03-21", category: "Voice Rooms", color: "#E24B4A", readTime: "5 min read",
   },
-
   // ── March 20 ──────────────────────────────────────────────
   {
     slug: "who-is-master-rua-seekhowithrua-story-2026",
@@ -208,8 +199,7 @@ const POSTS = [
     excerpt: "Why the current education system is broken — backed by 10+ peer-reviewed studies. And how SeekhoWithRua's UEEP Model, 3D learning, gamification and memory science are the scientifically-proven answer.",
     date: "2026-03-20", category: "Mission", color: "#00d4ff", readTime: "12 min read",
   },
-
-  // ── March 19 and earlier — evergreen posts ─────────────────
+  // ── March 19 and earlier ──────────────────────────────────────────────
   {
     slug: "how-to-learn-machine-learning-india-2025",
     title: "How to Learn Machine Learning in India 2026 — Complete Roadmap",
@@ -243,18 +233,6 @@ const POSTS = [
 ];
 
 export default function BlogPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const filteredPosts = POSTS.filter(post => 
-    post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    post.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    post.slug.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const featuredPost = filteredPosts[0];
-  const remainingPosts = filteredPosts.slice(1);
-
   return (
     <>
       <div className="bl">
@@ -275,99 +253,7 @@ export default function BlogPage() {
           </div>
         </div>
 
-        <div className="bl-body">
-          {/* Search Box */}
-          <div className="bl-search-container">
-            <div className="bl-search-box">
-              <svg className="bl-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-              <input
-                type="text"
-                placeholder="Search blogs... (e.g., memory game, python, AI)"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="bl-search-input"
-              />
-              {searchQuery && (
-                <button 
-                  className="bl-search-clear"
-                  onClick={() => setSearchQuery("")}
-                >
-                  ×
-                </button>
-              )}
-            </div>
-            {searchQuery && (
-              <div className="bl-search-results">
-                {filteredPosts.length} result{filteredPosts.length !== 1 ? 's' : ''} found
-              </div>
-            )}
-          </div>
-
-          {featuredPost ? (
-            <>
-              <div className="bl-lbl">✦ LATEST POST</div>
-              <Link href={`/blog/${featuredPost.slug}`} className="bl-feat">
-                <div className="bf-cat" style={{ color: featuredPost.color }}>{featuredPost.category}</div>
-                <h2 className="bf-title">{featuredPost.title}</h2>
-                <p className="bf-ex">{featuredPost.excerpt}</p>
-                <div className="bf-meta">
-                  <span>{featuredPost.date}</span>
-                  <span>·</span>
-                  <span>{featuredPost.readTime}</span>
-                  <span className="bf-cta">Read Article →</span>
-                </div>
-              </Link>
-            </>
-          ) : (
-            <div className="bl-no-results">
-              <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
-              <h3>No blogs found</h3>
-              <p>Try searching with different keywords</p>
-            </div>
-          )}
-
-          {remainingPosts.length > 0 && (
-            <>
-              <div className="bl-lbl" style={{ marginTop: 48 }}>ALL POSTS</div>
-              <div className="bl-grid">
-                {remainingPosts.map(p => (
-                  <Link key={p.slug} href={`/blog/${p.slug}`} className="bl-card">
-                    <div className="bc-cat" style={{ color: p.color }}>{p.category}</div>
-                    <h3 className="bc-title">{p.title}</h3>
-                    <p className="bc-ex">{p.excerpt}</p>
-                    <div className="bc-meta">
-                      <span>{p.date}</span>
-                      <span>·</span>
-                      <span>{p.readTime}</span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </>
-          )}
-
-          <div className="bl-cta">
-            <div style={{ fontSize: 36, marginBottom: 14 }}>🚀</div>
-            <h3 className="bl-cta-t">Learn with Master Rua</h3>
-            <p className="bl-cta-s">
-              New tutorial every day. Join 1000+ learners at SeekhowithRua.
-            </p>
-            <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="https://app.seekhowithrua.com" className="bl-cta-btn">
-                Join Platform Free →
-              </a>
-              <a href="https://wa.me/918826776018" target="_blank" rel="noopener noreferrer" className="bl-cta-btn bl-cta-wa">
-                💬 WhatsApp: 8826776018
-              </a>
-            </div>
-            <p style={{ marginTop: 16, fontSize: 11, color: "rgba(255,255,255,0.3)", fontFamily: "monospace" }}>
-              📧 seekhowithrua@gmail.com · 📺 youtube.com/@seekhowithrua_ · 📸 instagram.com/seekhowithrua_
-            </p>
-          </div>
-        </div>
+        <BlogContent posts={POSTS} />
       </div>
 
       <style>{`
