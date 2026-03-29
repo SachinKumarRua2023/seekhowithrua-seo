@@ -1,3 +1,5 @@
+"use client";
+
 // ============================================================
 // FILE LOCATION: seekhowithrua-seo/app/blog/page.tsx
 // CLEAN VERSION — 32 posts, zero duplicates, correct order
@@ -6,6 +8,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import { useState } from "react";
 
 export const metadata: Metadata = {
   title: "Blog | SeekhowithRua — Master Rua Tech Tutorials & Career Tips 2026",
@@ -240,6 +243,18 @@ const POSTS = [
 ];
 
 export default function BlogPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredPosts = POSTS.filter(post => 
+    post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    post.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    post.slug.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const featuredPost = filteredPosts[0];
+  const remainingPosts = filteredPosts.slice(1);
+
   return (
     <>
       <div className="bl">
@@ -261,34 +276,78 @@ export default function BlogPage() {
         </div>
 
         <div className="bl-body">
-          <div className="bl-lbl">✦ LATEST POST</div>
-          <Link href={`/blog/${POSTS[0].slug}`} className="bl-feat">
-            <div className="bf-cat" style={{ color: POSTS[0].color }}>{POSTS[0].category}</div>
-            <h2 className="bf-title">{POSTS[0].title}</h2>
-            <p className="bf-ex">{POSTS[0].excerpt}</p>
-            <div className="bf-meta">
-              <span>{POSTS[0].date}</span>
-              <span>·</span>
-              <span>{POSTS[0].readTime}</span>
-              <span className="bf-cta">Read Article →</span>
+          {/* Search Box */}
+          <div className="bl-search-container">
+            <div className="bl-search-box">
+              <svg className="bl-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <input
+                type="text"
+                placeholder="Search blogs... (e.g., memory game, python, AI)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="bl-search-input"
+              />
+              {searchQuery && (
+                <button 
+                  className="bl-search-clear"
+                  onClick={() => setSearchQuery("")}
+                >
+                  ×
+                </button>
+              )}
             </div>
-          </Link>
+            {searchQuery && (
+              <div className="bl-search-results">
+                {filteredPosts.length} result{filteredPosts.length !== 1 ? 's' : ''} found
+              </div>
+            )}
+          </div>
 
-          <div className="bl-lbl" style={{ marginTop: 48 }}>ALL POSTS</div>
-          <div className="bl-grid">
-            {POSTS.slice(1).map(p => (
-              <Link key={p.slug} href={`/blog/${p.slug}`} className="bl-card">
-                <div className="bc-cat" style={{ color: p.color }}>{p.category}</div>
-                <h3 className="bc-title">{p.title}</h3>
-                <p className="bc-ex">{p.excerpt}</p>
-                <div className="bc-meta">
-                  <span>{p.date}</span>
+          {featuredPost ? (
+            <>
+              <div className="bl-lbl">✦ LATEST POST</div>
+              <Link href={`/blog/${featuredPost.slug}`} className="bl-feat">
+                <div className="bf-cat" style={{ color: featuredPost.color }}>{featuredPost.category}</div>
+                <h2 className="bf-title">{featuredPost.title}</h2>
+                <p className="bf-ex">{featuredPost.excerpt}</p>
+                <div className="bf-meta">
+                  <span>{featuredPost.date}</span>
                   <span>·</span>
-                  <span>{p.readTime}</span>
+                  <span>{featuredPost.readTime}</span>
+                  <span className="bf-cta">Read Article →</span>
                 </div>
               </Link>
-            ))}
-          </div>
+            </>
+          ) : (
+            <div className="bl-no-results">
+              <div style={{ fontSize: 48, marginBottom: 16 }}>🔍</div>
+              <h3>No blogs found</h3>
+              <p>Try searching with different keywords</p>
+            </div>
+          )}
+
+          {remainingPosts.length > 0 && (
+            <>
+              <div className="bl-lbl" style={{ marginTop: 48 }}>ALL POSTS</div>
+              <div className="bl-grid">
+                {remainingPosts.map(p => (
+                  <Link key={p.slug} href={`/blog/${p.slug}`} className="bl-card">
+                    <div className="bc-cat" style={{ color: p.color }}>{p.category}</div>
+                    <h3 className="bc-title">{p.title}</h3>
+                    <p className="bc-ex">{p.excerpt}</p>
+                    <div className="bc-meta">
+                      <span>{p.date}</span>
+                      <span>·</span>
+                      <span>{p.readTime}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </>
+          )}
 
           <div className="bl-cta">
             <div style={{ fontSize: 36, marginBottom: 14 }}>🚀</div>
@@ -348,6 +407,17 @@ export default function BlogPage() {
         .bl-cta-btn:hover{opacity:.85}
         .bl-cta-wa{background:linear-gradient(135deg,#25d366,#128c7e) !important}
         @media(max-width:600px){.bl-hero,.bl-body{padding-left:20px;padding-right:20px}.bl-grid{grid-template-columns:1fr}}
+        .bl-search-container{margin-bottom:32px}
+        .bl-search-box{position:relative;display:flex;align-items:center;max-width:600px;margin:0 auto}
+        .bl-search-icon{position:absolute;left:16px;width:20px;height:20px;color:rgba(255,255,255,.4);pointer-events:none}
+        .bl-search-input{width:100%;padding:14px 44px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.3);border-radius:12px;color:#fff;font-size:14px;font-family:'Exo 2',sans-serif;outline:none;transition:all .2s}
+        .bl-search-input::placeholder{color:rgba(255,255,255,.4)}
+        .bl-search-input:focus{border-color:#7c3aed;background:rgba(124,58,237,.15)}
+        .bl-search-clear{position:absolute;right:16px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border:none;border-radius:50%;color:rgba(255,255,255,.6);font-size:18px;cursor:pointer;transition:all .2s}
+        .bl-search-clear:hover{background:rgba(255,255,255,.2);color:#fff}
+        .bl-search-results{text-align:center;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(255,255,255,.5)}
+        .bl-no-results{text-align:center;padding:60px 20px;color:rgba(255,255,255,.6)}
+        .bl-no-results h3{font-family:'Syne',sans-serif;font-size:24px;color:#fff;margin-bottom:8px}
       `}</style>
     </>
   );
