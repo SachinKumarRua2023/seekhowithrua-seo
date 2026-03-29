@@ -98,6 +98,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/best-data-science-course-india-2026`,                       lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
     { url: `${base}/blog/best-machine-learning-course-india-2026`,                   lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
     { url: `${base}/blog/best-ai-course-india-free-2026`,                            lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
+    { url: `${base}/blog/hire-ai-trainer-usa-2026`,                                   lastModified: now, priority: 0.8, changeFrequency: "weekly" as const },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = getPostSlugs().map(slug => ({
