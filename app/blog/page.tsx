@@ -26,6 +26,14 @@ export const metadata: Metadata = {
 // ─────────────────────────────────────────────────────────────
 const POSTS = [
 
+  // ── March 29 — Memory Game Post ──────────────────────────────
+  {
+    slug: "memory-training-game-free-online-2026",
+    title: "Free Memory Training Game Online 2026 — Boost Your Brain Power",
+    excerpt: "Play the best free memory training game online in 2026. Improve short-term memory, cognitive skills, and mental focus with daily brain exercises. Scientifically designed memory challenges.",
+    date: "2026-03-29", category: "Gaming", color: "#7c3aed", readTime: "6 min read",
+  },
+
   // ── March 24 ──────────────────────────────────────────────
   {
     slug: "why-seekhowithrua-bundle-course-is-best-india-global-2026",
@@ -229,13 +237,6 @@ const POSTS = [
     excerpt: "The eternal question for React Native developers. A clear, practical answer.",
     date: "2026-03-15", category: "Mobile", color: "#a855f7", readTime: "5 min read",
   },
-  // ADD AT TOP of POSTS array (index 0 — becomes featured post)
-{
-  slug: "hire-ai-trainer-usa-2026",
-  title: "Hire an AI & ML Trainer for Your US Team in 2026 — Remote, Placement-Backed, Proven Results",
-  excerpt: "Looking to hire an AI trainer for your corporate team or tech professionals in the USA? Sachin Kumar (Master Rua) delivers live remote AI, ML, Python and Data Science training with placement support. 45+ US professional testimonials.",
-  date: "2026-03-29", category: "Services", color: "#00d4ff", readTime: "8 min read",
-},
 ];
 
 export default function BlogPage() {
