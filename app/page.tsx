@@ -135,12 +135,71 @@ const ECOSYSTEM = [
 ];
 
 const TESTIMONIALS = [
-  { name: "Rahul Sharma", role: "ML Engineer @ Startup", text: "Master Rua's UEEP model changed how I learn. Got my first ML job in 4 months.", avatar: "RS" },
-  { name: "Priya Patel", role: "React Native Dev", text: "The mobile dev course is insanely detailed. Built and published my first app!", avatar: "PP" },
-  { name: "Arjun Verma", role: "Freelancer, USA Client", text: "Learned full stack here. Now earning ₹2L/month freelancing for US clients.", avatar: "AV" },
-  { name: "Aditya Krishnamurthy", role: "CS Grad Student · MIT, USA", text: "I've studied at MIT and taken Coursera specialisations. SeekhoWithRua's visual-first approach and the UEEP model actually made neural networks click for me faster than any lecture ever did. The 3D animations are genuinely world-class.", avatar: "AK", highlight: true },
+  {
+    name: "Kimberly Whatley",
+    role: "Python & Data Science Student · USA",
+    text: "How Sachin explains each part about Python and what to expect in the upcoming sessions — and how everything ties into each other. The do's and don'ts of the language. Above and beyond.",
+    avatar: "KW",
+    rating: 5,
+    date: "Mar 8, 2026"
+  },
+  {
+    name: "Didier Melata Fomekong",
+    role: "Data Science Student · USA",
+    text: "His teaching style made the lesson easy to follow and very engaging. The session was excellent overall. I liked the professor's clarity and the way he stayed patient and helpful throughout.",
+    avatar: "DM",
+    rating: 5,
+    date: "Mar 6 & 19, 2026"
+  },
+  {
+    name: "Michael Okoli",
+    role: "Python Student · USA",
+    text: "Trainer is above average expectation. He was able to explain better giving me time to do exercises on my own — helping me out. It was a more practical session allowing me to do it myself.",
+    avatar: "MO",
+    rating: 5,
+    date: "Mar 14–22, 2026"
+  },
+  {
+    name: "Mina Karmacharya",
+    role: "Data Science Student · USA (6 sessions)",
+    text: "He makes sure we are getting everything — even if he has to repeat, he does that. He covers all the queries and makes sure everyone understands. He is good with everything.",
+    avatar: "MK",
+    rating: 5,
+    date: "Feb–Mar 2026"
+  },
+  {
+    name: "Gene Pelts",
+    role: "Python & Libraries Student · USA (4 sessions)",
+    text: "Very Effective every session. Covered new Python libraries — Matplotlib, Seaborn. Consistently excellent across multiple classes.",
+    avatar: "GP",
+    rating: 5,
+    date: "Mar 7–15, 2026"
+  },
+  {
+    name: "Damola Alabi",
+    role: "Data Science Student · USA",
+    text: "The instructor explained what needs to be done clearly. No improvements needed. Very satisfied with the session.",
+    avatar: "DA",
+    rating: 5,
+    date: "Mar 2, 2026"
+  },
+  {
+    name: "Alex Lyssenko",
+    role: "One-on-One Student · USA",
+    text: "Another one on one class — so very interactive. Very Effective. No improvements needed at all.",
+    avatar: "AL",
+    rating: 5,
+    date: "Feb 12, 2026"
+  },
+  {
+    name: "John Paul Ngoran",
+    role: "Data Science Student · USA (3 sessions)",
+    text: "Great teacher. Explanation and asking if we have questions. Uses Excalidraw for demonstration. Always willing to go back and re-explain until everyone understands.",
+    avatar: "JP",
+    rating: 5,
+    date: "Feb–Mar 2026"
+  },
 ];
-
 // ── NEW: RUA vision pillars ───────────────────────────────────────────────────
 const VISION_PILLARS = [
   {
@@ -432,55 +491,7 @@ export default function HomePage() {
                   </Link>
                 )}
               </div>
-              {/* ── RESUME + PROFILE LINKS SECTION ── */}
-              <section className="section resume-section" aria-label="Resume and Profiles">
-                <div className="section-inner">
-                  <div className="section-tag">VERIFY CREDENTIALS</div>
-                  <h2 className="section-title">
-                    Work with <span className="accent-purple">Master Rua</span> — Sachin Kumar
-                  </h2>
-                  <p className="section-desc">
-                    Full-Stack AI/ML Engineer · Data Scientist · Trainer for US professionals at Xziant Communication. 4+ years experience. 45+ client testimonials.
-                  </p>
-
-                  {/* Profile links */}
-                  <div className="profile-links">
-                    <a href="https://linkedin.com/in/sachin-kumar-2b92a8347" target="_blank" rel="noopener noreferrer" className="profile-btn linkedin">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                      LinkedIn Profile →
-                    </a>
-                    <a href="https://github.com/SachinKumarRua2023" target="_blank" rel="noopener noreferrer" className="profile-btn github">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                      GitHub Projects →
-                    </a>
-                    <a href="https://wa.me/918826776018" target="_blank" rel="noopener noreferrer" className="profile-btn whatsapp">
-                      💬 WhatsApp — Hire Me
-                    </a>
-                  </div>
-
-                  {/* Resume download cards */}
-                  <div className="resume-grid">
-                    <div className="resume-card">
-                      <div className="resume-icon">📄</div>
-                      <div className="resume-info">
-                        <div className="resume-title">Resume 2026 — Full Version</div>
-                        <div className="resume-sub">Full-Stack AI/ML · Data Scientist · GenAI</div>
-                        <div className="resume-meta">Sachin Kumar · Noida, India · seekhowithrua.com</div>
-                      </div>
-                      <a href="/Sachin_Kumar_2026.docx" download className="resume-dl">⬇ Download</a>
-                    </div>
-                    <div className="resume-card">
-                      <div className="resume-icon">📋</div>
-                      <div className="resume-info">
-                        <div className="resume-title">One-Page Resume — FAANG Ready</div>
-                        <div className="resume-sub">Condensed · ATS Optimized · 2026</div>
-                        <div className="resume-meta">Python · React · Django · LLMs · PySpark</div>
-                      </div>
-                      <a href="/Sachin_Kumar_OnePage_Resume.docx" download className="resume-dl">⬇ Download</a>
-                    </div>
-                  </div>
-                </div>
-</section>
+              
               {/* Stats */}
               <div className="hero-stats">
                 {STATS.map((s) => (
@@ -654,20 +665,52 @@ export default function HomePage() {
         {/* ── TESTIMONIALS ── */}
         <section className="section" aria-label="Testimonials">
           <div className="section-inner">
-            <div className="section-tag">STUDENT WINS</div>
+            <div className="section-tag">VERIFIED US CLIENT FEEDBACK · XZIANT COMMUNICATION</div>
             <h2 className="section-title">
-              Real Results from <span className="accent-purple">Real Students</span>
+              Real Feedback from <span className="accent-purple">Real US Students</span>
             </h2>
+            <p className="section-desc">
+              45+ verified responses from US-based professionals trained at Xziant Communication. Raw Google Form data — timestamps, names, dates. No fake quotes.
+            </p>
+
+            {/* Proof bar */}
+            <div style={{ display:"flex", gap:12, flexWrap:"wrap", marginBottom:36 }}>
+              <div style={{ padding:"8px 16px", borderRadius:20, background:"rgba(29,158,117,0.1)", border:"1px solid rgba(29,158,117,0.3)", color:"#1D9E75", fontFamily:"'JetBrains Mono',monospace", fontSize:11 }}>
+                ✅ 45+ US Professionals
+              </div>
+              <div style={{ padding:"8px 16px", borderRadius:20, background:"rgba(29,158,117,0.1)", border:"1px solid rgba(29,158,117,0.3)", color:"#1D9E75", fontFamily:"'JetBrains Mono',monospace", fontSize:11 }}>
+                ✅ Feb–Mar 2026 · Verified Timestamps
+              </div>
+              <div style={{ padding:"8px 16px", borderRadius:20, background:"rgba(29,158,117,0.1)", border:"1px solid rgba(29,158,117,0.3)", color:"#1D9E75", fontFamily:"'JetBrains Mono',monospace", fontSize:11 }}>
+                ✅ Xziant Communication · Live Sessions
+              </div>
+              <a
+                href="/Sachin_Feedback_USA_Clients.pdf"
+                download
+                style={{ padding:"8px 16px", borderRadius:20, background:"rgba(124,58,237,0.1)", border:"1px solid rgba(124,58,237,0.35)", color:"#a78bfa", fontFamily:"'JetBrains Mono',monospace", fontSize:11, textDecoration:"none", display:"inline-flex", alignItems:"center", gap:6 }}
+              >
+                ⬇ Download Full Feedback Report (PDF)
+              </a>
+            </div>
+
             <div className="testi-grid">
               {TESTIMONIALS.map((t) => (
                 <div key={t.name} className="testi-card">
-                  <div className="testi-stars">★★★★★</div>
+                  <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12 }}>
+                    <div style={{ color:"#f59e0b", fontSize:13, letterSpacing:1 }}>
+                      {"★".repeat(t.rating)}{"☆".repeat(5 - t.rating)}
+                    </div>
+                    <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9, background:"rgba(29,158,117,0.08)", border:"1px solid rgba(29,158,117,0.2)", borderRadius:10, padding:"2px 8px", color:"#1D9E75" }}>
+                      ✓ VERIFIED
+                    </div>
+                  </div>
                   <p className="testi-text">"{t.text}"</p>
                   <div className="testi-author">
                     <div className="testi-avatar">{t.avatar}</div>
                     <div>
                       <div className="testi-name">{t.name}</div>
                       <div className="testi-role">{t.role}</div>
+                      <div style={{ fontFamily:"'JetBrains Mono',monospace", fontSize:9, color:"rgba(255,255,255,0.25)", marginTop:2 }}>{t.date}</div>
                     </div>
                   </div>
                 </div>
@@ -706,6 +749,55 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+        </section>
+        {/* ── RESUME + PROFILE LINKS SECTION ── */}
+        <section className="section resume-section" aria-label="Resume and Profiles">
+                <div className="section-inner">
+                  <div className="section-tag">VERIFY CREDENTIALS</div>
+                  <h2 className="section-title">
+                    Work with <span className="accent-purple">Master Rua</span> — Sachin Kumar
+                  </h2>
+                  <p className="section-desc">
+                    Full-Stack AI/ML Engineer · Data Scientist · Trainer for US professionals at Xziant Communication. 4+ years experience. 45+ client testimonials.
+                  </p>
+
+                  {/* Profile links */}
+                  <div className="profile-links">
+                    <a href="https://linkedin.com/in/sachin-kumar-2b92a8347" target="_blank" rel="noopener noreferrer" className="profile-btn linkedin">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                      LinkedIn Profile →
+                    </a>
+                    <a href="https://github.com/SachinKumarRua2023" target="_blank" rel="noopener noreferrer" className="profile-btn github">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                      GitHub Projects →
+                    </a>
+                    <a href="https://wa.me/918826776018" target="_blank" rel="noopener noreferrer" className="profile-btn whatsapp">
+                      💬 WhatsApp — Hire Me
+                    </a>
+                  </div>
+
+                  {/* Resume download cards */}
+                  <div className="resume-grid">
+                    <div className="resume-card">
+                      <div className="resume-icon">📄</div>
+                      <div className="resume-info">
+                        <div className="resume-title">Resume 2026 — Full Version</div>
+                        <div className="resume-sub">Full-Stack AI/ML · Data Scientist · GenAI</div>
+                        <div className="resume-meta">Sachin Kumar · Noida, India · seekhowithrua.com</div>
+                      </div>
+                      <a href="/Sachin_Kumar_2026.docx" download className="resume-dl">⬇ Download</a>
+                    </div>
+                    <div className="resume-card">
+                      <div className="resume-icon">📋</div>
+                      <div className="resume-info">
+                        <div className="resume-title">One-Page Resume — FAANG Ready</div>
+                        <div className="resume-sub">Condensed · ATS Optimized · 2026</div>
+                        <div className="resume-meta">Python · React · Django · LLMs · PySpark</div>
+                      </div>
+                      <a href="/Sachin_Kumar_OnePage_Resume.docx" download className="resume-dl">⬇ Download</a>
+                    </div>
+                  </div>
+                </div>
         </section>
 
         {/* ── BLOG PREVIEW ── */}
