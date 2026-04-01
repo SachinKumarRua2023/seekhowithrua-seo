@@ -213,16 +213,16 @@ export default function Navbar() {
                       </div>
                       <span className="nv-di-arr">→</span>
                     </Link>
-                    <Link href="/ml-research" className="nv-di" onClick={() => setCoursesOpen(false)}>
+                    <a href="/ml-algorithms-visualizer.html" className="nv-di" onClick={() => setCoursesOpen(false)}>
                       <span className="nv-di-ico" style={{ background: "#a855f71a", boxShadow: "0 0 10px #a855f718" }}>
                         🧬
                       </span>
                       <div className="nv-di-txt">
-                        <div className="nv-di-name">ML for Research</div>
-                        <div className="nv-di-desc">Genomics, scientific applications</div>
+                        <div className="nv-di-name">Complete ML Visualizer</div>
+                        <div className="nv-di-desc">All algorithms with animations</div>
                       </div>
                       <span className="nv-di-arr">→</span>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               )}

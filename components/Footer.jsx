@@ -293,9 +293,9 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="/ml-research"
-                      title="ML for Research — SeekhowithRua by Master Rua"
+                    <a
+                      href="/ml-algorithms-visualizer.html"
+                      title="Complete ML Visualizer — All algorithms with animations"
                       className="ft-course"
                       style={{
                         display:"flex",alignItems:"center",gap:"8px",
@@ -306,8 +306,8 @@ export default function Footer() {
                       }}
                     >
                       <span aria-hidden="true" style={{ fontSize:"14px",flexShrink:0 }}>🧬</span>
-                      <span>ML for Research</span>
-                    </Link>
+                      <span>Complete ML Visualizer</span>
+                    </a>
                   </li>
                 </ul>
               </nav>
