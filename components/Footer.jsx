@@ -248,6 +248,85 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* ── SCIENCE & AI COURSES ── */}
+            <div>
+              <h3 style={{
+                fontSize:"11px",letterSpacing:"2px",textTransform:"uppercase",
+                color:"#ff6b6b",marginBottom:"20px",fontWeight:600,margin:"0 0 20px",
+              }}>
+                🎯 Science & AI — 2026
+              </h3>
+              <nav aria-label="Science and AI courses at SeekhowithRua">
+                <ul role="list" style={{ listStyle:"none",margin:0,padding:0,display:"flex",flexDirection:"column",gap:"2px" }}>
+                  <li>
+                    <Link
+                      href="/ai-fundamentals"
+                      title="AI Fundamentals — SeekhowithRua by Master Rua"
+                      className="ft-course"
+                      style={{
+                        display:"flex",alignItems:"center",gap:"8px",
+                        padding:"7px 10px",borderRadius:"6px",
+                        textDecoration:"none",color:"rgba(255,255,255,0.65)",
+                        fontSize:"13.5px",transition:"all 0.2s",
+                        border:"1px solid transparent",
+                      }}
+                    >
+                      <span aria-hidden="true" style={{ fontSize:"14px",flexShrink:0 }}>🤖</span>
+                      <span>AI Fundamentals</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/data-science-python"
+                      title="Data Science with Python — SeekhowithRua by Master Rua"
+                      className="ft-course"
+                      style={{
+                        display:"flex",alignItems:"center",gap:"8px",
+                        padding:"7px 10px",borderRadius:"6px",
+                        textDecoration:"none",color:"rgba(255,255,255,0.65)",
+                        fontSize:"13.5px",transition:"all 0.2s",
+                        border:"1px solid transparent",
+                      }}
+                    >
+                      <span aria-hidden="true" style={{ fontSize:"14px",flexShrink:0 }}>🔬</span>
+                      <span>Data Science with Python</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/ml-research"
+                      title="ML for Research — SeekhowithRua by Master Rua"
+                      className="ft-course"
+                      style={{
+                        display:"flex",alignItems:"center",gap:"8px",
+                        padding:"7px 10px",borderRadius:"6px",
+                        textDecoration:"none",color:"rgba(255,255,255,0.65)",
+                        fontSize:"13.5px",transition:"all 0.2s",
+                        border:"1px solid transparent",
+                      }}
+                    >
+                      <span aria-hidden="true" style={{ fontSize:"14px",flexShrink:0 }}>🧬</span>
+                      <span>ML for Research</span>
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+
+              {/* Science tagline */}
+              <div style={{
+                marginTop:"24px",padding:"16px",borderRadius:"10px",
+                background:"rgba(255,107,107,0.07)",
+                border:"1px solid rgba(255,107,107,0.2)",
+              }}>
+                <p style={{ margin:"0 0 6px",fontSize:"11px",color:"#ff6b6b",fontWeight:700,letterSpacing:"1px",fontFamily:"monospace" }}>
+                  RESEARCH & INNOVATION
+                </p>
+                <p style={{ margin:0,fontSize:"12px",color:"rgba(255,255,255,0.45)",lineHeight:1.7 }}>
+                  Advanced courses for scientific research, genomics, and cutting-edge AI applications.
+                </p>
+              </div>
+            </div>
+
             {/* ── QUICK LINKS ── */}
             <div>
               <h3 style={{

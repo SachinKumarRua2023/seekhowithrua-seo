@@ -174,6 +174,60 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Science & AI Dropdown */}
+            <div className="nv-ddwrap" ref={dropRef}>
+              <button
+                className={`nv-link${coursesOpen ? " on" : ""}`}
+                onClick={() => setCoursesOpen(p => !p)}
+              >
+                🎯 Science & AI
+                <svg className={`nv-chev${coursesOpen ? " open" : ""}`} viewBox="0 0 10 6" fill="none">
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+
+              {coursesOpen && (
+                <div className="nv-dd">
+                  <div className="nv-dd-top">
+                    <span className="nv-dd-ttl">SCIENCE & AI COURSES</span>
+                    <span className="nv-dd-sub">3 specialized tracks</span>
+                  </div>
+                  <div className="nv-dd-grid">
+                    <Link href="/ai-fundamentals" className="nv-di" onClick={() => setCoursesOpen(false)}>
+                      <span className="nv-di-ico" style={{ background: "#ff6b6b1a", boxShadow: "0 0 10px #ff6b6b18" }}>
+                        🤖
+                      </span>
+                      <div className="nv-di-txt">
+                        <div className="nv-di-name">AI Fundamentals</div>
+                        <div className="nv-di-desc">Search algorithms, agents, logic</div>
+                      </div>
+                      <span className="nv-di-arr">→</span>
+                    </Link>
+                    <Link href="/data-science-python" className="nv-di" onClick={() => setCoursesOpen(false)}>
+                      <span className="nv-di-ico" style={{ background: "#4ecdc41a", boxShadow: "0 0 10px #4ecdc418" }}>
+                        🔬
+                      </span>
+                      <div className="nv-di-txt">
+                        <div className="nv-di-name">Data Science with Python</div>
+                        <div className="nv-di-desc">Pandas, NumPy, Visualization</div>
+                      </div>
+                      <span className="nv-di-arr">→</span>
+                    </Link>
+                    <Link href="/ml-research" className="nv-di" onClick={() => setCoursesOpen(false)}>
+                      <span className="nv-di-ico" style={{ background: "#a855f71a", boxShadow: "0 0 10px #a855f718" }}>
+                        🧬
+                      </span>
+                      <div className="nv-di-txt">
+                        <div className="nv-di-name">ML for Research</div>
+                        <div className="nv-di-desc">Genomics, scientific applications</div>
+                      </div>
+                      <span className="nv-di-arr">→</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* ── VISIBLE ON DESKTOP: Courses, Voice Rooms, Gaming Lab, Animation Lab ── */}
             <Link href="/voice-rooms" className="nv-link nv-link-vcr">🔴 Voice Rooms</Link>
             <Link href="/gaming-lab" className="nv-link nv-link-game">🎮 Gaming Lab</Link>
