@@ -6,12 +6,15 @@
 // ============================================================
 
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect");
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,8 +32,21 @@ export default function LoginPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || data.detail || "Login failed");
+      
+      // Store user data
       localStorage.setItem("cosmos_user", JSON.stringify(data));
+      localStorage.setItem("cosmos_auth_token", data.token || data.access_token || "");
       window.dispatchEvent(new Event("storage"));
+      
+      // If redirect URL is provided (cross-domain), redirect with token
+      if (redirectUrl) {
+        const userData = encodeURIComponent(JSON.stringify(data));
+        const token = data.token || data.access_token || "";
+        window.location.href = `${redirectUrl}?token=${token}&user=${userData}`;
+        return;
+      }
+      
+      // Otherwise, redirect to home
       router.push("/");
     } catch (err: any) {
       setError(err.message);

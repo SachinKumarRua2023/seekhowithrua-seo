@@ -428,6 +428,39 @@ export default function HomePage() {
     } catch { }
   }, []);
 
+  // Countdown timer for internship section
+  useEffect(() => {
+    const storageKey = 'home_timer_end';
+    let endTime = localStorage.getItem(storageKey);
+    if (!endTime) {
+      endTime = String(Date.now() + 24 * 60 * 60 * 1000);
+      localStorage.setItem(storageKey, endTime);
+    }
+    const end = parseInt(endTime);
+
+    const pad = (n: number) => String(n).padStart(2, '0');
+    
+    const updateTimer = () => {
+      const now = Date.now();
+      const diff = Math.max(0, end - now);
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      
+      const hoursEl = document.getElementById('home-timer-hours');
+      const minsEl = document.getElementById('home-timer-mins');
+      const secsEl = document.getElementById('home-timer-secs');
+      
+      if (hoursEl) hoursEl.textContent = pad(h);
+      if (minsEl) minsEl.textContent = pad(m);
+      if (secsEl) secsEl.textContent = pad(s);
+    };
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const userName = user?.profile?.name || user?.name || user?.email?.split("@")[0] || "";
 
   return (
@@ -593,6 +626,100 @@ export default function HomePage() {
           </div>
         </section>
         {/* ── END VISION SECTION ──────────────────────────────────────────── */}
+
+        {/* ── INTERNSHIP & PLACEMENT PROGRAM ──────────────────────────────── */}
+        <section className="section internship-section" aria-label="Internship Program" style={{ background: "linear-gradient(135deg, rgba(255,87,34,0.08) 0%, rgba(0,200,83,0.05) 100%)", borderTop: "2px solid rgba(255,87,34,0.3)", borderBottom: "2px solid rgba(255,87,34,0.3)" }}>
+          <div className="section-inner" style={{ textAlign: "center" }}>
+            <div className="section-tag" style={{ color: "#FF5722" }}>🔥 LIMITED TIME OFFER</div>
+            <h2 className="section-title" style={{ fontSize: "clamp(28px, 4vw, 48px)", marginBottom: "8px" }}>
+              6-Month <span style={{ color: "#FF5722" }}>Internship Program</span>
+            </h2>
+            <p className="section-desc" style={{ maxWidth: "700px", margin: "0 auto 32px", fontSize: "15px" }}>
+              100% Job Ready • Resume Building • Placement Support • USA Client Referrals<br />
+              AI + Full Stack + Data Science + Mobile + IoT + Game Dev — <strong>All 6 Tracks</strong>
+            </p>
+
+            {/* Countdown Timer */}
+            <div style={{ 
+              display: "inline-flex", 
+              gap: "16px", 
+              marginBottom: "32px",
+              padding: "24px 40px",
+              background: "rgba(0,0,0,0.3)",
+              borderRadius: "16px",
+              border: "1px solid rgba(255,87,34,0.3)"
+            }}>
+              {['hours', 'mins', 'secs'].map((unit, i) => (
+                <div key={unit} style={{ textAlign: "center" }}>
+                  <div id={`home-timer-${unit}`} style={{ 
+                    fontFamily: "'Rajdhani', sans-serif",
+                    fontSize: "clamp(36px, 5vw, 56px)",
+                    fontWeight: 800,
+                    color: "#fff",
+                    background: "#2A2A2A",
+                    borderRadius: "10px",
+                    padding: "10px 20px",
+                    minWidth: "80px",
+                    border: "1px solid #333"
+                  }}>{unit === 'hours' ? '23' : unit === 'mins' ? '59' : '47'}</div>
+                  <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "2px", marginTop: "8px" }}>{unit}</div>
+                </div>
+              )).reduce((acc, el, i) => i < 2 ? [...acc, el, <div key={`sep-${i}`} style={{ fontSize: "40px", color: "#FF5722", fontWeight: 800, alignSelf: "center" }}>:</div>] : [...acc, el], [] as any)}
+            </div>
+
+            {/* Price */}
+            <div style={{ marginBottom: "28px" }}>
+              <div style={{ fontSize: "16px", color: "rgba(255,255,255,0.5)", textDecoration: "line-through", marginBottom: "4px" }}>₹24,999</div>
+              <div style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "clamp(48px, 6vw, 72px)", fontWeight: 800, color: "#00C853", lineHeight: 1 }}>₹8,999</div>
+              <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", marginTop: "8px" }}>First 20 Students Only • Regular Price ₹14,999</div>
+            </div>
+
+            {/* Features */}
+            <div style={{ 
+              display: "flex", 
+              flexWrap: "wrap", 
+              gap: "12px", 
+              justifyContent: "center", 
+              marginBottom: "32px" 
+            }}>
+              {[
+                "✓ 6-Month Guided Internship",
+                "✓ Official Certificate",
+                "✓ LinkedIn Endorsement",
+                "✓ Resume Building Support",
+                "✓ India + USA Job Referrals",
+                "✓ 100% Job Ready Guarantee"
+              ].map((feature) => (
+                <div key={feature} style={{ 
+                  padding: "8px 16px", 
+                  background: "rgba(0,200,83,0.1)", 
+                  border: "1px solid rgba(0,200,83,0.3)",
+                  borderRadius: "20px",
+                  fontSize: "12px",
+                  color: "#00C853",
+                  fontFamily: "'JetBrains Mono', monospace"
+                }}>{feature}</div>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <a 
+              href="https://lms.seekhowithrua.com/funnel.html" 
+              className="btn-primary" 
+              style={{ 
+                fontSize: "18px", 
+                padding: "18px 48px",
+                background: "linear-gradient(135deg, #FF5722, #FF8A65)",
+                boxShadow: "0 8px 32px rgba(255,87,34,0.4)"
+              }}
+            >
+              🔥 Enroll Now — ₹8,999
+            </a>
+            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "16px" }}>
+              Secure payment via Razorpay • UPI/Card/NetBanking • Instant enrollment
+            </p>
+          </div>
+        </section>
 
         {/* ── COURSES ── */}
         <section className="section" aria-label="Courses">

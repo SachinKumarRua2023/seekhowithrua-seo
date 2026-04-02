@@ -13,7 +13,8 @@ const COURSE_LINKS = [
 ];
 
 const QUICK_LINKS = [
-  { label: "👑 Master Rua",         href: "/master-rua",                          external: false },
+  { label: "� AI + Full Stack Bundle — ₹8,999", href: "https://lms.seekhowithrua.com/funnel.html", external: true },
+  { label: "�👑 Master Rua",         href: "/master-rua",                          external: false },
   { label: "✍️ Blog & Tutorials",   href: "/blog",                                external: false },
   { label: "🚀 Learning Platform",  href: "https://app.seekhowithrua.com",        external: true  },
   { label: "🎮 Gaming Lab",         href: "https://gaming.seekhowithrua.com",     external: true  },
