@@ -6,19 +6,24 @@
 // ============================================================
 
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectUrl = searchParams.get("redirect");
+  const redirectUrl = searchParams?.get("redirect") || null;
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +44,7 @@ export default function LoginPage() {
       window.dispatchEvent(new Event("storage"));
       
       // If redirect URL is provided (cross-domain), redirect with token
-      if (redirectUrl) {
+      if (redirectUrl && isClient) {
         const userData = encodeURIComponent(JSON.stringify(data));
         const token = data.token || data.access_token || "";
         window.location.href = `${redirectUrl}?token=${token}&user=${userData}`;
@@ -56,7 +61,38 @@ export default function LoginPage() {
   };
 
   return (
-    <>
+    <div className="auth-page">
+      <div className="auth-card">
+        <div className="auth-logo">
+          <div className="logo-icon">S</div>
+          <span>SeekhowithRua</span>
+        </div>
+        <h1 className="auth-title">Welcome Back</h1>
+        <p className="auth-sub">Login to continue learning</p>
+        {error && <div className="auth-error">⚠️ {error}</div>}
+        <form onSubmit={handleLogin} className="auth-form">
+          <div className="field">
+            <label>Email</label>
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com" required />
+          </div>
+          <div className="field">
+            <label>Password</label>
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" required />
+          </div>
+          <button type="submit" className="auth-btn" disabled={loading}>
+            {loading ? "⏳ Logging in..." : "Login →"}
+          </button>
+        </form>
+        <p className="auth-switch">Don't have an account? <Link href="/signup">Sign Up Free</Link></p>
+        <p className="auth-switch" style={{ marginTop: 8 }}><Link href="/">← Back to Home</Link></p>
+      </div>
+    </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={
       <div className="auth-page">
         <div className="auth-card">
           <div className="auth-logo">
@@ -64,25 +100,11 @@ export default function LoginPage() {
             <span>SeekhowithRua</span>
           </div>
           <h1 className="auth-title">Welcome Back</h1>
-          <p className="auth-sub">Login to continue learning</p>
-          {error && <div className="auth-error">⚠️ {error}</div>}
-          <form onSubmit={handleLogin} className="auth-form">
-            <div className="field">
-              <label>Email</label>
-              <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com" required />
-            </div>
-            <div className="field">
-              <label>Password</label>
-              <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" required />
-            </div>
-            <button type="submit" className="auth-btn" disabled={loading}>
-              {loading ? "⏳ Logging in..." : "Login →"}
-            </button>
-          </form>
-          <p className="auth-switch">Don't have an account? <Link href="/signup">Sign Up Free</Link></p>
-          <p className="auth-switch" style={{ marginTop: 8 }}><Link href="/">← Back to Home</Link></p>
+          <p className="auth-sub">Loading...</p>
         </div>
       </div>
+    }>
+      <LoginForm />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap');
         .auth-page{min-height:100vh;background:#04040f;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'JetBrains Mono',monospace}
@@ -105,6 +127,6 @@ export default function LoginPage() {
         .auth-switch{text-align:center;font-size:12px;color:rgba(255,255,255,0.4);margin-top:20px}
         .auth-switch a{color:#7c3aed;text-decoration:none}
       `}</style>
-    </>
+    </Suspense>
   );
 }
