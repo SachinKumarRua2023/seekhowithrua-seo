@@ -2,14 +2,14 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 // Inline SVG icons (no lucide-react dependency)
-const CalendarIconIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>;
-const ClockIconIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>;
-const ArrowLeftIconIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>;
+const CalendarIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>;
+const ClockIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>;
+const ArrowLeftIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>;
 const UserIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>;
-const AlertTriangleIconIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>;
-const CheckCircleIconIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>;
-const XCircleIconIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" x2="9" y1="9" y2="15"/><line x1="9" x2="15" y1="9" y2="15"/></svg>;
-const SearchIconIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>;
+const AlertTriangleIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>;
+const CheckCircleIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>;
+const XCircleIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" x2="9" y1="9" y2="15"/><line x1="9" x2="15" y1="9" y2="15"/></svg>;
+const SearchIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>;
 
 const Button = ({ children, className, ...props }: any) => (
   <button className={`px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 ${className || ''}`} {...props}>{children}</button>
@@ -88,7 +88,7 @@ export default function SEOIndexingFixBlog() {
           
           <div className="flex flex-wrap items-center gap-6 text-gray-400 text-sm">
             <div className="flex items-center gap-2">
-              <UserIconclassName="w-4 h-4" />
+              <UserIcon className="w-4 h-4" />
               <span className="text-white">Master Rua</span>
             </div>
             <div className="flex items-center gap-2">
@@ -147,7 +147,7 @@ export default function SEOIndexingFixBlog() {
               </ul>
             </div>
 
-            <hr className="my-4 border-gray-800" /> className="bg-gray-800" />
+            <hr className="my-4 border-gray-800" />
 
             {/* Section 1 */}
             <section id="what-means">
@@ -181,8 +181,8 @@ export default function SEOIndexingFixBlog() {
               </h2>
               
               <div className="space-y-6 not-prose">
-                <div className="rounded-lg border border-gray-800 bg-gray-900/30" className="bg-gray-900/50 border-gray-800">
-                  <div className="rounded-lg border border-gray-800 bg-gray-900/30"Content className="p-6">
+                <div className="rounded-lg border border-gray-800 bg-gray-900/30">
+                  <div className="p-6">
                     <div className="flex items-start gap-4">
                       <XCircleIcon className="w-6 h-6 text-red-400 flex-shrink-0" />
                       <div>
@@ -193,11 +193,11 @@ export default function SEOIndexingFixBlog() {
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                <div className="rounded-lg border border-gray-800 bg-gray-900/30" className="bg-gray-900/50 border-gray-800">
-                  <div className="rounded-lg border border-gray-800 bg-gray-900/30"Content className="p-6">
+                <div className="rounded-lg border border-gray-800 bg-gray-900/30">
+                  <div className="p-6">
                     <div className="flex items-start gap-4">
                       <XCircleIcon className="w-6 h-6 text-red-400 flex-shrink-0" />
                       <div>
@@ -208,11 +208,11 @@ export default function SEOIndexingFixBlog() {
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                <div className="rounded-lg border border-gray-800 bg-gray-900/30" className="bg-gray-900/50 border-gray-800">
-                  <div className="rounded-lg border border-gray-800 bg-gray-900/30"Content className="p-6">
+                <div className="rounded-lg border border-gray-800 bg-gray-900/30">
+                  <div className="p-6">
                     <div className="flex items-start gap-4">
                       <XCircleIcon className="w-6 h-6 text-red-400 flex-shrink-0" />
                       <div>
@@ -223,11 +223,11 @@ export default function SEOIndexingFixBlog() {
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                <div className="rounded-lg border border-gray-800 bg-gray-900/30" className="bg-gray-900/50 border-gray-800">
-                  <div className="rounded-lg border border-gray-800 bg-gray-900/30"Content className="p-6">
+                <div className="rounded-lg border border-gray-800 bg-gray-900/30">
+                  <div className="p-6">
                     <div className="flex items-start gap-4">
                       <XCircleIcon className="w-6 h-6 text-red-400 flex-shrink-0" />
                       <div>
@@ -238,11 +238,11 @@ export default function SEOIndexingFixBlog() {
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                <div className="rounded-lg border border-gray-800 bg-gray-900/30" className="bg-gray-900/50 border-gray-800">
-                  <div className="rounded-lg border border-gray-800 bg-gray-900/30"Content className="p-6">
+                <div className="rounded-lg border border-gray-800 bg-gray-900/30">
+                  <div className="p-6">
                     <div className="flex items-start gap-4">
                       <XCircleIcon className="w-6 h-6 text-red-400 flex-shrink-0" />
                       <div>
@@ -253,11 +253,11 @@ export default function SEOIndexingFixBlog() {
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                <div className="rounded-lg border border-gray-800 bg-gray-900/30" className="bg-gray-900/50 border-gray-800">
-                  <div className="rounded-lg border border-gray-800 bg-gray-900/30"Content className="p-6">
+                <div className="rounded-lg border border-gray-800 bg-gray-900/30">
+                  <div className="p-6">
                     <div className="flex items-start gap-4">
                       <XCircleIcon className="w-6 h-6 text-red-400 flex-shrink-0" />
                       <div>
@@ -268,11 +268,11 @@ export default function SEOIndexingFixBlog() {
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
 
-                <div className="rounded-lg border border-gray-800 bg-gray-900/30" className="bg-gray-900/50 border-gray-800">
-                  <div className="rounded-lg border border-gray-800 bg-gray-900/30"Content className="p-6">
+                <div className="rounded-lg border border-gray-800 bg-gray-900/30">
+                  <div className="p-6">
                     <div className="flex items-start gap-4">
                       <XCircleIcon className="w-6 h-6 text-red-400 flex-shrink-0" />
                       <div>
@@ -283,12 +283,12 @@ export default function SEOIndexingFixBlog() {
                         </p>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </div>
             </section>
 
-            <hr className="my-4 border-gray-800" /> className="bg-gray-800" />
+            <hr className="my-4 border-gray-800" />
 
             {/* Section 3 */}
             <section id="how-to-fix">
@@ -387,7 +387,7 @@ export default function SEOIndexingFixBlog() {
               </div>
             </section>
 
-            <hr className="my-4 border-gray-800" /> className="bg-gray-800" />
+            <hr className="my-4 border-gray-800" />
 
             {/* CTA Section */}
             <section id="solution" className="bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-green-900/30 border border-purple-500/20 rounded-2xl p-8">
@@ -515,7 +515,7 @@ export default function SEOIndexingFixBlog() {
                   </h4>
                   <p className="text-gray-500 text-xs">April 3, 2026</p>
                 </Link>
-                <hr className="my-4 border-gray-800" /> className="bg-gray-800" />
+                <hr className="my-4 border-gray-800" />
                 <Link href="/blog/claude-code-leak-2026" className="block group">
                   <h4 className="text-gray-300 group-hover:text-yellow-400 transition-colors text-sm font-medium mb-1">
                     Claude Code Leak 2026: What Happened & How to Protect Your Workflow

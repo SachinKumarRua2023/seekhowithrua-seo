@@ -2,8 +2,21 @@
 
 import { useEffect, useState, ReactNode } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, Loader2 } from "lucide-react";
 import Link from "next/link";
+
+// Inline SVG icons (no lucide-react dependency)
+const LockIcon = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </svg>
+);
+
+const Loader2Icon = ({ className }: { className?: string }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 12a9 9 0 1 1-6.219-8.56"/>
+  </svg>
+);
 
 interface User {
   id: string;
@@ -77,7 +90,7 @@ export function CourseAccessGuard({ children, courseSlug, fallback }: CourseAcce
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="w-8 h-8 animate-spin text-purple-500 mx-auto mb-4" />
+          <Loader2Icon className="w-8 h-8 animate-spin text-purple-500 mx-auto mb-4" />
           <p className="text-gray-400">Verifying access...</p>
         </div>
       </div>
@@ -91,7 +104,7 @@ export function CourseAccessGuard({ children, courseSlug, fallback }: CourseAcce
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="text-center max-w-md">
             <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Lock className="w-8 h-8 text-purple-400" />
+              <LockIcon className="w-8 h-8 text-purple-400" />
             </div>
             <h2 className="text-2xl font-bold text-white mb-4">
               Login Required
@@ -127,7 +140,7 @@ export function CourseAccessGuard({ children, courseSlug, fallback }: CourseAcce
         <div className="min-h-[60vh] flex items-center justify-center">
           <div className="text-center max-w-md">
             <div className="w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Lock className="w-8 h-8 text-yellow-400" />
+              <LockIcon className="w-8 h-8 text-yellow-400" />
             </div>
             <h2 className="text-2xl font-bold text-white mb-4">
               Course Locked 🔒
