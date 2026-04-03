@@ -803,19 +803,34 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* CTA Button */}
-            <a 
-              href="https://rzp.io/rzp/KdR6CwmM" 
-              className="btn-primary" 
-              style={{ 
-                fontSize: "18px", 
-                padding: "18px 48px",
-                background: "linear-gradient(135deg, #FF6B9D, #8B5CF6)",
-                boxShadow: "0 8px 32px rgba(255,107,157,0.4)"
-              }}
-            >
-              🧠 Join Hackathon — ₹4,999 Only
-            </a>
+            {/* CTA Buttons */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center" }}>
+              <a 
+                href="https://rzp.io/rzp/KdR6CwmM" 
+                className="btn-primary" 
+                style={{ 
+                  fontSize: "18px", 
+                  padding: "18px 48px",
+                  background: "linear-gradient(135deg, #FF6B9D, #8B5CF6)",
+                  boxShadow: "0 8px 32px rgba(255,107,157,0.4)"
+                }}
+              >
+                🧠 Join Hackathon — ₹4,999 (With Coupon)
+              </a>
+              <a 
+                href="https://rzp.io/rzp/1teq1psA" 
+                className="btn-primary" 
+                style={{ 
+                  fontSize: "16px", 
+                  padding: "14px 32px",
+                  background: "transparent",
+                  border: "2px solid rgba(255,107,157,0.5)",
+                  color: "#FF6B9D"
+                }}
+              >
+                Pay ₹8,999 (Without Coupon)
+              </a>
+            </div>
             <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "16px" }}>
               Includes: Hypnotherapy Sessions • Quantum Physics Training • Law of Attraction • Full Scripture Discourse • Memory Science
             </p>
