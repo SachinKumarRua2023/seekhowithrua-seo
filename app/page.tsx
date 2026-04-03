@@ -806,7 +806,7 @@ export default function HomePage() {
             {/* CTA Buttons */}
             <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center" }}>
               <a 
-                href="https://rzp.io/rzp/KdR6CwmM" 
+                href="https://rzp.io/rzp/KdR6CwmM?redirect=/welcome?product=mindtraining" 
                 className="btn-primary" 
                 style={{ 
                   fontSize: "18px", 
@@ -818,7 +818,7 @@ export default function HomePage() {
                 🧠 Join Hackathon — ₹4,999 (With Coupon)
               </a>
               <a 
-                href="https://rzp.io/rzp/1teq1psA" 
+                href="https://rzp.io/rzp/1teq1psA?redirect=/welcome?product=mindtraining" 
                 className="btn-primary" 
                 style={{ 
                   fontSize: "16px", 

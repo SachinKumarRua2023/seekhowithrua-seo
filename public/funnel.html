@@ -1548,8 +1548,8 @@
               // Send receipt
               sendPaymentReceipt(userName, userEmail, response.razorpay_payment_id);
               
-              // Redirect to success
-              window.location.href = 'payment-success.html?payment=' + response.razorpay_payment_id + '&email=' + encodeURIComponent(userEmail);
+              // Redirect to welcome page
+              window.location.href = '/welcome?product=bundle&payment=' + response.razorpay_payment_id + '&email=' + encodeURIComponent(userEmail);
             } else {
               alert('Payment verification failed. Please contact support.');
             }
