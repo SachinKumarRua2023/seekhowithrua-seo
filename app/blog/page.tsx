@@ -20,11 +20,32 @@ export const metadata: Metadata = {
 };
 
 // ─────────────────────────────────────────────────────────────
-// POSTS — 32 unique entries, no duplicates
+// POSTS — 34 unique entries, no duplicates
 // RULE: Every slug here MUST have a matching entry in [slug]/page.tsx
 // RULE: Newest date first (index 0 = featured post)
 // ─────────────────────────────────────────────────────────────
 const POSTS = [
+  // ── April 3 — SEO Indexing Fix ─────────────────────────────
+  {
+    slug: "urls-discovered-not-indexed-fix",
+    title: "Google Search Console: 210 URLs Discovered But Not Indexed - How to Fix SEO 2026",
+    excerpt: "Why your URLs are discovered but not indexed by Google? Complete technical SEO guide to fix indexing issues, improve crawlability, and get 10K+ organic visitors in 2026.",
+    date: "2026-04-03", category: "SEO", color: "#f59e0b", readTime: "12 min read", trending: true,
+  },
+  // ── April 3 — Oracle Layoffs 2026 ─────────────────────────────
+  {
+    slug: "oracle-layoffs-2026",
+    title: "Oracle Layoffs 2026: 10,000+ Jobs Cut | Tech Industry Crisis & Solution",
+    excerpt: "Oracle just laid off 10,000+ employees. Discover why tech giants are cutting jobs, which skills are still in demand, and how SeekhoWithRua's Bundle Pack helps you stay employable in 2026.",
+    date: "2026-04-03", category: "Career", color: "#E24B4A", readTime: "10 min read", trending: true,
+  },
+  // ── April 3 — Claude Code Leak ─────────────────────────────
+  {
+    slug: "claude-code-leak-2026",
+    title: "Claude Code Leak 2026: What Happened & How to Protect Your AI Workflow",
+    excerpt: "Anthropic's Claude Code leaked online. Discover what data was exposed, impact on developers, and how SeekhoWithRua's secure AI Agent Builder protects your workflows.",
+    date: "2026-04-03", category: "Security", color: "#dc2626", readTime: "8 min read", trending: true,
+  },
   // ── March 29 — Memory Game Post ──────────────────────────────
   {
     slug: "memory-training-game-free-online-2026",
