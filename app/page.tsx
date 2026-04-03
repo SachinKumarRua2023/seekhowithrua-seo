@@ -805,7 +805,7 @@ export default function HomePage() {
 
             {/* CTA Button */}
             <a 
-              href="https://seekhowithrua.com/funnel.html" 
+              href="https://rzp.io/rzp/VBmvy6Hu" 
               className="btn-primary" 
               style={{ 
                 fontSize: "18px", 
