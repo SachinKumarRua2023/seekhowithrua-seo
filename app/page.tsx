@@ -762,77 +762,240 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Price */}
-            <div style={{ marginBottom: "28px" }}>
-              <div style={{ fontSize: "16px", color: "rgba(255,255,255,0.5)", textDecoration: "line-through", marginBottom: "4px" }}>₹4,999</div>
-              <div style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "clamp(48px, 6vw, 72px)", fontWeight: 800, color: "#FF6B9D", lineHeight: 1 }}>₹49</div>
-              <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", marginTop: "8px" }}>21-Day Program • 100+ Participants Needed • Survey-Based Entry</div>
-            </div>
-
-            {/* What You'll Achieve */}
+            {/* 3-Tier Pricing Cards */}
             <div style={{ 
-              background: "rgba(10,10,30,0.6)", 
-              borderRadius: "16px", 
-              padding: "24px", 
-              maxWidth: "800px", 
-              margin: "0 auto 32px",
-              border: "1px solid rgba(255,107,157,0.2)"
+              display: "grid", 
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
+              gap: "24px",
+              maxWidth: "1000px",
+              margin: "0 auto 32px"
             }}>
-              <h3 style={{ color: "#fff", fontSize: "18px", marginBottom: "16px", fontFamily: "'Rajdhani', sans-serif" }}>
-                🎯 Day 1 vs Day 21 Transformation
-              </h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", textAlign: "left" }}>
-                <div style={{ padding: "16px", background: "rgba(255,255,255,0.03)", borderRadius: "12px" }}>
-                  <div style={{ color: "#FF6B9D", fontSize: "14px", fontWeight: 700, marginBottom: "8px" }}>📊 Day 1: Baseline Test</div>
-                  <ul style={{ color: "rgba(255,255,255,0.5)", fontSize: "12px", lineHeight: "1.8", paddingLeft: "16px", margin: 0 }}>
-                    <li>Record current memory capacity</li>
-                    <li>How many numbers can you remember?</li>
-                    <li>How many words in sequence?</li>
-                    <li>Memory test officially recorded</li>
-                  </ul>
+              {/* BEGINNER - ₹49 - 21 Days - UNLOCKED */}
+              <div style={{ 
+                background: "linear-gradient(135deg, rgba(255,107,157,0.15), rgba(139,92,246,0.1))", 
+                borderRadius: "20px", 
+                padding: "32px 24px",
+                border: "2px solid #FF6B9D",
+                position: "relative",
+                boxShadow: "0 8px 32px rgba(255,107,157,0.3)"
+              }}>
+                <div style={{ 
+                  position: "absolute", 
+                  top: "-12px", 
+                  left: "50%", 
+                  transform: "translateX(-50%)",
+                  background: "#FF6B9D",
+                  padding: "4px 16px",
+                  borderRadius: "20px",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  color: "#fff",
+                  fontFamily: "'JetBrains Mono', monospace"
+                }}>
+                  🔓 UNLOCKED
                 </div>
-                <div style={{ padding: "16px", background: "rgba(255,107,157,0.08)", borderRadius: "12px", border: "1px solid rgba(255,107,157,0.2)" }}>
-                  <div style={{ color: "#FF6B9D", fontSize: "14px", fontWeight: 700, marginBottom: "8px" }}>🏆 Day 21: Mastery</div>
-                  <ul style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px", lineHeight: "1.8", paddingLeft: "16px", margin: 0 }}>
-                    <li>Memorize 200 numbers in sequence</li>
-                    <li>Memorize 200 words with ease</li>
-                    <li>Recall images in perfect order</li>
-                    <li>Memory champion techniques mastered</li>
-                  </ul>
+                
+                <h3 style={{ color: "#FF6B9D", fontSize: "24px", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
+                  🌱 Beginner
+                </h3>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "16px" }}>21-Day Memory Challenge</p>
+                
+                <div style={{ fontSize: "48px", fontWeight: 800, color: "#fff", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
+                  ₹49
                 </div>
+                <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", marginBottom: "24px" }}>
+                  Survey-based entry • 100+ participants
+                </p>
+                
+                <ul style={{ color: "rgba(255,255,255,0.7)", fontSize: "13px", lineHeight: "1.8", paddingLeft: "20px", marginBottom: "24px", textAlign: "left" }}>
+                  <li>Day 1 baseline test</li>
+                  <li>Hypnotherapy basics</li>
+                  <li>NLP fundamentals</li>
+                  <li>100 numbers/words memory</li>
+                  <li>WhatsApp community access</li>
+                </ul>
+                
+                <a 
+                  href="https://rzp.io/rzp/KdR6CwmM?redirect=/welcome?product=mindtraining" 
+                  style={{ 
+                    display: "block",
+                    fontSize: "16px", 
+                    padding: "14px 24px",
+                    background: "linear-gradient(135deg, #FF6B9D, #8B5CF6)",
+                    color: "#fff",
+                    borderRadius: "12px",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                    textAlign: "center"
+                  }}
+                >
+                  Join Now — ₹49
+                </a>
+              </div>
+
+              {/* INTERMEDIATE - ₹499 - 45 Days - LOCKED */}
+              <div style={{ 
+                background: "rgba(10,10,30,0.6)", 
+                borderRadius: "20px", 
+                padding: "32px 24px",
+                border: "2px solid rgba(255,255,255,0.1)",
+                position: "relative",
+                opacity: 0.7
+              }}>
+                <div style={{ 
+                  position: "absolute", 
+                  top: "-12px", 
+                  left: "50%", 
+                  transform: "translateX(-50%)",
+                  background: "rgba(255,255,255,0.2)",
+                  padding: "4px 16px",
+                  borderRadius: "20px",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  color: "rgba(255,255,255,0.6)",
+                  fontFamily: "'JetBrains Mono', monospace"
+                }}>
+                  🔒 LOCKED
+                </div>
+                
+                <div style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "rgba(0,0,0,0.3)",
+                  borderRadius: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backdropFilter: "blur(2px)"
+                }}>
+                  <div style={{ textAlign: "center" }}>
+                    <span style={{ fontSize: "32px" }}>🔒</span>
+                    <p style={{ color: "#fff", fontSize: "14px", marginTop: "8px" }}>Complete Beginner First</p>
+                  </div>
+                </div>
+                
+                <h3 style={{ color: "#a855f7", fontSize: "24px", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
+                  🚀 Intermediate
+                </h3>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "16px" }}>45-Day Deep Mastery</p>
+                
+                <div style={{ fontSize: "48px", fontWeight: 800, color: "#a855f7", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
+                  ₹4,999
+                </div>
+                <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", marginBottom: "24px" }}>
+                  45-Day Deep Mastery Program
+                </p>
+                
+                <ul style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", lineHeight: "1.8", paddingLeft: "20px", marginBottom: "24px", textAlign: "left" }}>
+                  <li>Advanced hypnotherapy</li>
+                  <li>Quantum physics deep dive</li>
+                  <li>500 numbers/words memory</li>
+                  <li>Memory palace mastery</li>
+                  <li>1-on-1 mentor sessions</li>
+                </ul>
+                
+                <button 
+                  disabled
+                  style={{ 
+                    display: "block",
+                    width: "100%",
+                    fontSize: "16px", 
+                    padding: "14px 24px",
+                    background: "rgba(255,255,255,0.1)",
+                    color: "rgba(255,255,255,0.4)",
+                    borderRadius: "12px",
+                    border: "none",
+                    fontWeight: 600,
+                    cursor: "not-allowed"
+                  }}
+                >
+                  Locked — Complete Beginner
+                </button>
+              </div>
+
+              {/* ADVANCED - ₹4,999 - 3 Months - LOCKED */}
+              <div style={{ 
+                background: "rgba(10,10,30,0.6)", 
+                borderRadius: "20px", 
+                padding: "32px 24px",
+                border: "2px solid rgba(255,255,255,0.1)",
+                position: "relative",
+                opacity: 0.7
+              }}>
+                <div style={{ 
+                  position: "absolute", 
+                  top: "-12px", 
+                  left: "50%", 
+                  transform: "translateX(-50%)",
+                  background: "rgba(255,255,255,0.2)",
+                  padding: "4px 16px",
+                  borderRadius: "20px",
+                  fontSize: "12px",
+                  fontWeight: 700,
+                  color: "rgba(255,255,255,0.6)",
+                  fontFamily: "'JetBrains Mono', monospace"
+                }}>
+                  🔒 LOCKED
+                </div>
+                
+                <div style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "rgba(0,0,0,0.3)",
+                  borderRadius: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backdropFilter: "blur(2px)"
+                }}>
+                  <div style={{ textAlign: "center" }}>
+                    <span style={{ fontSize: "32px" }}>🔒</span>
+                    <p style={{ color: "#fff", fontSize: "14px", marginTop: "8px" }}>Complete Intermediate First</p>
+                  </div>
+                </div>
+                
+                <h3 style={{ color: "#ec4899", fontSize: "24px", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
+                  👑 Advanced
+                </h3>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "16px" }}>3-Month Total Transformation</p>
+                
+                <div style={{ fontSize: "48px", fontWeight: 800, color: "#ec4899", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
+                  ₹49,999
+                </div>
+                <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", marginBottom: "24px" }}>
+                  3-Month Elite Transformation
+                </p>
+                
+                <ul style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", lineHeight: "1.8", paddingLeft: "20px", marginBottom: "24px", textAlign: "left" }}>
+                  <li>Full hypnotherapy certification</li>
+                  <li>WMSC Championship training</li>
+                  <li>1000+ numbers/words memory</li>
+                  <li>Scripture discourse mastery</li>
+                  <li>Lifetime mentorship access</li>
+                </ul>
+                
+                <button 
+                  disabled
+                  style={{ 
+                    display: "block",
+                    width: "100%",
+                    fontSize: "16px", 
+                    padding: "14px 24px",
+                    background: "rgba(255,255,255,0.1)",
+                    color: "rgba(255,255,255,0.4)",
+                    borderRadius: "12px",
+                    border: "none",
+                    fontWeight: 600,
+                    cursor: "not-allowed"
+                  }}
+                >
+                  Locked — Complete Intermediate
+                </button>
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center" }}>
-              <a 
-                href="https://rzp.io/rzp/KdR6CwmM?redirect=/welcome?product=mindtraining" 
-                className="btn-primary" 
-                style={{ 
-                  fontSize: "18px", 
-                  padding: "18px 48px",
-                  background: "linear-gradient(135deg, #FF6B9D, #8B5CF6)",
-                  boxShadow: "0 8px 32px rgba(255,107,157,0.4)"
-                }}
-              >
-                🧠 Join Hackathon — ₹4,999 (With Coupon)
-              </a>
-              <a 
-                href="https://rzp.io/rzp/1teq1psA?redirect=/welcome?product=mindtraining" 
-                className="btn-primary" 
-                style={{ 
-                  fontSize: "16px", 
-                  padding: "14px 32px",
-                  background: "transparent",
-                  border: "2px solid rgba(255,107,157,0.5)",
-                  color: "#FF6B9D"
-                }}
-              >
-                Pay ₹8,999 (Without Coupon)
-              </a>
-            </div>
             <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "16px" }}>
-              Includes: Hypnotherapy Sessions • Quantum Physics Training • Law of Attraction • Full Scripture Discourse • Memory Science
+              All tiers include: Hypnotherapy • Quantum Physics • Law of Attraction • Scripture Discourse • Memory Science
             </p>
           </div>
         </section>
