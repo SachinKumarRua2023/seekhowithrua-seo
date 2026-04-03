@@ -18,6 +18,7 @@ const MessageIcon = ({ className }: { className?: string }) => <svg className={c
 const GiftIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect width="20" height="5" x="2" y="7" rx="2"/><line x1="12" x2="12" y1="22" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>;
 const TagIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>;
 const LockIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>;
+const MindIcon = ({ className }: { className?: string }) => <svg className={className} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a8 8 0 0 1 8 8c0 3.866-3.582 7-8 7a8 8 0 0 1-8-8 8 8 0 0 1 8-8z"/><path d="M12 8v4"/><path d="M12 16h.01"/><path d="M9 10l2 2 2-2"/></svg>;
 
 export const metadata: Metadata = {
   title: "Complete Bundle Pack - All Courses ₹4,999 (50% OFF) | SeekhoWithRua",
@@ -83,12 +84,12 @@ const courses = [
     color: "from-yellow-500 to-amber-500"
   },
   {
-    icon: MessageIcon,
-    title: "Voice AI & Chat Systems",
-    desc: "WebRTC, WebSockets, Real-time Communication, Voice Recognition",
+    icon: MindIcon,
+    title: "Mind Training & NLP",
+    desc: "Hypnotherapy, Quantum Physics, Law of Attraction, Memory Science, WMSC Techniques",
     hours: "50+ hours",
-    projects: "5 systems",
-    color: "from-teal-500 to-cyan-500"
+    projects: "21-day Hackathon",
+    color: "from-pink-500 to-rose-500"
   }
 ];
 

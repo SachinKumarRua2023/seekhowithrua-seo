@@ -115,6 +115,7 @@ const COURSES = [
   { emoji: "🐍", title: "Python Programming", slug: "python-programming-course", color: "#ec4899", desc: "Master Python from basics to advanced — automation, APIs and more.", tags: ["Python", "FastAPI", "Automation", "OOP"] },
   { emoji: "⚙️", title: "IoT & Robotics", slug: "iot-robotics", color: "#06b6d4", desc: "Arduino, Raspberry Pi, sensors, embedded systems and robotics.", tags: ["Arduino", "Raspberry Pi", "MQTT", "Sensors"] },
   { emoji: "🌐", title: "Web Development", slug: "web-development-course", color: "#84cc16", desc: "HTML, CSS, JavaScript, React and modern web fundamentals.", tags: ["HTML", "CSS", "JavaScript", "React"] },
+  { emoji: "🧠", title: "Mind Training & NLP", slug: "mind-training-course", color: "#FF6B9D", desc: "Hypnotherapy, Quantum Physics, Law of Attraction, Memory Science. Master your mind.", tags: ["Hypnotherapy", "Quantum Physics", "NLP", "Memory Training"] },
 ];
 
 const STATS = [
@@ -717,6 +718,106 @@ export default function HomePage() {
             </a>
             <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "16px" }}>
               Secure payment via Razorpay • UPI/Card/NetBanking • Instant enrollment
+            </p>
+          </div>
+        </section>
+
+        {/* ── MIND TRAINING HACKATHON ── */}
+        <section className="section" aria-label="Mind Training Program" style={{ background: "linear-gradient(135deg, rgba(255,107,157,0.08) 0%, rgba(139,92,246,0.05) 100%)", borderTop: "2px solid rgba(255,107,157,0.3)", borderBottom: "2px solid rgba(139,92,246,0.3)" }}>
+          <div className="section-inner" style={{ textAlign: "center" }}>
+            <div className="section-tag" style={{ color: "#FF6B9D" }}>🧠 MEMORY SCIENCE HACKATHON</div>
+            <h2 className="section-title" style={{ fontSize: "clamp(28px, 4vw, 48px)", marginBottom: "8px" }}>
+              21-Day <span style={{ color: "#FF6B9D" }}>Mind Mastery</span> Challenge
+            </h2>
+            <p className="section-desc" style={{ maxWidth: "700px", margin: "0 auto 32px", fontSize: "15px" }}>
+              Join 100+ participants for a revolutionary memory transformation program.<br />
+              From struggling to remember 20 words → memorizing 200 numbers, 200 words & images in sequence.
+            </p>
+
+            {/* Hackathon Features */}
+            <div style={{ 
+              display: "flex", 
+              flexWrap: "wrap", 
+              gap: "12px", 
+              justifyContent: "center", 
+              marginBottom: "32px" 
+            }}>
+              {[
+                "✓ Hypnotherapy for Deep Healing",
+                "✓ Law of Attraction Mastery", 
+                "✓ Quantum Physics & Placebo Effect",
+                "✓ WMSC Memory Championship Techniques",
+                "✓ NLP & Subconscious Programming",
+                "✓ Baseline Test Day 1 vs Day 21"
+              ].map((feature) => (
+                <div key={feature} style={{ 
+                  padding: "8px 16px", 
+                  background: "rgba(255,107,157,0.1)", 
+                  border: "1px solid rgba(255,107,157,0.3)",
+                  borderRadius: "20px",
+                  fontSize: "12px",
+                  color: "#FF6B9D",
+                  fontFamily: "'JetBrains Mono', monospace"
+                }}>{feature}</div>
+              ))}
+            </div>
+
+            {/* Price */}
+            <div style={{ marginBottom: "28px" }}>
+              <div style={{ fontSize: "16px", color: "rgba(255,255,255,0.5)", textDecoration: "line-through", marginBottom: "4px" }}>₹4,999</div>
+              <div style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "clamp(48px, 6vw, 72px)", fontWeight: 800, color: "#FF6B9D", lineHeight: 1 }}>₹49</div>
+              <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", marginTop: "8px" }}>21-Day Program • 100+ Participants Needed • Survey-Based Entry</div>
+            </div>
+
+            {/* What You'll Achieve */}
+            <div style={{ 
+              background: "rgba(10,10,30,0.6)", 
+              borderRadius: "16px", 
+              padding: "24px", 
+              maxWidth: "800px", 
+              margin: "0 auto 32px",
+              border: "1px solid rgba(255,107,157,0.2)"
+            }}>
+              <h3 style={{ color: "#fff", fontSize: "18px", marginBottom: "16px", fontFamily: "'Rajdhani', sans-serif" }}>
+                🎯 Day 1 vs Day 21 Transformation
+              </h3>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", textAlign: "left" }}>
+                <div style={{ padding: "16px", background: "rgba(255,255,255,0.03)", borderRadius: "12px" }}>
+                  <div style={{ color: "#FF6B9D", fontSize: "14px", fontWeight: 700, marginBottom: "8px" }}>📊 Day 1: Baseline Test</div>
+                  <ul style={{ color: "rgba(255,255,255,0.5)", fontSize: "12px", lineHeight: "1.8", paddingLeft: "16px", margin: 0 }}>
+                    <li>Record current memory capacity</li>
+                    <li>How many numbers can you remember?</li>
+                    <li>How many words in sequence?</li>
+                    <li>Memory test officially recorded</li>
+                  </ul>
+                </div>
+                <div style={{ padding: "16px", background: "rgba(255,107,157,0.08)", borderRadius: "12px", border: "1px solid rgba(255,107,157,0.2)" }}>
+                  <div style={{ color: "#FF6B9D", fontSize: "14px", fontWeight: 700, marginBottom: "8px" }}>🏆 Day 21: Mastery</div>
+                  <ul style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px", lineHeight: "1.8", paddingLeft: "16px", margin: 0 }}>
+                    <li>Memorize 200 numbers in sequence</li>
+                    <li>Memorize 200 words with ease</li>
+                    <li>Recall images in perfect order</li>
+                    <li>Memory champion techniques mastered</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <a 
+              href="https://seekhowithrua.com/funnel.html" 
+              className="btn-primary" 
+              style={{ 
+                fontSize: "18px", 
+                padding: "18px 48px",
+                background: "linear-gradient(135deg, #FF6B9D, #8B5CF6)",
+                boxShadow: "0 8px 32px rgba(255,107,157,0.4)"
+              }}
+            >
+              🧠 Join Hackathon — ₹49 Only
+            </a>
+            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "16px" }}>
+              Includes: Hypnotherapy Sessions • Quantum Physics Training • Law of Attraction • Full Scripture Discourse • Memory Science
             </p>
           </div>
         </section>
