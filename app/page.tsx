@@ -704,7 +704,7 @@ export default function HomePage() {
 
             {/* CTA Button */}
             <a 
-              href="https://lms.seekhowithrua.com/funnel.html" 
+              href="https://seekhowithrua.com/funnel.html" 
               className="btn-primary" 
               style={{ 
                 fontSize: "18px", 
