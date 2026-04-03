@@ -805,7 +805,7 @@ export default function HomePage() {
 
             {/* CTA Button */}
             <a 
-              href="https://rzp.io/rzp/VBmvy6Hu" 
+              href="https://rzp.io/rzp/KdR6CwmM" 
               className="btn-primary" 
               style={{ 
                 fontSize: "18px", 
@@ -814,7 +814,7 @@ export default function HomePage() {
                 boxShadow: "0 8px 32px rgba(255,107,157,0.4)"
               }}
             >
-              🧠 Join Hackathon — ₹49 Only
+              🧠 Join Hackathon — ₹4,999 Only
             </a>
             <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "16px" }}>
               Includes: Hypnotherapy Sessions • Quantum Physics Training • Law of Attraction • Full Scripture Discourse • Memory Science
