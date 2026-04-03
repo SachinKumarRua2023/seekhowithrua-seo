@@ -199,7 +199,7 @@ export default function AIAgentBuilderPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <CoursePageTemplate {...content} />
+      <CoursePageTemplate course={content} />
     </>
   );
 }
