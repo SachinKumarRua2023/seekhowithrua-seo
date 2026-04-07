@@ -582,6 +582,188 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ── ANIMATED STUDENT TRANSFORMATION - CONTINUOUS LOOP ──────────────────────────── */}
+        <section className="section" aria-label="Student Transformation Animation" style={{ 
+          background: "linear-gradient(180deg, #0a0a1a 0%, #1a0a2e 50%, #0f0f23 100%)",
+          padding: "60px 24px",
+          overflow: "hidden",
+          position: "relative"
+        }}>
+          <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 10 }}>
+            <div className="section-tag">WATCH THE MAGIC HAPPEN</div>
+            <h2 className="section-title">
+              Students <span style={{ color: "#00d4ff" }}>Enter</span> Confused → Exit <span style={{ color: "#00ff88" }}>Confident</span>
+            </h2>
+            <p style={{ textAlign: "center", color: "rgba(255,255,255,0.6)", marginBottom: "40px", fontSize: "14px" }}>
+              See the transformation loop in real-time
+            </p>
+
+            {/* Animation Stage */}
+            <div style={{ 
+              position: "relative", 
+              height: "400px", 
+              overflow: "hidden", 
+              borderRadius: "20px", 
+              background: "rgba(0,0,0,0.2)",
+              border: "1px solid rgba(124,58,237,0.2)"
+            }}>
+              {/* CSS for animations */}
+              <style>{`
+                @keyframes ringRotate {
+                  from { transform: rotate(0deg); }
+                  to { transform: rotate(360deg); }
+                }
+                @keyframes portalPulse {
+                  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+                  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+                }
+                @keyframes studentLoop1 {
+                  0% { left: -80px; }
+                  30% { left: calc(50% - 100px); transform: scale(1); }
+                  35% { left: calc(50% - 30px); transform: scale(0.8); opacity: 1; }
+                  40% { left: calc(50% - 30px); transform: scale(0.8); }
+                  45% { left: calc(50% + 30px); transform: scale(1.1); }
+                  50% { left: calc(50% + 100px); transform: scale(1); }
+                  100% { left: 110%; }
+                }
+                @keyframes studentLoop2 {
+                  0% { left: -80px; }
+                  30% { left: calc(50% - 100px); transform: scale(1); }
+                  35% { left: calc(50% - 30px); transform: scale(0.8); opacity: 1; }
+                  40% { left: calc(50% - 30px); transform: scale(0.8); }
+                  45% { left: calc(50% + 30px); transform: scale(1.1); }
+                  50% { left: calc(50% + 100px); transform: scale(1); }
+                  100% { left: 110%; }
+                }
+                @keyframes studentLoop3 {
+                  0% { left: -80px; }
+                  30% { left: calc(50% - 100px); transform: scale(1); }
+                  35% { left: calc(50% - 30px); transform: scale(0.8); opacity: 1; }
+                  40% { left: calc(50% - 30px); transform: scale(0.8); }
+                  45% { left: calc(50% + 30px); transform: scale(1.1); }
+                  50% { left: calc(50% + 100px); transform: scale(1); }
+                  100% { left: 110%; }
+                }
+                @keyframes sadState {
+                  0% { opacity: 1; }
+                  32% { opacity: 1; }
+                  40% { opacity: 0; }
+                  100% { opacity: 0; }
+                }
+                @keyframes happyState {
+                  0% { opacity: 0; }
+                  40% { opacity: 0; }
+                  48% { opacity: 1; }
+                  100% { opacity: 1; }
+                }
+                @keyframes tagSadAnim {
+                  0%, 38% { opacity: 1; }
+                  42%, 100% { opacity: 0; }
+                }
+                @keyframes tagHappyAnim {
+                  0%, 42% { opacity: 0; }
+                  46%, 100% { opacity: 1; }
+                }
+                @keyframes emojiFall {
+                  to { transform: translateY(500px) rotate(360deg); }
+                }
+              `}</style>
+
+              {/* Portal Center */}
+              <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "200px", height: "200px", zIndex: 5 }}>
+                {/* Rotating Courses Ring */}
+                <div style={{ position: "absolute", width: "100%", height: "100%", animation: "ringRotate 15s linear infinite" }}>
+                  <div style={{ position: "absolute", top: "-15px", left: "50%", transform: "translateX(-50%)", background: "linear-gradient(135deg, #7c3aed, #00d4ff)", padding: "8px 16px", borderRadius: "20px", fontSize: "11px", fontWeight: 700, whiteSpace: "nowrap", boxShadow: "0 4px 15px rgba(124, 58, 237, 0.5)" }}>🤖 AI</div>
+                  <div style={{ position: "absolute", top: "20%", right: "-30px", background: "linear-gradient(135deg, #00d4ff, #00ff88)", padding: "8px 16px", borderRadius: "20px", fontSize: "11px", fontWeight: 700, whiteSpace: "nowrap", boxShadow: "0 4px 15px rgba(0, 212, 255, 0.5)" }}>💻 Dev</div>
+                  <div style={{ position: "absolute", bottom: "20%", right: "-30px", background: "linear-gradient(135deg, #ff4757, #ff6b7a)", padding: "8px 16px", borderRadius: "20px", fontSize: "11px", fontWeight: 700, whiteSpace: "nowrap", boxShadow: "0 4px 15px rgba(255, 71, 87, 0.5)" }}>📊 Data</div>
+                  <div style={{ position: "absolute", bottom: "-15px", left: "50%", transform: "translateX(-50%)", background: "linear-gradient(135deg, #00ff88, #00d4ff)", padding: "8px 16px", borderRadius: "20px", fontSize: "11px", fontWeight: 700, whiteSpace: "nowrap", boxShadow: "0 4px 15px rgba(0, 255, 136, 0.5)" }}>🎮 Game</div>
+                  <div style={{ position: "absolute", bottom: "20%", left: "-30px", background: "linear-gradient(135deg, #f39c12, #f1c40f)", padding: "8px 16px", borderRadius: "20px", fontSize: "11px", fontWeight: 700, whiteSpace: "nowrap", boxShadow: "0 4px 15px rgba(243, 156, 18, 0.5)" }}>📱 Mobile</div>
+                  <div style={{ position: "absolute", top: "20%", left: "-30px", background: "linear-gradient(135deg, #9b59b6, #e74c3c)", padding: "8px 16px", borderRadius: "20px", fontSize: "11px", fontWeight: 700, whiteSpace: "nowrap", boxShadow: "0 4px 15px rgba(155, 89, 182, 0.5)" }}>🚀 IoT</div>
+                </div>
+                
+                {/* Portal Core */}
+                <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "120px", height: "120px", background: "radial-gradient(circle, rgba(124, 58, 237, 0.9) 0%, rgba(0, 212, 255, 0.7) 40%, transparent 70%)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 50px rgba(124, 58, 237, 0.8), inset 0 0 30px rgba(255,255,255,0.2)", animation: "portalPulse 2s ease-in-out infinite" }}>
+                  <div style={{ textAlign: "center", color: "#fff", fontWeight: 900, fontSize: "12px" }}>
+                    <div style={{ fontSize: "24px" }}>🎓</div>
+                    <div>SWR</div>
+                    <div style={{ fontSize: "9px", opacity: 0.8 }}>BUNDLE</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Student 1 */}
+              <div style={{ position: "absolute", top: "15%", width: "100%", height: "70px" }}>
+                <div style={{ position: "absolute", animation: "studentLoop1 8s linear infinite" }}>
+                  <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #ff4757, #ff6b7a)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "30px", boxShadow: "0 0 20px rgba(255, 71, 87, 0.6)", animation: "sadState 8s linear infinite" }}>😰</div>
+                  <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #00ff88, #00cc6a)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "30px", boxShadow: "0 0 20px rgba(0, 255, 136, 0.6)", position: "absolute", top: 0, opacity: 0, animation: "happyState 8s linear infinite" }}>😎</div>
+                  <div style={{ position: "absolute", top: "-25px", left: "50%", transform: "translateX(-50%)", fontSize: "10px", padding: "4px 10px", borderRadius: "10px", whiteSpace: "nowrap", fontWeight: 600 }}>
+                    <span style={{ background: "rgba(255, 71, 87, 0.3)", color: "#ff6b7a", border: "1px solid #ff4757", animation: "tagSadAnim 8s linear infinite" }}>😢 No Job</span>
+                    <span style={{ background: "rgba(0, 255, 136, 0.3)", color: "#00ff88", border: "1px solid #00ff88", position: "absolute", left: 0, animation: "tagHappyAnim 8s linear infinite" }}>🎉 Hired!</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Student 2 */}
+              <div style={{ position: "absolute", top: "42%", width: "100%", height: "70px" }}>
+                <div style={{ position: "absolute", animation: "studentLoop2 8s linear infinite 2.6s" }}>
+                  <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #ff4757, #ff6b7a)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "30px", boxShadow: "0 0 20px rgba(255, 71, 87, 0.6)", animation: "sadState 8s linear infinite 2.6s" }}>😨</div>
+                  <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #00ff88, #00cc6a)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "30px", boxShadow: "0 0 20px rgba(0, 255, 136, 0.6)", position: "absolute", top: 0, opacity: 0, animation: "happyState 8s linear infinite 2.6s" }}>🤩</div>
+                  <div style={{ position: "absolute", top: "-25px", left: "50%", transform: "translateX(-50%)", fontSize: "10px", padding: "4px 10px", borderRadius: "10px", whiteSpace: "nowrap", fontWeight: 600 }}>
+                    <span style={{ background: "rgba(255, 71, 87, 0.3)", color: "#ff6b7a", border: "1px solid #ff4757", animation: "tagSadAnim 8s linear infinite 2.6s" }}>😰 Confused</span>
+                    <span style={{ background: "rgba(0, 255, 136, 0.3)", color: "#00ff88", border: "1px solid #00ff88", position: "absolute", left: 0, animation: "tagHappyAnim 8s linear infinite 2.6s" }}>💼 Placed!</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Student 3 */}
+              <div style={{ position: "absolute", top: "70%", width: "100%", height: "70px" }}>
+                <div style={{ position: "absolute", animation: "studentLoop3 8s linear infinite 5.3s" }}>
+                  <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #ff4757, #ff6b7a)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "30px", boxShadow: "0 0 20px rgba(255, 71, 87, 0.6)", animation: "sadState 8s linear infinite 5.3s" }}>😥</div>
+                  <div style={{ width: "60px", height: "60px", background: "linear-gradient(135deg, #00ff88, #00cc6a)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "30px", boxShadow: "0 0 20px rgba(0, 255, 136, 0.6)", position: "absolute", top: 0, opacity: 0, animation: "happyState 8s linear infinite 5.3s" }}>😏</div>
+                  <div style={{ position: "absolute", top: "-25px", left: "50%", transform: "translateX(-50%)", fontSize: "10px", padding: "4px 10px", borderRadius: "10px", whiteSpace: "nowrap", fontWeight: 600 }}>
+                    <span style={{ background: "rgba(255, 71, 87, 0.3)", color: "#ff6b7a", border: "1px solid #ff4757", animation: "tagSadAnim 8s linear infinite 5.3s" }}>😓 Fear</span>
+                    <span style={{ background: "rgba(0, 255, 136, 0.3)", color: "#00ff88", border: "1px solid #00ff88", position: "absolute", left: 0, animation: "tagHappyAnim 8s linear infinite 5.3s" }}>🔥 Confident!</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Entry/Exit Labels */}
+              <div style={{ position: "absolute", left: "10%", top: "50%", transform: "translateY(-50%)", textAlign: "center" }}>
+                <div style={{ fontSize: "12px", color: "#ff6b7a", fontWeight: 700, marginBottom: "5px" }}>😰 ENTER</div>
+                <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)" }}>Sad & Confused</div>
+              </div>
+              <div style={{ position: "absolute", right: "10%", top: "50%", transform: "translateY(-50%)", textAlign: "center" }}>
+                <div style={{ fontSize: "12px", color: "#00ff88", fontWeight: 700, marginBottom: "5px" }}>EXIT 😎</div>
+                <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.4)" }}>Confident & Hired</div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div style={{ textAlign: "center", marginTop: "40px" }}>
+              <a 
+                href="https://seekhowithrua.com/funnel.html" 
+                className="btn-primary" 
+                style={{ 
+                  background: "linear-gradient(135deg, #7c3aed, #00d4ff)", 
+                  padding: "18px 40px",
+                  fontSize: "16px"
+                }}
+              >
+                🚀 Start Your Transformation - ₹8,999
+              </a>
+            </div>
+          </div>
+
+          {/* Emoji Rain */}
+          <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", overflow: "hidden", opacity: 0.3 }}>
+            <div style={{ position: "absolute", top: "-30px", left: "15%", fontSize: "20px", animation: "emojiFall 6s linear infinite" }}>🎉</div>
+            <div style={{ position: "absolute", top: "-30px", left: "35%", fontSize: "18px", animation: "emojiFall 7s linear infinite 1s" }}>✨</div>
+            <div style={{ position: "absolute", top: "-30px", left: "55%", fontSize: "22px", animation: "emojiFall 5s linear infinite 2s" }}>🚀</div>
+            <div style={{ position: "absolute", top: "-30px", left: "75%", fontSize: "20px", animation: "emojiFall 8s linear infinite 0.5s" }}>💎</div>
+            <div style={{ position: "absolute", top: "-30px", left: "85%", fontSize: "18px", animation: "emojiFall 6s linear infinite 3s" }}>🔥</div>
+          </div>
+        </section>
+
         {/* ── NEW: VISION SECTION ─────────────────────────────────────────── */}
         <section className="section vision-section" aria-label="Vision">
           <div className="section-inner">
