@@ -108,7 +108,8 @@ export default function Navbar() {
     return () => cancelAnimationFrame(id);
   }, []);
 
-  const isMaster = user?.email === "master@gmail.com";
+  const MASTER_EMAILS = ["master@gmail.com", "sachinrua@gmail.com", "seekhowithrua@gmail.com"];
+  const isMaster = user?.email && MASTER_EMAILS.includes(user.email);
   const uname = isMaster
     ? "Master"
     : (user?.profile?.name || user?.name || user?.email?.split("@")[0] || "");
