@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Oracle Layoffs 2026: 10,000+ Jobs Cut | Tech Industry Crisis & How to Stay Employable",
+  "headline": "⚠️ Oracle Layoffs 2026: 10,000 Jobs GONE (Are YOU Next? + Save Your Career)",
   "description": "Oracle just laid off 10,000+ employees. Discover why tech giants are cutting jobs, which skills are still in demand, and how SeekhoWithRua's Bundle Pack helps you stay employable.",
   "image": "https://seekhowithrua.com/blog/oracle-layoffs-2026.jpg",
   "datePublished": "2026-04-03T09:00:00Z",

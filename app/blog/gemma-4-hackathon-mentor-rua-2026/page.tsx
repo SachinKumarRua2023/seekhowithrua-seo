@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  headline: "Gemma 4 Hackathon Mentor Rua 2026 | Live Project Training by Sachin Kumar | $999",
+  "headline": "🏆 Gemma 4 Hackathon Ready: Win $50K Prize (Live Mentor Rua | 45 Days | $999)",
   "description": "Need mentor for Google hackathon Gemma 4? Get live mentorship by Rua (Sachin Kumar). Full stack training backend to frontend, 45 days.",
   "image": "https://seekhowithrua.com/blog/gemma-4-hackathon-mentor.jpg",
   "datePublished": "2026-04-10T14:00:00Z",

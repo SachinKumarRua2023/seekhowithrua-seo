@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "210 URLs Discovered But Not Indexed - Complete SEO Fix Guide 2026",
+  "headline": "⚠️ 210 URLs Not Indexed by Google? Fix This in 7 Days (SEO Guide 2026)",
   "description": "Why your URLs are discovered but not indexed by Google? Complete technical SEO guide to fix indexing issues and get 10K+ organic visitors.",
   "image": "https://seekhowithrua.com/blog/seo-indexing-fix.jpg",
   "datePublished": "2026-04-03T10:00:00Z",

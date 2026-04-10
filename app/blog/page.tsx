@@ -28,64 +28,64 @@ const POSTS = [
   // ── April 10 — Claude Mythos AI Revolution ─────────────────────────────
   {
     slug: "anthropic-claude-mythos-ai-revolution-2026",
-    title: "Anthropic Claude Mythos 2026: The AI Revolution Reshaping Tech Careers",
-    excerpt: "Claude Mythos just launched! Discover how Anthropic's latest AI breakthrough is revolutionizing coding, learning, and career growth. Master AI with SeekhoWithRua's gamified platform.",
+    title: "🔥 Claude Mythos is HERE: 5 Features That Will Replace Junior Devs in 2026",
+    excerpt: "BREAKING: Anthropic Claude Mythos just launched! See the 5 game-changing features that are replacing junior developers. Learn how to stay ahead of AI in your tech career.",
     date: "2026-04-10", category: "AI", color: "#9333ea", readTime: "12 min read", trending: true,
   },
   // ── April 10 — Google Stitch Visual AI ─────────────────────────────
   {
     slug: "google-stitch-sundar-pichai-visual-ai-2026",
-    title: "Google Stitch 2026: Sundar Pichai's Visual AI Revolution",
-    excerpt: "Google just launched Stitch! Discover Sundar Pichai's visual AI breakthrough that's transforming web design and development. Learn visual AI tools at SeekhoWithRua today.",
+    title: "🎨 Google Stitch 2026: Sketch to Website in 30 Seconds (Sundar Pichai's AI)",
+    excerpt: "NEW: Sundar Pichai just launched Google Stitch! Draw a sketch, get a full website in 30 seconds. See how this visual AI tool is replacing web designers in 2026.",
     date: "2026-04-10", category: "AI", color: "#3b82f6", readTime: "11 min read", trending: true,
   },
   // ── April 10 — Future Full Stack Development ─────────────────────────────
   {
     slug: "future-full-stack-development-2026",
-    title: "Future of Full Stack Development 2026: AI, Cloud & New Tech Stack",
-    excerpt: "Full Stack Development is evolving rapidly in 2026. Discover the new tech stack, AI integration, cloud-native architecture, and skills you need. Learn with SeekhoWithRua's modern curriculum.",
+    title: "💻 Full Stack 2026: 7 Dead Technologies + The New Stack You MUST Learn",
+    excerpt: "WARNING: 7 full stack technologies are dying in 2026. See what's replacing them and the exact new stack you need to learn to get hired. Complete 2026 guide with salary data.",
     date: "2026-04-10", category: "Development", color: "#f97316", readTime: "15 min read", trending: true,
   },
   // ── April 10 — AI Learning Revolution ─────────────────────────────
   {
     slug: "ai-learning-revolution-education-2026",
-    title: "AI Learning Revolution 2026: How Artificial Intelligence is Transforming Education",
-    excerpt: "AI is revolutionizing education in 2026. Discover gamified learning, AI tutors, personalized paths, and why SeekhoWithRua leads the AI education revolution in India.",
+    title: "🤖 AI Learning Revolution 2026: Learn 10x Faster with AI Tutors (Free Guide)",
+    excerpt: "NEW: AI tutors are helping students learn 10x faster in 2026. See how personalized AI education works and how to use it to master tech skills in weeks, not years.",
     date: "2026-04-10", category: "Education", color: "#22c55e", readTime: "13 min read", trending: true,
   },
   // ── April 10 — Gamified Learning Tech Careers ─────────────────────────────
   {
     slug: "gamified-learning-tech-career-2026",
-    title: "Gamified Learning Tech Careers 2026: Play, Learn, Get Hired",
-    excerpt: "Gamified learning is transforming tech careers in 2026. Discover how badges, leaderboards, and AI tutors help you learn faster and get hired. Join SeekhoWithRua today.",
+    title: "🎮 Gamified Learning 2026: Play Games, Learn Code, Get Hired ($100K+ Jobs)",
+    excerpt: "STOP boring courses! Gamified learning is getting tech students hired at Google, Amazon in 2026. See how badges, quests & AI tutors help you learn 5x faster.",
     date: "2026-04-10", category: "Career", color: "#ec4899", readTime: "10 min read", trending: true,
   },
   // ── April 10 — Gemma 4 Hackathon Mentor ─────────────────────────────
   {
     slug: "gemma-4-hackathon-mentor-rua-2026",
-    title: "Gemma 4 Hackathon Mentor Rua 2026 | Live Project Training by Sachin Kumar | $999",
-    excerpt: "Need mentor for Google hackathon Gemma 4? Get live mentorship by Rua (Sachin Kumar) - 4+ years experience. Full stack training backend to frontend, 45 days. WhatsApp: +91 8826776018",
+    title: "🏆 Gemma 4 Hackathon Ready: Win $50K Prize (Live Mentor Rua | 45 Days | $999)",
+    excerpt: "Want to WIN Google Gemma 4 Hackathon 2026? Get live mentorship by Rua (Sachin Kumar). Full project training backend to frontend. WhatsApp: +91 8826776018 | 45-day program.",
     date: "2026-04-10", category: "Hackathon", color: "#f59e0b", readTime: "15 min read", trending: true,
   },
   // ── April 3 — SEO Indexing Fix ─────────────────────────────
   {
     slug: "urls-discovered-not-indexed-fix",
-    title: "Google Search Console: 210 URLs Discovered But Not Indexed - How to Fix SEO 2026",
-    excerpt: "Why your URLs are discovered but not indexed by Google? Complete technical SEO guide to fix indexing issues, improve crawlability, and get 10K+ organic visitors in 2026.",
+    title: "⚠️ 210 URLs Not Indexed by Google? Fix This in 7 Days (SEO Guide 2026)",
+    excerpt: "URGENT: Google found your URLs but won't index them? Here's the exact 7-day fix that got us 50K monthly visitors. Step-by-step technical SEO guide for 2026.",
     date: "2026-04-03", category: "SEO", color: "#f59e0b", readTime: "12 min read", trending: true,
   },
   // ── April 3 — Oracle Layoffs 2026 ─────────────────────────────
   {
     slug: "oracle-layoffs-2026",
-    title: "Oracle Layoffs 2026: 10,000+ Jobs Cut | Tech Industry Crisis & Solution",
-    excerpt: "Oracle just laid off 10,000+ employees. Discover why tech giants are cutting jobs, which skills are still in demand, and how SeekhoWithRua's Bundle Pack helps you stay employable in 2026.",
+    title: "⚠️ Oracle Layoffs 2026: 10,000 Jobs GONE (Are YOU Next? + Save Your Career)",
+    excerpt: "URGENT: Oracle fired 10,000+ engineers. 42,500 total tech layoffs in 2026. See if your job is at risk and the 3 skills that guarantee employment.",
     date: "2026-04-03", category: "Career", color: "#E24B4A", readTime: "10 min read", trending: true,
   },
   // ── April 3 — Claude Code Leak ─────────────────────────────
   {
     slug: "claude-code-leak-2026",
-    title: "Claude Code Leak 2026: What Happened & How to Protect Your AI Workflow",
-    excerpt: "Anthropic's Claude Code leaked online. Discover what data was exposed, impact on developers, and how SeekhoWithRua's secure AI Agent Builder protects your workflows.",
+    title: "🚨 Claude Code Leak 2026: 72 Hours of Data Exposure (What Was Leaked + Fix Now)",
+    excerpt: "BREAKING: Claude Code leaked for 72+ hours. Source code, API keys & passwords exposed. See what data was compromised and how to protect your code in 5 minutes.",
     date: "2026-04-03", category: "Security", color: "#dc2626", readTime: "8 min read", trending: true,
   },
   // ── March 29 — Memory Game Post ──────────────────────────────

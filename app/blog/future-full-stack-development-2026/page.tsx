@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Future of Full Stack Development 2026: AI, Cloud & New Tech Stack",
+  "headline": "💻 Full Stack 2026: 7 Dead Technologies + The New Stack You MUST Learn",
   "description": "Full Stack Development is evolving rapidly in 2026. Discover the new tech stack, AI integration, cloud-native architecture.",
   "image": "https://seekhowithrua.com/blog/future-fullstack.jpg",
   "datePublished": "2026-04-10T10:00:00Z",

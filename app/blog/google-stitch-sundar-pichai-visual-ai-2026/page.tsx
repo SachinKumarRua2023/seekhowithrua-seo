@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Google Stitch 2026: Sundar Pichai's Visual AI Revolution",
+  "headline": "🎨 Google Stitch 2026: Sketch to Website in 30 Seconds (Sundar Pichai's AI)",
   "description": "Google just launched Stitch! Discover Sundar Pichai's visual AI breakthrough that's transforming web design and development.",
   "image": "https://seekhowithrua.com/blog/google-stitch.jpg",
   "datePublished": "2026-04-10T09:00:00Z",

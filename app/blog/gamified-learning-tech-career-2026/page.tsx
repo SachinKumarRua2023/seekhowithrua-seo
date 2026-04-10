@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Gamified Learning Tech Careers 2026: Play, Learn, Get Hired",
+  "headline": "🎮 Gamified Learning 2026: Play Games, Learn Code, Get Hired ($100K+ Jobs)",
   "description": "Gamified learning is transforming tech careers in 2026. Discover how badges, leaderboards, and AI tutors help you learn faster and get hired.",
   "image": "https://seekhowithrua.com/blog/gamified-learning.jpg",
   "datePublished": "2026-04-10T12:00:00Z",

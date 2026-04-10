@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Anthropic Claude Mythos 2026: The AI Revolution Reshaping Tech Careers",
+  "headline": "🔥 Claude Mythos is HERE: 5 Features That Will Replace Junior Devs in 2026",
   "description": "Claude Mythos just launched! Discover how Anthropic's latest AI breakthrough is revolutionizing coding, learning, and career growth.",
   "image": "https://seekhowithrua.com/blog/claude-mythos.jpg",
   "datePublished": "2026-04-10T08:00:00Z",
