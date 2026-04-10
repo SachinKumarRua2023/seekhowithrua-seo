@@ -60,6 +60,13 @@ const POSTS = [
     excerpt: "Gamified learning is transforming tech careers in 2026. Discover how badges, leaderboards, and AI tutors help you learn faster and get hired. Join SeekhoWithRua today.",
     date: "2026-04-10", category: "Career", color: "#ec4899", readTime: "10 min read", trending: true,
   },
+  // ── April 10 — Gemma 4 Hackathon Mentor ─────────────────────────────
+  {
+    slug: "gemma-4-hackathon-mentor-rua-2026",
+    title: "Gemma 4 Hackathon Mentor Rua 2026 | Live Project Training by Sachin Kumar | $999",
+    excerpt: "Need mentor for Google hackathon Gemma 4? Get live mentorship by Rua (Sachin Kumar) - 4+ years experience. Full stack training backend to frontend, 45 days. WhatsApp: +91 8826776018",
+    date: "2026-04-10", category: "Hackathon", color: "#f59e0b", readTime: "15 min read", trending: true,
+  },
   // ── April 3 — SEO Indexing Fix ─────────────────────────────
   {
     slug: "urls-discovered-not-indexed-fix",
