@@ -20,11 +20,46 @@ export const metadata: Metadata = {
 };
 
 // ─────────────────────────────────────────────────────────────
-// POSTS — 34 unique entries, no duplicates
+// POSTS — 39 unique entries, no duplicates
 // RULE: Every slug here MUST have a matching entry in [slug]/page.tsx
 // RULE: Newest date first (index 0 = featured post)
 // ─────────────────────────────────────────────────────────────
 const POSTS = [
+  // ── April 10 — Claude Mythos AI Revolution ─────────────────────────────
+  {
+    slug: "anthropic-claude-mythos-ai-revolution-2026",
+    title: "Anthropic Claude Mythos 2026: The AI Revolution Reshaping Tech Careers",
+    excerpt: "Claude Mythos just launched! Discover how Anthropic's latest AI breakthrough is revolutionizing coding, learning, and career growth. Master AI with SeekhoWithRua's gamified platform.",
+    date: "2026-04-10", category: "AI", color: "#9333ea", readTime: "12 min read", trending: true,
+  },
+  // ── April 10 — Google Stitch Visual AI ─────────────────────────────
+  {
+    slug: "google-stitch-sundar-pichai-visual-ai-2026",
+    title: "Google Stitch 2026: Sundar Pichai's Visual AI Revolution",
+    excerpt: "Google just launched Stitch! Discover Sundar Pichai's visual AI breakthrough that's transforming web design and development. Learn visual AI tools at SeekhoWithRua today.",
+    date: "2026-04-10", category: "AI", color: "#3b82f6", readTime: "11 min read", trending: true,
+  },
+  // ── April 10 — Future Full Stack Development ─────────────────────────────
+  {
+    slug: "future-full-stack-development-2026",
+    title: "Future of Full Stack Development 2026: AI, Cloud & New Tech Stack",
+    excerpt: "Full Stack Development is evolving rapidly in 2026. Discover the new tech stack, AI integration, cloud-native architecture, and skills you need. Learn with SeekhoWithRua's modern curriculum.",
+    date: "2026-04-10", category: "Development", color: "#f97316", readTime: "15 min read", trending: true,
+  },
+  // ── April 10 — AI Learning Revolution ─────────────────────────────
+  {
+    slug: "ai-learning-revolution-education-2026",
+    title: "AI Learning Revolution 2026: How Artificial Intelligence is Transforming Education",
+    excerpt: "AI is revolutionizing education in 2026. Discover gamified learning, AI tutors, personalized paths, and why SeekhoWithRua leads the AI education revolution in India.",
+    date: "2026-04-10", category: "Education", color: "#22c55e", readTime: "13 min read", trending: true,
+  },
+  // ── April 10 — Gamified Learning Tech Careers ─────────────────────────────
+  {
+    slug: "gamified-learning-tech-career-2026",
+    title: "Gamified Learning Tech Careers 2026: Play, Learn, Get Hired",
+    excerpt: "Gamified learning is transforming tech careers in 2026. Discover how badges, leaderboards, and AI tutors help you learn faster and get hired. Join SeekhoWithRua today.",
+    date: "2026-04-10", category: "Career", color: "#ec4899", readTime: "10 min read", trending: true,
+  },
   // ── April 3 — SEO Indexing Fix ─────────────────────────────
   {
     slug: "urls-discovered-not-indexed-fix",
