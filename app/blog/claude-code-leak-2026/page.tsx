@@ -23,13 +23,11 @@ const Badge = ({ children, className }: any) => (
 
 export const metadata: Metadata = {
   title: "🚨 Claude Code Leak 2026: 72 Hours of Data Exposure (What Was Leaked + Fix Now)",
-  description: "BREAKING: Claude Code leaked for 72+ hours. Source code, API keys & passwords exposed. See what data was compromised and how to protect your code in 5 minutes."},{"old_string":"  openGraph: {
-    title: "Claude Code Leak 2026: What Happened & How to Protect Your AI Workflow",
-    description: "Major security leak exposed Claude Code. Learn what data was compromised and how to secure your AI development workflow.",
+  description: "BREAKING: Claude Code leaked for 72+ hours. Source code, API keys & passwords exposed. See what data was compromised and how to protect your code in 5 minutes.",
   keywords: "Claude Code leak, Anthropic leak, AI code security, Claude AI exposed, AI workflow security, secure AI coding, Claude Code 2026, Anthropic security breach",
   openGraph: {
-    title: "Claude Code Leak 2026: What Happened & How to Protect Your AI Workflow",
-    description: "Major security leak exposed Claude Code. Learn what data was compromised and how to secure your AI development workflow.",
+    title: "🚨 Claude Code Leak 2026: 72 Hours of Data Exposure (What Was Leaked + Fix Now)",
+    description: "BREAKING: Claude Code leaked for 72+ hours. Source code, API keys & passwords exposed. See what data was compromised and how to protect your code in 5 minutes.",
     type: "article",
     publishedTime: "2026-04-03T08:00:00Z",
     authors: ["Master Rua"],
