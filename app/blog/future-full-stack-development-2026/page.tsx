@@ -17,8 +17,8 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "Future of Full Stack Development 2026: AI, Cloud & New Tech Stack | SeekhoWithRua",
-  description: "Full Stack Development is evolving rapidly in 2026. Discover the new tech stack, AI integration, cloud-native architecture, and skills you need. Learn with SeekhoWithRua's modern curriculum.",
+  title: "💻 Full Stack 2026: 7 Dead Technologies + The New Stack You MUST Learn",
+  description: "WARNING: 7 full stack technologies are dying in 2026. See what's replacing them and the exact new stack you need to learn to get hired. Complete 2026 guide with salary data.",
   keywords: "full stack development 2026, future of web development, AI full stack, cloud native development, modern tech stack, full stack trends, web development career 2026",
   openGraph: {
     title: "Future of Full Stack Development 2026: AI, Cloud & New Tech Stack",

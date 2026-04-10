@@ -17,8 +17,8 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "Google Stitch 2026: Sundar Pichai's Visual AI Revolution | SeekhoWithRua",
-  description: "Google just launched Stitch! Discover Sundar Pichai's visual AI breakthrough that's transforming web design and development. Learn visual AI tools at SeekhoWithRua today.",
+  title: "🎨 Google Stitch 2026: Sketch to Website in 30 Seconds (Sundar Pichai's AI)",
+  description: "NEW: Sundar Pichai just launched Google Stitch! Draw a sketch, get a full website in 30 seconds. See how this visual AI tool is replacing web designers in 2026.",
   keywords: "Google Stitch, Sundar Pichai, visual AI, AI web design, Google AI 2026, Stitch AI tool, visual development, AI UI design, Sundar Pichai announcement",
   openGraph: {
     title: "Google Stitch 2026: Sundar Pichai's Visual AI Revolution",

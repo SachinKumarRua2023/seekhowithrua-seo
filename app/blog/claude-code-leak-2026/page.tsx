@@ -22,8 +22,10 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "Claude Code Leak 2026: What Happened & How to Protect Your AI Workflow | SeekhoWithRua",
-  description: "Anthropic's Claude Code leaked online. Discover what data was exposed, impact on developers, and how SeekhoWithRua's secure AI Agent Builder protects your workflows.",
+  title: "🚨 Claude Code Leak 2026: 72 Hours of Data Exposure (What Was Leaked + Fix Now)",
+  description: "BREAKING: Claude Code leaked for 72+ hours. Source code, API keys & passwords exposed. See what data was compromised and how to protect your code in 5 minutes."},{"old_string":"  openGraph: {
+    title: "Claude Code Leak 2026: What Happened & How to Protect Your AI Workflow",
+    description: "Major security leak exposed Claude Code. Learn what data was compromised and how to secure your AI development workflow.",
   keywords: "Claude Code leak, Anthropic leak, AI code security, Claude AI exposed, AI workflow security, secure AI coding, Claude Code 2026, Anthropic security breach",
   openGraph: {
     title: "Claude Code Leak 2026: What Happened & How to Protect Your AI Workflow",
@@ -38,8 +40,8 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Claude Code Leak 2026: What Happened & How to Protect Your AI Workflow",
-  "description": "Anthropic's Claude Code leaked online. Discover what data was exposed, impact on developers, and how SeekhoWithRua's secure AI Agent Builder protects your workflows.",
+  "headline": "🚨 Claude Code Leak 2026: 72 Hours of Data Exposure (What Was Leaked + Fix Now)",
+  "description": "BREAKING: Claude Code leaked for 72+ hours. Source code, API keys & passwords exposed. See what data was compromised and how to protect your code in 5 minutes.",
   "image": "https://seekhowithrua.com/blog/claude-code-leak.jpg",
   "datePublished": "2026-04-03T08:00:00Z",
   "author": {

@@ -17,8 +17,8 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "Anthropic Claude Mythos 2026: The AI Revolution Reshaping Tech Careers | SeekhoWithRua",
-  description: "Claude Mythos just launched! Discover how Anthropic's latest AI breakthrough is revolutionizing coding, learning, and career growth. Master AI with SeekhoWithRua's gamified platform.",
+  title: "🔥 Claude Mythos is HERE: 5 Features That Will Replace Junior Devs in 2026",
+  description: "BREAKING: Anthropic Claude Mythos just launched! See the 5 game-changing features that are replacing junior developers. Learn how to stay ahead of AI in your tech career.",
   keywords: "Claude Mythos, Anthropic Claude, AI revolution 2026, Claude AI launch, AI career growth, machine learning trends, AI coding assistant, future of tech careers",
   openGraph: {
     title: "Anthropic Claude Mythos 2026: The AI Revolution Reshaping Tech Careers",

@@ -18,8 +18,8 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "Gemma 4 Hackathon Mentor Rua 2026 | Live Project Training by Sachin Kumar | $999",
-  description: "Need mentor for Google hackathon Gemma 4? Get live mentorship by Rua (Sachin Kumar) - 4+ years experience. Full stack training backend to frontend, 45 days, $999. WhatsApp: +91 8826776018",
+  title: "🏆 Gemma 4 Hackathon Ready: Win $50K Prize (Live Mentor Rua | 45 Days | $999)",
+  description: "Want to WIN Google Gemma 4 Hackathon 2026? Get live mentorship by Rua (Sachin Kumar). Full project training backend to frontend. WhatsApp: +91 8826776018 | 45-day program.",
   keywords: "gemma 4 hackathon mentor, hackathon mentorship, by rua, by Sachin rua, seekhowithrua, swr, sikhowithrua, seekowithrua, sikowithrua, live mentor google hackathon, project trainer, college project mentor, tech trainer hackathon, full stack hackathon trainer, master trainer tech, 999 dollar hackathon course",
   openGraph: {
     title: "Gemma 4 Hackathon Mentor Rua 2026 | Live Project Training by Sachin Kumar",

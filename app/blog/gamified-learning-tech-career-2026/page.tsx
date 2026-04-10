@@ -17,8 +17,8 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "Gamified Learning Tech Careers 2026: Play, Learn, Get Hired | SeekhoWithRua",
-  description: "Gamified learning is transforming tech careers in 2026. Discover how badges, leaderboards, and AI tutors help you learn faster and get hired. Join SeekhoWithRua today.",
+  title: "🎮 Gamified Learning 2026: Play Games, Learn Code, Get Hired ($100K+ Jobs)",
+  description: "STOP boring courses! Gamified learning is getting tech students hired at Google, Amazon in 2026. See how badges, quests & AI tutors help you learn 5x faster.",
   keywords: "gamified learning, tech career 2026, gamification education, learn to code games, tech jobs 2026, AI learning games, gamified coding, career growth",
   openGraph: {
     title: "Gamified Learning Tech Careers 2026: Play, Learn, Get Hired",

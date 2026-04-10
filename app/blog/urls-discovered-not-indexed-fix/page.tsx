@@ -20,8 +20,8 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "Google SearchIcon Console: 210 URLs Discovered But Not Indexed - How to Fix SEO 2026 | SeekhoWithRua",
-  description: "Why your URLs are discovered but not indexed by Google? Complete technical SEO guide to fix indexing issues, improve crawlability, and get 10K+ organic visitors in 2026.",
+  title: "⚠️ 210 URLs Not Indexed by Google? Fix This in 7 Days (SEO Guide 2026)",
+  description: "URGENT: Google found your URLs but won't index them? Here's the exact 7-day fix that got us 50K monthly visitors. Step-by-step technical SEO guide for 2026.",
   keywords: "discovered but not indexed, google search console, urls not indexed, seo indexing issues, technical seo, crawl errors, indexing problem, google indexing, seo 2026, website not indexed",
   openGraph: {
     title: "210 URLs Discovered But Not Indexed - Complete SEO Fix Guide 2026",

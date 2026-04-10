@@ -24,8 +24,8 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "Oracle Layoffs 2026: 10,000+ Jobs Cut | Tech Industry Crisis & Solution | SeekhoWithRua",
-  description: "Oracle just laid off 10,000+ employees. Discover why tech giants are cutting jobs, which skills are still in demand, and how SeekhoWithRua's Bundle Pack helps you stay employable in 2026.",
+  title: "⚠️ Oracle Layoffs 2026: 10,000 Jobs GONE (Are YOU Next? + Save Your Career)",
+  description: "URGENT: Oracle fired 10,000+ engineers. 42,500 total tech layoffs in 2026. See if your job is at risk and the 3 skills that guarantee employment.",
   keywords: "Oracle layoffs 2026, tech layoffs, IT jobs India, tech industry crisis, software engineer jobs, upskilling 2026, AI replacing jobs, tech unemployment, SeekhoWithRua bundle",
   openGraph: {
     title: "Oracle Layoffs 2026: 10,000+ Jobs Cut | Tech Industry Crisis & Solution",
@@ -33,14 +33,13 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-04-03T09:00:00Z",
     authors: ["Master Rua"],
-    tags: ["Oracle", "Layoffs", "Tech Jobs", "Career", "Upskilling"],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Oracle Layoffs 2026: 10,000+ Jobs Cut | Tech Industry Crisis & Solution",
+  "headline": "Oracle Layoffs 2026: 10,000+ Jobs Cut | Tech Industry Crisis & How to Stay Employable",
   "description": "Oracle just laid off 10,000+ employees. Discover why tech giants are cutting jobs, which skills are still in demand, and how SeekhoWithRua's Bundle Pack helps you stay employable.",
   "image": "https://seekhowithrua.com/blog/oracle-layoffs-2026.jpg",
   "datePublished": "2026-04-03T09:00:00Z",

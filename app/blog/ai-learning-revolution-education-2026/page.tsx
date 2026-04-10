@@ -17,8 +17,8 @@ const Badge = ({ children, className }: any) => (
 );
 
 export const metadata: Metadata = {
-  title: "AI Learning Revolution 2026: How Artificial Intelligence is Transforming Education | SeekhoWithRua",
-  description: "AI is revolutionizing education in 2026. Discover gamified learning, AI tutors, personalized paths, and why SeekhoWithRua leads the AI education revolution in India.",
+  title: "🤖 AI Learning Revolution 2026: Learn 10x Faster with AI Tutors (Free Guide)",
+  description: "NEW: AI tutors are helping students learn 10x faster in 2026. See how personalized AI education works and how to use it to master tech skills in weeks, not years.",
   keywords: "AI learning revolution, AI education 2026, gamified learning, AI tutors, personalized education, EdTech AI, machine learning education, future of learning",
   openGraph: {
     title: "AI Learning Revolution 2026: How AI is Transforming Education",
