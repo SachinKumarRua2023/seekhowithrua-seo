@@ -233,6 +233,7 @@ export default function Navbar() {
             <Link href="/voice-rooms" className="nv-link nv-link-vcr">🔴 Voice Rooms</Link>
             <Link href="/gaming-lab" className="nv-link nv-link-game">🎮 Gaming Lab</Link>
             <Link href="/animation-lab" className="nv-link nv-link-anim">✨ Animation Lab</Link>
+            <a href="https://lms.seekhowithrua.com" className="nv-link nv-link-lms" target="_blank" rel="noopener noreferrer">📚 LMS</a>
             {/* Blog, Master Rua, Services, Platform → hamburger menu only */}
           </nav>
 
@@ -256,7 +257,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="https://app.seekhowithrua.com/login" className="nv-in">Login</Link>
+                <Link href={`https://app.seekhowithrua.com/login?redirect=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'https://seekhowithrua.com')}`} className="nv-in">Login</Link>
                 <Link href="https://app.seekhowithrua.com/signup" className="nv-up">
                   Get Started <span className="nv-arr">→</span>
                 </Link>
@@ -294,6 +295,7 @@ export default function Navbar() {
             <Link href="/voice-rooms" className="mob-lnk mob-lnk-vcr" onClick={() => setMenuOpen(false)}>🔴 Voice Rooms</Link>
             <Link href="/gaming-lab" className="mob-lnk mob-lnk-game" onClick={() => setMenuOpen(false)}>🎮 Gaming Lab</Link>
             <Link href="/animation-lab" className="mob-lnk mob-lnk-anim" onClick={() => setMenuOpen(false)}>✨ Animation Lab</Link>
+            <a href="https://lms.seekhowithrua.com" className="mob-lnk mob-lnk-lms" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>📚 LMS</a>
             <Link href="/services" className="mob-lnk mob-lnk-svc" onClick={() => setMenuOpen(false)}>🛠️ Services</Link>
             <Link href="/blog" className="mob-lnk" onClick={() => setMenuOpen(false)}>✍️ Blog</Link>
             <Link href="/master-rua" className="mob-lnk mob-lnk-rua" onClick={() => setMenuOpen(false)}>👑 Master Rua</Link>
@@ -314,10 +316,11 @@ export default function Navbar() {
                 >
                   Logout
                 </button>
-              ) : (
+              )
+              : (
                 <>
                   <Link
-                    href="https://app.seekhowithrua.com/login"
+                    href={`https://app.seekhowithrua.com/login?redirect=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'https://seekhowithrua.com')}`}
                     className="mob-li"
                     onClick={() => setMenuOpen(false)}
                   >
@@ -401,6 +404,9 @@ export default function Navbar() {
         .nv-link-anim:hover { color:#6ee7b7;background:rgba(29,158,117,.08);border-color:rgba(29,158,117,.25);box-shadow:0 0 14px rgba(29,158,117,.15); }
         .nv-link-svc { color:rgba(196,181,253,.8); }
         .nv-link-svc:hover { color:#c4b5fd;background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.25);box-shadow:0 0 14px rgba(124,58,237,.15); }
+        /* ── ADDED: LMS nav style ── */
+        .nv-link-lms { color:rgba(167,139,250,.85); }
+        .nv-link-lms:hover { color:#a78bfa;background:rgba(124,58,237,.1);border-color:rgba(124,58,237,.3);box-shadow:0 0 14px rgba(124,58,237,.2); }
 
         .nv-chev { width:10px;height:10px;transition:transform .2s;flex-shrink:0; }
         .nv-chev.open { transform:rotate(180deg); }
@@ -516,6 +522,9 @@ export default function Navbar() {
         .mob-lnk-anim:hover { background:rgba(29,158,117,.08);color:#6ee7b7;border-color:rgba(29,158,117,.3); }
         .mob-lnk-svc { border-color:rgba(124,58,237,.2);color:rgba(196,181,253,.85); }
         .mob-lnk-svc:hover { background:rgba(124,58,237,.08);color:#c4b5fd;border-color:rgba(124,58,237,.3); }
+        /* ── ADDED: LMS mobile style ── */
+        .mob-lnk-lms { border-color:rgba(124,58,237,.25);color:rgba(167,139,250,.9); }
+        .mob-lnk-lms:hover { background:rgba(124,58,237,.12);color:#a78bfa;border-color:rgba(124,58,237,.4); }
 
         .mob-auth { padding:12px 20px 20px;display:flex;flex-direction:column;gap:8px; }
         .mob-li { display:block;padding:12px;text-align:center;border-radius:10px;
