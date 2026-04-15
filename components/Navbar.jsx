@@ -25,15 +25,39 @@ export default function Navbar() {
   const [user, setUser]               = useState(null);
   const dropRef = useRef(null);
 
-  /* auth */
+  /* auth - check URL params and localStorage */
   useEffect(() => {
-    const check = () => {
-      try { const r = localStorage.getItem("cosmos_user"); setUser(r ? JSON.parse(r) : null); }
-      catch { setUser(null); }
+    const checkAuth = () => {
+      try {
+        // Check URL params first (from login redirect)
+        const params = new URLSearchParams(window.location.search);
+        const urlUser = params.get('user');
+        const urlToken = params.get('token');
+        
+        if (urlUser) {
+          const userData = JSON.parse(decodeURIComponent(urlUser));
+          if (urlToken) userData.token = urlToken;
+          localStorage.setItem("cosmos_user", JSON.stringify(userData));
+          setUser(userData);
+          // Clean URL
+          window.history.replaceState({}, document.title, window.location.pathname);
+          return;
+        }
+        
+        // Check localStorage
+        const stored = localStorage.getItem("cosmos_user");
+        if (stored) {
+          setUser(JSON.parse(stored));
+        }
+      } catch (e) {
+        console.error("Auth error:", e);
+        setUser(null);
+      }
     };
-    check();
-    window.addEventListener("storage", check);
-    return () => window.removeEventListener("storage", check);
+    
+    checkAuth();
+    window.addEventListener("storage", checkAuth);
+    return () => window.removeEventListener("storage", checkAuth);
   }, []);
 
   /* scroll */
