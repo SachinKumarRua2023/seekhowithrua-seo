@@ -23,7 +23,20 @@ function LoginForm() {
 
   useEffect(() => {
     setIsClient(true);
-  }, []);
+    
+    // If user is already logged in and redirect URL is present, redirect back immediately
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('cosmos_token');
+      const userData = localStorage.getItem('cosmos_user');
+      const redirect = searchParams?.get('redirect');
+      
+      if (token && userData && redirect) {
+        // User already logged in, redirect back with token
+        const user = encodeURIComponent(userData);
+        window.location.href = `${redirect}?token=${token}&user=${user}`;
+      }
+    }
+  }, [searchParams]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,9 +51,9 @@ function LoginForm() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || data.detail || "Login failed");
       
-      // Store user data
+      // Store user data (use cosmos_token for cross-domain SSO compatibility)
       localStorage.setItem("cosmos_user", JSON.stringify(data));
-      localStorage.setItem("cosmos_auth_token", data.token || data.access_token || "");
+      localStorage.setItem("cosmos_token", data.token || data.access_token || "");
       window.dispatchEvent(new Event("storage"));
       
       // If redirect URL is provided (cross-domain), redirect with token

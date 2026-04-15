@@ -1,29 +1,27 @@
 // ============================================================
 // FILE LOCATION: seekhowithrua-seo/components/Navbar.jsx
-// ACTION: REPLACE existing Navbar.jsx with this file
-// CHANGES: Added "Voice Rooms" link in center nav + mobile menu
-//          Everything else is 100% untouched
+// ACTION: Simplified navigation - only Home, Courses, Blog, Services, About
+// CHANGES: 
+//   - Removed: Science & AI, Voice Rooms, Gaming Lab, Animation Lab, LMS from main nav
+//   - Courses now redirect to lms.seekhowithrua.com
+//   - Platform links redirect to app.seekhowithrua.com
+//   - Added welcome message for logged-in users
 // ============================================================
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-const COURSES = [
-  { label: "Data Science",   href: "/data-science-course",       emoji: "📊", desc: "Python, ML, Deep Learning",  color: "#3b82f6" },
-  { label: "AI & ML",        href: "/ai-course",                 emoji: "🤖", desc: "LLMs, Neural Networks",       color: "#00d4ff" },
-  { label: "Full Stack",     href: "/full-stack-development",    emoji: "💻", desc: "React, Django, Next.js",      color: "#1D9E75" },
-  { label: "Mobile Apps",    href: "/mobile-app-development",    emoji: "📱", desc: "React Native & Expo",         color: "#a855f7" },
-  { label: "Game Dev",       href: "/game-development",          emoji: "🎮", desc: "Unity, Three.js, WebGL",      color: "#f59e0b" },
-  { label: "Python",         href: "/python-programming-course", emoji: "🐍", desc: "Beginner to Advanced",        color: "#ec4899" },
-  { label: "IoT & Robotics", href: "/iot-robotics",              emoji: "⚙️", desc: "Arduino, Raspberry Pi",       color: "#06b6d4" },
-  { label: "Web Dev",        href: "/web-development-course",    emoji: "🌐", desc: "HTML, CSS, JavaScript",       color: "#84cc16" },
+const PLATFORM_FEATURES = [
+  { label: "VCR",            href: "https://app.seekhowithrua.com/live-voice",  emoji: "🔴", desc: "Voice Chat Rooms",             color: "#ef4444" },
+  { label: "Gaming",         href: "https://gaming.seekhowithrua.com",          emoji: "🎮", desc: "Gaming Lab",                   color: "#f59e0b" },
+  { label: "Animations",     href: "https://animationlab.seekhowithrua.com",    emoji: "✨", desc: "Animation Lab",                color: "#1D9E75" },
 ];
 
 export default function Navbar() {
   const canvasRef = useRef(null);
   const [menuOpen, setMenuOpen]       = useState(false);
   const [scrolled, setScrolled]       = useState(false);
-  const [coursesOpen, setCoursesOpen] = useState(false);
+  const [platformOpen, setPlatformOpen] = useState(false);
   const [user, setUser]               = useState(null);
   const dropRef = useRef(null);
 
@@ -48,7 +46,7 @@ export default function Navbar() {
   /* close dropdown on outside click */
   useEffect(() => {
     const fn = (e) => {
-      if (dropRef.current && !dropRef.current.contains(e.target)) setCoursesOpen(false);
+      if (dropRef.current && !dropRef.current.contains(e.target)) setPlatformOpen(false);
     };
     document.addEventListener("mousedown", fn);
     return () => document.removeEventListener("mousedown", fn);
@@ -136,105 +134,50 @@ export default function Navbar() {
 
           {/* ── CENTER NAV ── */}
           <nav className="nv-center">
-            {/* Courses dropdown */}
+            {/* Platform dropdown */}
             <div className="nv-ddwrap" ref={dropRef}>
               <button
-                className={`nv-link${coursesOpen ? " on" : ""}`}
-                onClick={() => setCoursesOpen(p => !p)}
+                className={`nv-link${platformOpen ? " on" : ""}`}
+                onClick={() => setPlatformOpen(p => !p)}
               >
-                Courses
-                <svg className={`nv-chev${coursesOpen ? " open" : ""}`} viewBox="0 0 10 6" fill="none">
+                Platform
+                <svg className={`nv-chev${platformOpen ? " open" : ""}`} viewBox="0 0 10 6" fill="none">
                   <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
 
-              {coursesOpen && (
+              {platformOpen && (
                 <div className="nv-dd">
                   <div className="nv-dd-top">
-                    <span className="nv-dd-ttl">ALL COURSES</span>
-                    <span className="nv-dd-sub">8 tracks · 1000+ students</span>
+                    <span className="nv-dd-ttl">PLATFORM</span>
+                    <span className="nv-dd-sub">3 features</span>
                   </div>
                   <div className="nv-dd-grid">
-                    {COURSES.map(c => (
-                      <Link key={c.href} href={c.href} className="nv-di" onClick={() => setCoursesOpen(false)}>
-                        <span className="nv-di-ico" style={{ background: c.color + "1a", boxShadow: `0 0 10px ${c.color}18` }}>
-                          {c.emoji}
+                    {PLATFORM_FEATURES.map(f => (
+                      <a key={f.href} href={f.href} className="nv-di" onClick={() => setPlatformOpen(false)} target="_blank" rel="noopener noreferrer">
+                        <span className="nv-di-ico" style={{ background: f.color + "1a", boxShadow: `0 0 10px ${f.color}18` }}>
+                          {f.emoji}
                         </span>
                         <div className="nv-di-txt">
-                          <div className="nv-di-name">{c.label}</div>
-                          <div className="nv-di-desc">{c.desc}</div>
+                          <div className="nv-di-name">{f.label}</div>
+                          <div className="nv-di-desc">{f.desc}</div>
                         </div>
                         <span className="nv-di-arr">→</span>
-                      </Link>
+                      </a>
                     ))}
                   </div>
-                  <a href="https://app.seekhowithrua.com" className="nv-dd-launch" onClick={() => setCoursesOpen(false)}>
-                    🚀 Launch Full Platform &nbsp;↗
-                  </a>
                 </div>
               )}
             </div>
 
-            {/* Science & AI Dropdown */}
-            <div className="nv-ddwrap" ref={dropRef}>
-              <button
-                className={`nv-link${coursesOpen ? " on" : ""}`}
-                onClick={() => setCoursesOpen(p => !p)}
-              >
-                🎯 Science & AI
-                <svg className={`nv-chev${coursesOpen ? " open" : ""}`} viewBox="0 0 10 6" fill="none">
-                  <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-
-              {coursesOpen && (
-                <div className="nv-dd">
-                  <div className="nv-dd-top">
-                    <span className="nv-dd-ttl">SCIENCE & AI COURSES</span>
-                    <span className="nv-dd-sub">3 specialized tracks</span>
-                  </div>
-                  <div className="nv-dd-grid">
-                    <Link href="/ai-fundamentals" className="nv-di" onClick={() => setCoursesOpen(false)}>
-                      <span className="nv-di-ico" style={{ background: "#ff6b6b1a", boxShadow: "0 0 10px #ff6b6b18" }}>
-                        🤖
-                      </span>
-                      <div className="nv-di-txt">
-                        <div className="nv-di-name">AI Fundamentals</div>
-                        <div className="nv-di-desc">Search algorithms, agents, logic</div>
-                      </div>
-                      <span className="nv-di-arr">→</span>
-                    </Link>
-                    <Link href="/data-science-python" className="nv-di" onClick={() => setCoursesOpen(false)}>
-                      <span className="nv-di-ico" style={{ background: "#4ecdc41a", boxShadow: "0 0 10px #4ecdc418" }}>
-                        🔬
-                      </span>
-                      <div className="nv-di-txt">
-                        <div className="nv-di-name">Data Science with Python</div>
-                        <div className="nv-di-desc">Pandas, NumPy, Visualization</div>
-                      </div>
-                      <span className="nv-di-arr">→</span>
-                    </Link>
-                    <a href="/ml-algorithms-visualizer.html" className="nv-di" onClick={() => setCoursesOpen(false)}>
-                      <span className="nv-di-ico" style={{ background: "#a855f71a", boxShadow: "0 0 10px #a855f718" }}>
-                        🧬
-                      </span>
-                      <div className="nv-di-txt">
-                        <div className="nv-di-name">Complete ML Visualizer</div>
-                        <div className="nv-di-desc">All algorithms with animations</div>
-                      </div>
-                      <span className="nv-di-arr">→</span>
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* ── VISIBLE ON DESKTOP: Courses, Voice Rooms, Gaming Lab, Animation Lab ── */}
-            <Link href="/voice-rooms" className="nv-link nv-link-vcr">🔴 Voice Rooms</Link>
-            <Link href="/gaming-lab" className="nv-link nv-link-game">🎮 Gaming Lab</Link>
-            <Link href="/animation-lab" className="nv-link nv-link-anim">✨ Animation Lab</Link>
-            <a href="https://lms.seekhowithrua.com" className="nv-link nv-link-lms" target="_blank" rel="noopener noreferrer">📚 LMS</a>
-            {/* Blog, Master Rua, Services, Platform → hamburger menu only */}
+            {/* Services */}
+            <Link href="/services" className="nv-link nv-link-svc">Services</Link>
+            
+            {/* Blog */}
+            <Link href="/blog" className="nv-link">Blog</Link>
+            
+            {/* About */}
+            <Link href="/master-rua" className="nv-link nv-link-rua">About</Link>
           </nav>
 
           {/* ── RIGHT ── */}
@@ -242,7 +185,7 @@ export default function Navbar() {
             {user ? (
               <>
                 <div className={`nv-usr${isMaster ? " mstr" : ""}`}>
-                  <span className="nv-usr-dot" />{uname}
+                  <span className="nv-usr-dot" />Welcome, {uname}
                 </div>
                 <button
                   className="nv-out"
@@ -271,71 +214,67 @@ export default function Navbar() {
 
         {/* ── MOBILE MENU ── */}
         <div className={`nv-mob${menuOpen ? " open" : ""}`}>
+          <div className="mob-row">
+            {/* ── Main Nav Links ── */}
+            <Link href="/services" className="mob-lnk mob-lnk-svc" onClick={() => setMenuOpen(false)}>Services</Link>
+            <Link href="/blog" className="mob-lnk" onClick={() => setMenuOpen(false)}>Blog</Link>
+            <Link href="/master-rua" className="mob-lnk mob-lnk-rua" onClick={() => setMenuOpen(false)}>About</Link>
+          </div>
+          
           <div className="mob-sec">
-            <p className="mob-lbl">COURSES</p>
+            <p className="mob-lbl">PLATFORM</p>
             <div className="mob-grid">
-              {COURSES.map(c => (
-                <Link
-                  key={c.href} href={c.href} className="mob-card"
-                  style={{ borderColor: c.color + "35" }}
+              {PLATFORM_FEATURES.map(f => (
+                <a
+                  key={f.href}
+                  href={f.href}
+                  className="mob-card"
+                  style={{ borderColor: f.color + "35" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMenuOpen(false)}
                 >
-                  <span style={{ fontSize: 18 }}>{c.emoji}</span>
+                  <span style={{ fontSize: 18 }}>{f.emoji}</span>
                   <div>
-                    <div className="mob-cn">{c.label}</div>
-                    <div className="mob-cd">{c.desc}</div>
+                    <div className="mob-cn">{f.label}</div>
+                    <div className="mob-cd">{f.desc}</div>
                   </div>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
 
-          <div className="mob-row">
-            {/* ── ALL links available in hamburger ── */}
-            <Link href="/voice-rooms" className="mob-lnk mob-lnk-vcr" onClick={() => setMenuOpen(false)}>🔴 Voice Rooms</Link>
-            <Link href="/gaming-lab" className="mob-lnk mob-lnk-game" onClick={() => setMenuOpen(false)}>🎮 Gaming Lab</Link>
-            <Link href="/animation-lab" className="mob-lnk mob-lnk-anim" onClick={() => setMenuOpen(false)}>✨ Animation Lab</Link>
-            <a href="https://lms.seekhowithrua.com" className="mob-lnk mob-lnk-lms" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>📚 LMS</a>
-            <Link href="/services" className="mob-lnk mob-lnk-svc" onClick={() => setMenuOpen(false)}>🛠️ Services</Link>
-            <Link href="/blog" className="mob-lnk" onClick={() => setMenuOpen(false)}>✍️ Blog</Link>
-            <Link href="/master-rua" className="mob-lnk mob-lnk-rua" onClick={() => setMenuOpen(false)}>👑 Master Rua</Link>
-            <a href="https://app.seekhowithrua.com" className="mob-lnk" onClick={() => setMenuOpen(false)}>🚀 Platform</a>
-          </div>
-
           <div className="mob-auth">
-            {user
-              ? (
-                <button
-                  className="mob-out"
-                  onClick={() => {
-                    localStorage.removeItem("cosmos_user");
-                    setUser(null);
-                    window.dispatchEvent(new Event("storage"));
-                    setMenuOpen(false);
-                  }}
+            {user ? (
+              <button
+                className="mob-out"
+                onClick={() => {
+                  localStorage.removeItem("cosmos_user");
+                  setUser(null);
+                  window.dispatchEvent(new Event("storage"));
+                  setMenuOpen(false);
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link
+                  href={`https://app.seekhowithrua.com/login?redirect=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'https://seekhowithrua.com')}`}
+                  className="mob-li"
+                  onClick={() => setMenuOpen(false)}
                 >
-                  Logout
-                </button>
-              )
-              : (
-                <>
-                  <Link
-                    href={`https://app.seekhowithrua.com/login?redirect=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'https://seekhowithrua.com')}`}
-                    className="mob-li"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    href="https://app.seekhowithrua.com/signup"
-                    className="mob-su"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    Get Started Free →
-                  </Link>
-                </>
-              )
-            }
+                  Login
+                </Link>
+                <Link
+                  href="https://app.seekhowithrua.com/signup"
+                  className="mob-su"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Get Started Free →
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -394,19 +333,8 @@ export default function Navbar() {
         }
         .nv-link-rua { color:rgba(251,191,36,.8); }
         .nv-link-rua:hover { color:#fbbf24;background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.25);box-shadow:0 0 14px rgba(251,191,36,.15); }
-        /* ── ADDED: Voice Rooms nav style — red live glow ── */
-        .nv-link-vcr { color:rgba(252,165,165,.85); }
-        .nv-link-vcr:hover { color:#fca5a5;background:rgba(226,75,74,.08);border-color:rgba(226,75,74,.25);box-shadow:0 0 14px rgba(226,75,74,.15); }
-        /* ── ADDED: Gaming Lab, Animation Lab, Services nav styles ── */
-        .nv-link-game { color:rgba(251,191,36,.8); }
-        .nv-link-game:hover { color:#fbbf24;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);box-shadow:0 0 14px rgba(245,158,11,.15); }
-        .nv-link-anim { color:rgba(110,231,183,.8); }
-        .nv-link-anim:hover { color:#6ee7b7;background:rgba(29,158,117,.08);border-color:rgba(29,158,117,.25);box-shadow:0 0 14px rgba(29,158,117,.15); }
         .nv-link-svc { color:rgba(196,181,253,.8); }
         .nv-link-svc:hover { color:#c4b5fd;background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.25);box-shadow:0 0 14px rgba(124,58,237,.15); }
-        /* ── ADDED: LMS nav style ── */
-        .nv-link-lms { color:rgba(167,139,250,.85); }
-        .nv-link-lms:hover { color:#a78bfa;background:rgba(124,58,237,.1);border-color:rgba(124,58,237,.3);box-shadow:0 0 14px rgba(124,58,237,.2); }
 
         .nv-chev { width:10px;height:10px;transition:transform .2s;flex-shrink:0; }
         .nv-chev.open { transform:rotate(180deg); }
@@ -509,22 +437,18 @@ export default function Navbar() {
                    text-decoration:none;font-size:13px;font-weight:600;font-family:'Syne',sans-serif;transition:all .2s;
                    min-width:120px; }
         .mob-lnk:hover { background:rgba(255,255,255,.08);color:#fff; }
-        /* ── ADDED: Voice Rooms mobile style ── */
-        .mob-lnk-vcr { border-color:rgba(226,75,74,.2);color:rgba(252,165,165,.85); }
-        .mob-lnk-vcr:hover { background:rgba(226,75,74,.08);color:#fca5a5;border-color:rgba(226,75,74,.3); }
-        /* ── ADDED: Master Rua mobile style ── */
         .mob-lnk-rua { border-color:rgba(251,191,36,.2);color:rgba(251,191,36,.85); }
         .mob-lnk-rua:hover { background:rgba(251,191,36,.08);color:#fbbf24;border-color:rgba(251,191,36,.3); }
-        /* ── ADDED: Gaming Lab, Animation Lab, Services mobile styles ── */
         .mob-lnk-game { border-color:rgba(245,158,11,.2);color:rgba(251,191,36,.85); }
         .mob-lnk-game:hover { background:rgba(245,158,11,.08);color:#fbbf24;border-color:rgba(245,158,11,.3); }
         .mob-lnk-anim { border-color:rgba(29,158,117,.2);color:rgba(110,231,183,.85); }
         .mob-lnk-anim:hover { background:rgba(29,158,117,.08);color:#6ee7b7;border-color:rgba(29,158,117,.3); }
         .mob-lnk-svc { border-color:rgba(124,58,237,.2);color:rgba(196,181,253,.85); }
         .mob-lnk-svc:hover { background:rgba(124,58,237,.08);color:#c4b5fd;border-color:rgba(124,58,237,.3); }
-        /* ── ADDED: LMS mobile style ── */
         .mob-lnk-lms { border-color:rgba(124,58,237,.25);color:rgba(167,139,250,.9); }
         .mob-lnk-lms:hover { background:rgba(124,58,237,.12);color:#a78bfa;border-color:rgba(124,58,237,.4); }
+        .mob-lnk-vcr { border-color:rgba(226,75,74,.2);color:rgba(252,165,165,.85); }
+        .mob-lnk-vcr:hover { background:rgba(226,75,74,.08);color:#fca5a5;border-color:rgba(226,75,74,.3); }
 
         .mob-auth { padding:12px 20px 20px;display:flex;flex-direction:column;gap:8px; }
         .mob-li { display:block;padding:12px;text-align:center;border-radius:10px;
