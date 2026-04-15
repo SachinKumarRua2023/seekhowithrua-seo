@@ -850,13 +850,6 @@ export default function HomePage() {
               )).reduce((acc, el, i) => i < 2 ? [...acc, el, <div key={`sep-${i}`} style={{ fontSize: "40px", color: "#FF5722", fontWeight: 800, alignSelf: "center" }}>:</div>] : [...acc, el], [] as any)}
             </div>
 
-            {/* Price */}
-            <div style={{ marginBottom: "28px" }}>
-              <div style={{ fontSize: "16px", color: "rgba(255,255,255,0.5)", textDecoration: "line-through", marginBottom: "4px" }}>₹24,999</div>
-              <div style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "clamp(48px, 6vw, 72px)", fontWeight: 800, color: "#00C853", lineHeight: 1 }}>₹8,999</div>
-              <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.6)", marginTop: "8px" }}>First 20 Students Only • Regular Price ₹14,999</div>
-            </div>
-
             {/* Features */}
             <div style={{ 
               display: "flex", 
@@ -896,7 +889,7 @@ export default function HomePage() {
                 boxShadow: "0 8px 32px rgba(255,87,34,0.4)"
               }}
             >
-              🔥 Enroll Now — ₹8,999
+              🔥 Enroll Now
             </a>
             <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "16px" }}>
               Secure payment via Razorpay • UPI/Card/NetBanking • Instant enrollment
@@ -982,9 +975,6 @@ export default function HomePage() {
                 </h3>
                 <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "16px" }}>21-Day Memory Challenge</p>
                 
-                <div style={{ fontSize: "48px", fontWeight: 800, color: "#fff", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
-                  ₹49
-                </div>
                 <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", marginBottom: "24px" }}>
                   Survey-based entry • 100+ participants
                 </p>
@@ -1011,7 +1001,7 @@ export default function HomePage() {
                     textAlign: "center"
                   }}
                 >
-                  Join Now — ₹49
+                  Join Now
                 </a>
               </div>
 
@@ -1061,9 +1051,6 @@ export default function HomePage() {
                 </h3>
                 <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "16px" }}>45-Day Deep Mastery</p>
                 
-                <div style={{ fontSize: "48px", fontWeight: 800, color: "#a855f7", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
-                  ₹4,999
-                </div>
                 <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", marginBottom: "24px" }}>
                   45-Day Deep Mastery Program
                 </p>
@@ -1141,9 +1128,6 @@ export default function HomePage() {
                 </h3>
                 <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "16px" }}>3-Month Total Transformation</p>
                 
-                <div style={{ fontSize: "48px", fontWeight: 800, color: "#ec4899", marginBottom: "8px", fontFamily: "'Rajdhani', sans-serif" }}>
-                  ₹49,999
-                </div>
                 <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "13px", marginBottom: "24px" }}>
                   3-Month Elite Transformation
                 </p>
