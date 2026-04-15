@@ -171,13 +171,19 @@ export default function Navbar() {
             </div>
 
             {/* Services */}
-            <Link href="/services" className="nv-link nv-link-svc">Services</Link>
+            <Link href="/services" className="nv-link nv-link-svc">
+              <span style={{ fontSize: 16 }}>🛠️</span> Services
+            </Link>
             
             {/* Blog */}
-            <Link href="/blog" className="nv-link">Blog</Link>
+            <Link href="/blog" className="nv-link">
+              <span style={{ fontSize: 16 }}>✍️</span> Blog
+            </Link>
             
             {/* About */}
-            <Link href="/master-rua" className="nv-link nv-link-rua">About</Link>
+            <Link href="/master-rua" className="nv-link nv-link-rua">
+              <span style={{ fontSize: 16 }}>👤</span> About
+            </Link>
           </nav>
 
           {/* ── RIGHT ── */}
@@ -465,8 +471,8 @@ export default function Navbar() {
                    border:1px solid rgba(248,113,113,.15);color:#f87171;
                    font-family:'Syne',sans-serif;font-weight:600;font-size:14px;cursor:pointer; }
 
-        @media(max-width:1100px) {
-          .nv-center,.nv-in,.nv-up { display:none!important; }
+        @media(max-width:900px) {
+          .nv-center { display:none!important; }
           .nv-ham { display:flex; }
         }
         @media(max-width:500px) {
