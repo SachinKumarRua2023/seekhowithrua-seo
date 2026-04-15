@@ -184,14 +184,19 @@ export default function Navbar() {
             <Link href="/master-rua" className="nv-link nv-link-rua">
               <span style={{ fontSize: 16 }}>👤</span> About
             </Link>
+            
+            {/* Start Learning */}
+            <a href="https://lms.seekhowithrua.com" className="nv-link nv-link-lms" target="_blank" rel="noopener noreferrer">
+              <span style={{ fontSize: 16 }}>🚀</span> Start Learning
+            </a>
           </nav>
 
           {/* ── RIGHT ── */}
           <div className="nv-right">
             {user ? (
               <>
-                <div className={`nv-usr${isMaster ? " mstr" : ""}`}>
-                  <span className="nv-usr-dot" />Welcome, {uname}
+                <div className={`nv-usr${isMaster ? " mstr" : ""}`} title={user.email || ''}>
+                  <span className="nv-usr-dot" />👋 {uname || 'User'}
                 </div>
                 <button
                   className="nv-out"
@@ -222,9 +227,10 @@ export default function Navbar() {
         <div className={`nv-mob${menuOpen ? " open" : ""}`}>
           <div className="mob-row">
             {/* ── Main Nav Links ── */}
-            <Link href="/services" className="mob-lnk mob-lnk-svc" onClick={() => setMenuOpen(false)}>Services</Link>
-            <Link href="/blog" className="mob-lnk" onClick={() => setMenuOpen(false)}>Blog</Link>
-            <Link href="/master-rua" className="mob-lnk mob-lnk-rua" onClick={() => setMenuOpen(false)}>About</Link>
+            <Link href="/services" className="mob-lnk mob-lnk-svc" onClick={() => setMenuOpen(false)}>🛠️ Services</Link>
+            <Link href="/blog" className="mob-lnk" onClick={() => setMenuOpen(false)}>✍️ Blog</Link>
+            <Link href="/master-rua" className="mob-lnk mob-lnk-rua" onClick={() => setMenuOpen(false)}>👤 About</Link>
+            <a href="https://lms.seekhowithrua.com" className="mob-lnk mob-lnk-lms" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>🚀 Start Learning</a>
           </div>
           
           <div className="mob-sec">
