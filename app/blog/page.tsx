@@ -25,6 +25,13 @@ export const metadata: Metadata = {
 // RULE: Newest date first (index 0 = featured post)
 // ─────────────────────────────────────────────────────────────
 const POSTS = [
+  // ── April 15 — Top 10 Hackathons April 2026 ─────────────────────────────
+  {
+    slug: "top-10-hackathons-april-2026",
+    title: "🏆 Top 10 Hackathons April 2026 | Free Entry + $500K Prizes + Win Guide",
+    excerpt: "Discover top 10 FREE hackathons in April 2026: Google Gemma 4, Microsoft Azure AI, AWS DeepRacer, Meta Llama 3 & more. Complete guide + course to win for IT & Non-IT beginners.",
+    date: "2026-04-15", category: "Hackathon", color: "#f59e0b", readTime: "10 min read", trending: true,
+  },
   // ── April 10 — Claude Mythos AI Revolution ─────────────────────────────
   {
     slug: "anthropic-claude-mythos-ai-revolution-2026",
