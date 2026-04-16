@@ -107,6 +107,7 @@ function ThreeBackground() {
 
 // ─── COURSES DATA ─────────────────────────────────────────────────────────────
 const COURSES = [
+  { emoji: "🏆", title: "Hackathon Project Course", slug: "hackathon-project-course", color: "#f59e0b", desc: "Full hackathon project creation guide. From idea to winning demo in 48 hours. For IT & Non-IT.", tags: ["Hackathons", "Rapid Prototyping", "AI Projects", "Pitch Deck"] },
   { emoji: "🤖", title: "AI & Machine Learning", slug: "ai-course", color: "#00d4ff", desc: "Neural networks, LLMs, computer vision, NLP and production AI systems.", tags: ["PyTorch", "TensorFlow", "LLMs", "RAG"] },
   { emoji: "📊", title: "Data Science", slug: "data-science-course", color: "#7c3aed", desc: "Python, Pandas, statistics, ML, deep learning and MLOps end-to-end.", tags: ["Python", "Pandas", "Scikit-learn", "MLflow"] },
   { emoji: "💻", title: "Full Stack Dev", slug: "full-stack-development", color: "#1D9E75", desc: "React, Next.js, Django, PostgreSQL — build and deploy full products.", tags: ["React", "Next.js", "Django", "PostgreSQL"] },
