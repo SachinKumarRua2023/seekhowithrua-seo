@@ -213,7 +213,7 @@ export const IOT: CourseData = {
 export const AI_COURSE: CourseData = {
   slug: "ai-course",
   title: "AI & Machine Learning",
-  description: "Master AI from fundamentals to production. LLMs, neural networks, computer vision, NLP, RAG systems and MLOps.",
+  description: "Course only for IT professionals who want to be updated with Claude AI and n8n latest technology. Best for them. Master AI from fundamentals to production with LLMs, neural networks, computer vision, NLP, RAG systems and MLOps.",
   keywords: ["ai course india", "machine learning course hindi", "llm course india", "artificial intelligence india", "deep learning course"],
   color: "#00d4ff",
   icon: "🤖",

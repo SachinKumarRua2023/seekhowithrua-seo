@@ -811,44 +811,160 @@ export default function HomePage() {
         </section>
         {/* ── END VISION SECTION ──────────────────────────────────────────── */}
 
-        {/* ── INTERNSHIP & PLACEMENT PROGRAM ──────────────────────────────── */}
-        <section className="section internship-section" aria-label="Internship Program" style={{ background: "linear-gradient(135deg, rgba(255,87,34,0.08) 0%, rgba(0,200,83,0.05) 100%)", borderTop: "2px solid rgba(255,87,34,0.3)", borderBottom: "2px solid rgba(255,87,34,0.3)" }}>
+        {/* ── AI & DATA SCIENCE PRO BUNDLES - 3 TIER PRICING ───────────── */}
+        <section className="section internship-section" aria-label="AI Pro Bundles" style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.1) 0%, rgba(0,212,255,0.08) 100%)", borderTop: "2px solid rgba(124,58,237,0.4)", borderBottom: "2px solid rgba(0,212,255,0.3)" }}>
           <div className="section-inner" style={{ textAlign: "center" }}>
-            <div className="section-tag" style={{ color: "#FF5722" }}>🔥 LIMITED TIME OFFER</div>
+            <div className="section-tag" style={{ color: "#7c3aed" }}>🔥 BEST FOR IT PROFESSIONALS</div>
             <h2 className="section-title" style={{ fontSize: "clamp(28px, 4vw, 48px)", marginBottom: "8px" }}>
-              6-Month <span style={{ color: "#FF5722" }}>Internship Program</span>
+              Data Science & AI <span style={{ color: "#00d4ff" }}>Pro Bundles</span>
             </h2>
-            <p className="section-desc" style={{ maxWidth: "700px", margin: "0 auto 32px", fontSize: "15px" }}>
-              100% Job Ready • Resume Building • Placement Support • USA Client Referrals<br />
-              AI + Full Stack + Data Science + Mobile + IoT + Game Dev — <strong>All 6 Tracks</strong>
+            <p className="section-desc" style={{ maxWidth: "800px", margin: "0 auto 32px", fontSize: "15px" }}>
+              Course only for IT professionals who want to be updated with <strong>Claude AI</strong> and <strong>n8n</strong> latest technology.<br />
+              Master AI • Agentic AI • LangChain • RAG • Gen AI • Prompt Engineering — Best for IT Professionals
             </p>
 
-            {/* Countdown Timer */}
+            {/* 3-Tier Pricing Cards */}
             <div style={{ 
-              display: "inline-flex", 
-              gap: "16px", 
-              marginBottom: "32px",
-              padding: "24px 40px",
-              background: "rgba(0,0,0,0.3)",
-              borderRadius: "16px",
-              border: "1px solid rgba(255,87,34,0.3)"
+              display: "grid", 
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
+              gap: "24px", 
+              maxWidth: "1000px",
+              margin: "0 auto 40px" 
             }}>
-              {['hours', 'mins', 'secs'].map((unit, i) => (
-                <div key={unit} style={{ textAlign: "center" }}>
-                  <div id={`home-timer-${unit}`} style={{ 
-                    fontFamily: "'Rajdhani', sans-serif",
-                    fontSize: "clamp(36px, 5vw, 56px)",
-                    fontWeight: 800,
-                    color: "#fff",
-                    background: "#2A2A2A",
-                    borderRadius: "10px",
-                    padding: "10px 20px",
-                    minWidth: "80px",
-                    border: "1px solid #333"
-                  }}>{unit === 'hours' ? '23' : unit === 'mins' ? '59' : '47'}</div>
-                  <div style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "2px", marginTop: "8px" }}>{unit}</div>
-                </div>
-              )).reduce((acc, el, i) => i < 2 ? [...acc, el, <div key={`sep-${i}`} style={{ fontSize: "40px", color: "#FF5722", fontWeight: 800, alignSelf: "center" }}>:</div>] : [...acc, el], [] as any)}
+              {/* BASICS - $999 */}
+              <div style={{ 
+                background: "linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,255,136,0.05))", 
+                borderRadius: "20px", 
+                border: "2px solid #00ff88",
+                padding: "32px 24px",
+                textAlign: "center"
+              }}>
+                <div style={{ 
+                  background: "#00ff88", 
+                  color: "#000",
+                  padding: "4px 12px", 
+                  borderRadius: "20px", 
+                  fontSize: "12px", 
+                  fontWeight: 700,
+                  display: "inline-block",
+                  marginBottom: "16px"
+                }}>BASICS</div>
+                <div style={{ 
+                  fontFamily: "'Orbitron', sans-serif",
+                  fontSize: "42px",
+                  fontWeight: 900,
+                  color: "#00ff88",
+                  marginBottom: "8px"
+                }}>$999</div>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "20px" }}>Foundation Level</p>
+                <ul style={{ color: "rgba(255,255,255,0.7)", fontSize: "13px", lineHeight: "1.8", paddingLeft: "20px", marginBottom: "24px", textAlign: "left" }}>
+                  <li>Python for IT Professionals</li>
+                  <li>Data Science Fundamentals</li>
+                  <li>AI Basics & Applications</li>
+                  <li>Claude AI Introduction</li>
+                  <li>Basic Automation with n8n</li>
+                </ul>
+                <a href="/ai-course" style={{ 
+                  display: "block",
+                  padding: "14px 28px", 
+                  background: "#00ff88", 
+                  color: "#000",
+                  borderRadius: "30px", 
+                  fontWeight: 700,
+                  textDecoration: "none"
+                }}>Choose Basics</a>
+              </div>
+
+              {/* INTERMEDIATE - $1999 */}
+              <div style={{ 
+                background: "linear-gradient(135deg, rgba(0,212,255,0.1), rgba(0,212,255,0.05))", 
+                borderRadius: "20px", 
+                border: "2px solid #00d4ff",
+                padding: "32px 24px",
+                textAlign: "center"
+              }}>
+                <div style={{ 
+                  background: "#00d4ff", 
+                  color: "#000",
+                  padding: "4px 12px", 
+                  borderRadius: "20px", 
+                  fontSize: "12px", 
+                  fontWeight: 700,
+                  display: "inline-block",
+                  marginBottom: "16px"
+                }}>INTERMEDIATE</div>
+                <div style={{ 
+                  fontFamily: "'Orbitron', sans-serif",
+                  fontSize: "42px",
+                  fontWeight: 900,
+                  color: "#00d4ff",
+                  marginBottom: "8px"
+                }}>$1,999</div>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "20px" }}>Industry Projects</p>
+                <ul style={{ color: "rgba(255,255,255,0.7)", fontSize: "13px", lineHeight: "1.8", paddingLeft: "20px", marginBottom: "24px", textAlign: "left" }}>
+                  <li>Advanced Claude AI Workflows</li>
+                  <li>n8n Automation Mastery</li>
+                  <li>LangChain & RAG Systems</li>
+                  <li>5+ Industry Projects</li>
+                  <li>Job Support & Mentorship</li>
+                </ul>
+                <a href="/ai-course" style={{ 
+                  display: "block",
+                  padding: "14px 28px", 
+                  background: "#00d4ff", 
+                  color: "#000",
+                  borderRadius: "30px", 
+                  fontWeight: 700,
+                  textDecoration: "none"
+                }}>Choose Intermediate</a>
+              </div>
+
+              {/* ADVANCED PREMIUM - $4999 */}
+              <div style={{ 
+                background: "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(255,71,87,0.1))", 
+                borderRadius: "20px", 
+                border: "2px solid #7c3aed",
+                padding: "32px 24px",
+                textAlign: "center",
+                position: "relative"
+              }}>
+                <div style={{ 
+                  background: "linear-gradient(135deg, #ff4757, #ff6b7a)", 
+                  color: "#fff",
+                  padding: "4px 16px", 
+                  borderRadius: "20px", 
+                  fontSize: "11px", 
+                  fontWeight: 700,
+                  display: "inline-block",
+                  marginBottom: "16px"
+                }}>🔥 PREMIUM INDUSTRY LEVEL</div>
+                <div style={{ 
+                  fontFamily: "'Orbitron', sans-serif",
+                  fontSize: "42px",
+                  fontWeight: 900,
+                  color: "#fff",
+                  marginBottom: "8px"
+                }}>$4,999</div>
+                <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "14px", marginBottom: "20px" }}>Advanced Industry Level</p>
+                <ul style={{ color: "rgba(255,255,255,0.8)", fontSize: "13px", lineHeight: "1.8", paddingLeft: "20px", marginBottom: "24px", textAlign: "left" }}>
+                  <li><strong>Everything in Intermediate</strong></li>
+                  <li>Production-Grade AI Systems</li>
+                  <li>Agentic AI Architecture</li>
+                  <li>12+ Industry Projects</li>
+                  <li>100% Job Placement Support</li>
+                  <li>1-on-1 Mentorship</li>
+                </ul>
+                <a href="/ai-course" style={{ 
+                  display: "block",
+                  padding: "14px 28px", 
+                  background: "linear-gradient(135deg, #7c3aed, #00d4ff)", 
+                  color: "#fff",
+                  borderRadius: "30px", 
+                  fontWeight: 700,
+                  textDecoration: "none",
+                  boxShadow: "0 8px 30px rgba(124,58,237,0.4)"
+                }}>Choose Premium</a>
+              </div>
             </div>
 
             {/* Features */}
@@ -860,20 +976,20 @@ export default function HomePage() {
               marginBottom: "32px" 
             }}>
               {[
-                "✓ 6-Month Guided Internship",
-                "✓ Official Certificate",
-                "✓ LinkedIn Endorsement",
-                "✓ Resume Building Support",
-                "✓ India + USA Job Referrals",
-                "✓ 100% Job Ready Guarantee"
+                "✓ Claude AI Mastery",
+                "✓ n8n Workflow Automation",
+                "✓ LangChain & RAG",
+                "✓ Gen AI & Prompt Engineering",
+                "✓ Industry Projects",
+                "✓ Job Support"
               ].map((feature) => (
                 <div key={feature} style={{ 
                   padding: "8px 16px", 
-                  background: "rgba(0,200,83,0.1)", 
-                  border: "1px solid rgba(0,200,83,0.3)",
+                  background: "rgba(0,212,255,0.1)", 
+                  border: "1px solid rgba(0,212,255,0.3)",
                   borderRadius: "20px",
                   fontSize: "12px",
-                  color: "#00C853",
+                  color: "#00d4ff",
                   fontFamily: "'JetBrains Mono', monospace"
                 }}>{feature}</div>
               ))}
@@ -881,19 +997,19 @@ export default function HomePage() {
 
             {/* CTA Button */}
             <a 
-              href="https://seekhowithrua.com/funnel.html" 
+              href="/ai-course" 
               className="btn-primary" 
               style={{ 
                 fontSize: "18px", 
                 padding: "18px 48px",
-                background: "linear-gradient(135deg, #FF5722, #FF8A65)",
-                boxShadow: "0 8px 32px rgba(255,87,34,0.4)"
+                background: "linear-gradient(135deg, #7c3aed, #00d4ff)",
+                boxShadow: "0 8px 32px rgba(124,58,237,0.4)"
               }}
             >
-              🔥 Enroll Now
+              🚀 Explore AI Course Details
             </a>
             <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.4)", marginTop: "16px" }}>
-              Secure payment via Razorpay • UPI/Card/NetBanking • Instant enrollment
+              Secure payment • Instant enrollment • Lifetime access
             </p>
           </div>
         </section>
