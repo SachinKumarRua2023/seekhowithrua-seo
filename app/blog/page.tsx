@@ -25,6 +25,41 @@ export const metadata: Metadata = {
 // RULE: Newest date first (index 0 = featured post)
 // ─────────────────────────────────────────────────────────────
 const POSTS = [
+  // ── May 11 — Agentic AI Use Cases 2026 ─────────────────────────────
+  {
+    slug: "agentic-ai-use-cases-save-40-hours",
+    title: "💼 5 Real-World Agentic AI Use Cases That Save 40+ Hours/Week (2026)",
+    excerpt: "Discover 5 proven Agentic AI use cases with real ROI data. See how businesses are saving 40+ hours weekly with autonomous AI systems for customer support, reporting, and more.",
+    date: "2026-05-11", category: "AI", color: "#00ff88", readTime: "12 min read", trending: true,
+  },
+  // ── May 11 — Future of Work Agentic AI ─────────────────────────────
+  {
+    slug: "future-of-work-agentic-ai-automation",
+    title: "🚀 The Future of Work: How Agentic AI is Replacing Manual Processes (2026)",
+    excerpt: "Explore how Agentic AI is transforming workplaces. Learn what tasks will be automated, what roles will evolve, and how to prepare your business for the AI-powered future.",
+    date: "2026-05-11", category: "AI", color: "#7c3aed", readTime: "14 min read", trending: true,
+  },
+  // ── May 11 — RAG vs Agentic AI ─────────────────────────────
+  {
+    slug: "rag-vs-agentic-ai-business-guide",
+    title: "⚖️ RAG vs Agentic AI: Which One Does Your Business Need? (2026)",
+    excerpt: "Confused between RAG and Agentic AI? This guide breaks down the differences, use cases, and helps you choose the right AI solution for your business needs with real examples.",
+    date: "2026-05-11", category: "AI", color: "#f59e0b", readTime: "10 min read", trending: true,
+  },
+  // ── May 11 — Building Autonomous Workflows ─────────────────────────────
+  {
+    slug: "building-autonomous-workflows-n8n-langchain",
+    title: "⚡ Building Autonomous AI Workflows with n8n and LangChain (2026)",
+    excerpt: "Step-by-step guide to building autonomous AI workflows using n8n and LangChain. Create production-ready agentic systems that save 40+ hours per week.",
+    date: "2026-05-11", category: "AI", color: "#00d4ff", readTime: "15 min read", trending: true,
+  },
+  // ── May 11 — What is Agentic AI ─────────────────────────────
+  {
+    slug: "what-is-agentic-ai-business-guide-2026",
+    title: "🤖 What is Agentic AI? The Complete Guide for Business Leaders (2026)",
+    excerpt: "Learn what Agentic AI is and how it can automate your business processes. Complete guide for CEOs and decision-makers looking to implement autonomous AI systems.",
+    date: "2026-05-11", category: "AI", color: "#9333ea", readTime: "12 min read", trending: true,
+  },
   // ── April 15 — Top 10 Hackathons April 2026 ─────────────────────────────
   {
     slug: "top-10-hackathons-april-2026",
